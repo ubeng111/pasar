@@ -1,0 +1,30 @@
+{
+    "name": "neemo",
+    "version": "2.2.0",
+    "description": "Neemo - SEO Digital & IT Agency React Next Template",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "author": "EnvyTheme.com",
+    "license": "ISC",
+    "dependencies": {
+        "animate.css": "^4.1.1",
+        "axios": "^1.3.3",
+        "fslightbox-react": "^1.7.2",
+        "next": "^13.1.6",
+        "next-sitemap": "^4.2.3",
+        "nodemailer": "^6.9.1",
+        "nodemailer-sendgrid-transport": "^0.2.0",
+        "react": "^18.2.0",
+        "react-accessible-accordion": "^5.0.0",
+        "react-dom": "^18.2.0",
+        "react-helmet": "^6.1.0",
+        "sass": "^1.43.4",
+        "sweetalert2": "^11.4.8",
+        "sweetalert2-react-content": "^5.0.7",
+        "swiper": "^9.0.5"
+    }
+}
