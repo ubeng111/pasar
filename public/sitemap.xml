@@ -71,4 +71,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- SEO Services Bekasi -->
+  <url>
+    <loc>https://pasar.web.id/jasa-seo-bekasi/</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
