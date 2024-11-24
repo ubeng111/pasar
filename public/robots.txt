@@ -1,0 +1,20 @@
+User-agent: *
+# Mengizinkan mesin pencari merayapi seluruh situs kecuali beberapa bagian berikut:
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /dashboard/
+
+# Secara eksplisit mengizinkan merayapi beberapa folder dan halaman
+Allow: /about-us/
+Allow: /services/
+Allow: /contact/
+Allow: /jasa-seo-surabaya/
+Allow: /jasa-seo-bandung/
+Allow: /jasa-seo-bogor/
+Allow: /jasa-seo-jakarta/
+Allow: /jasa-seo-bali/
+Allow: /jasa-seo-bekasi/
+
+# Menyertakan sitemap untuk mesin pencari
+Sitemap: https://pasar.web.id/sitemap.xml
