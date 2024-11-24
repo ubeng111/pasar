@@ -4,7 +4,7 @@ module.exports = {
     return [
       {
         source: '/jasa-seo/:city',  // URL asal seperti /jasa-seo/cianjur
-        destination: '/jasa-seo-:city',  // Redirect ke URL dengan tanda hubung, misalnya /jasa-seo-cianjur
+        destination: '/jasa-seo-:city/',  // Redirect ke URL dengan tanda hubung, misalnya /jasa-seo-cianjur
         permanent: true,  // Redirect bersifat permanen (301)
       },
     ];
