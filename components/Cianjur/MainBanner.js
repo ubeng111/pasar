@@ -3,7 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import Link from "next/link";
 
-const MainBanner = () => {
+const MainBanner = ({ city }) => {
+  // Customize the content dynamically based on the city
+  const title = `Jasa SEO Profesional Terbaik di ${city} untuk Tingkatkan Bisnis Anda`;
+  const description = `Optimalkan peringkat website Anda di mesin pencari dengan layanan SEO profesional di ${city}. Kami menyediakan strategi yang tepat untuk membantu bisnis Anda lebih mudah ditemukan secara online.`;
+
+  const titleTwo = `Strategi Digital Marketing SEO di ${city} yang Efektif`;
+  const descriptionTwo = `Dapatkan hasil maksimal dengan layanan pemasaran digital yang mencakup SEO dan media sosial. Kami membantu bisnis di ${city} untuk lebih kompetitif dan menonjol di dunia digital.`;
+
   return (
     <>
       <Swiper
@@ -22,10 +29,8 @@ const MainBanner = () => {
               <div className="d-table-cell">
                 <div className="container">
                   <div className="main-banner-content">
-                    <h1>Jasa SEO Terbaik di Bali untuk Tingkatkan Bisnis Anda</h1>
-                    <p>
-                      Optimalkan peringkat website Anda di mesin pencari dengan layanan SEO profesional di Bali. Kami menyediakan strategi yang tepat untuk membantu bisnis Anda lebih mudah ditemukan secara online.
-                    </p>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
                     <div className="banner-btn">
                       <Link href="/about-us" className="default-btn-one">
                         Pelajari Lebih Lanjut
@@ -44,10 +49,8 @@ const MainBanner = () => {
               <div className="d-table-cell">
                 <div className="container">
                   <div className="main-banner-content">
-                    <h1>Strategi Digital Marketing SEO di Bali yang Efektif</h1>
-                    <p>
-                      Dapatkan hasil maksimal dengan layanan pemasaran digital yang mencakup SEO dan media sosial. Kami membantu bisnis di Bali untuk lebih kompetitif dan menonjol di dunia digital.
-                    </p>
+                    <h1>{titleTwo}</h1>
+                    <p>{descriptionTwo}</p>
                     <div className="banner-btn">
                       <Link href="/about-us" className="default-btn-one">
                         Pelajari Lebih Lanjut
