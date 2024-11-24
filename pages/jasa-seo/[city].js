@@ -54,7 +54,7 @@ const Index = ({ city }) => {
   return (
     <>
       <Head>
-        <title>Jasa SEO {currentCity.name} Profesional Murah Terbaik - Pasar.Web.id</title>
+        <title>Jasa SEO Murah {currentCity.name} | Garansi Halaman #1 Google | Bulanan | Tahunan </title>
         <meta name="description" content={`Jasa SEO ${currentCity.name} dari Pasar.Web.id untuk membantu meningkatkan peringkat website Anda di Google.`} /> {/* Corrected string interpolation */}
         {/* Inject JSON-LD for structured data */}
         <script

@@ -1,32 +1,23 @@
-const path = require('path');
-
 module.exports = {
-  // Mengonfigurasi opsi SASS
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
-
-  // Menambahkan trailingSlash untuk URL dengan garis miring di akhir
-  trailingSlash: true,  // Aktifkan garis miring di akhir URL
-
-  // Konfigurasi redirect untuk menambahkan garis miring di akhir URL
+  // Konfigurasi redirect untuk mengganti '/' menjadi '-'
   async redirects() {
     return [
       {
-        source: '/jasa-seo/:city',   // Jika ada URL tanpa garis miring
-        destination: '/jasa-seo/:city/', // Redirect ke URL yang diakhiri garis miring
+        source: '/jasa-seo/:city',  // URL asal seperti /jasa-seo/cianjur
+        destination: '/jasa-seo-:city',  // Redirect ke URL dengan tanda hubung, misalnya /jasa-seo-cianjur
         permanent: true,  // Redirect bersifat permanen (301)
       },
     ];
   },
 
-  // Konfigurasi rewrites untuk menangani routing URL yang benar
+  // Jika perlu rewrites untuk pengaturan routing dinamis
   async rewrites() {
     return [
       {
-        source: '/jasa-seo-:city',  // Menangani URL dengan '-'
-        destination: '/jasa-seo/:city',  // Mengarahkan ke '/jasa-seo/[city]'
+        source: '/jasa-seo-:city',  // Menangani URL seperti /jasa-seo-cianjur
+        destination: '/jasa-seo/:city',  // Mengarahkan ke halaman dinamis /jasa-seo/[city]
       },
     ];
   },
 };
+
