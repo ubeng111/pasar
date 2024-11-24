@@ -54,19 +54,19 @@ const Footer = () => {
 
                 <ul className="footer-quick-links">
                   <li>
-                    <Link href="/jasa-seo/surabaya">Surabaya</Link>
+                    <Link href="/jasa-seo-surabaya">Surabaya</Link>
                   </li>
                   <li>
-                    <Link href="/jasa-seo/bandung">Bandung</Link>
+                    <Link href="/jasa-seo-bandung">Bandung</Link>
                   </li>
                   <li>
-                    <Link href="/jasa-seo/bogor">Bogor</Link>
+                    <Link href="/jasa-seo-bogor">Bogor</Link>
                   </li>
                   <li>
-                    <Link href="/jasa-seo/jakarta">Jakarta</Link>
+                    <Link href="/jasa-seo-jakarta">Jakarta</Link>
                   </li>
                   <li>
-                    <Link href="/jasa-seo/bali">Bali</Link>
+                    <Link href="/jasa-seo-bali">Bali</Link>
                   </li>
                 </ul>
               </div>
