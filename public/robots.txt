@@ -1,20 +1,13 @@
+# Allow all bots to access everything except sensitive sections
 User-agent: *
-# Mengizinkan mesin pencari merayapi seluruh situs kecuali beberapa bagian berikut:
 Disallow: /admin/
 Disallow: /login/
-Disallow: /register/
-Disallow: /dashboard/
+Disallow: /checkout/
+Disallow: /private/
 
-# Secara eksplisit mengizinkan merayapi beberapa folder dan halaman
-Allow: /about-us/
-Allow: /services/
-Allow: /contact/
-Allow: /jasa-seo-surabaya/
-Allow: /jasa-seo-bandung/
-Allow: /jasa-seo-bogor/
-Allow: /jasa-seo-jakarta/
-Allow: /jasa-seo-bali/
-Allow: /jasa-seo-bekasi/
+# Allow Googlebot full access (optional)
+User-agent: Googlebot
+Disallow:
 
-# Menyertakan sitemap untuk mesin pencari
-Sitemap: https://pasar.web.id/sitemap.xml
+# Add the location of your sitemap
+Sitemap: https://pasar.web.id/api/sitemap

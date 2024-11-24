@@ -9,6 +9,7 @@ import ServicesCard from "../../components/Cianjur/ServicesCard";
 import WhyChooseUs from "../../components/Cianjur/WhyChooseUs";
 import Features from "../../components/Cianjur/Features";
 import FaqSection from "../../components/Cianjur/FaqSection";
+import PricingContent from "../../components/Cianjur/PricingContent";
 import Footer from "../../components/Cianjur/Footer";
 
 const Index = ({ city }) => {
@@ -70,6 +71,7 @@ const Index = ({ city }) => {
       <AboutContent city={currentCity.name} />
       <ServicesCard city={currentCity.name} />
       <WhyChooseUs city={currentCity.name} />
+      <PricingContent city={currentCity.name} />
       <AnalysisFormContent city={currentCity.name} />
       <FaqSection city={currentCity.name} />
       <Footer />
