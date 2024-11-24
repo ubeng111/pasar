@@ -14,7 +14,7 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/jasa-seo-:city',  // Menangani URL seperti /jasa-seo-cianjur
+        source: '/jasa-seo-:city/',  // Menangani URL seperti /jasa-seo-cianjur
         destination: '/jasa-seo/:city',  // Mengarahkan ke halaman dinamis /jasa-seo/[city]
       },
     ];
