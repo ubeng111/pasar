@@ -1,4 +1,3 @@
-// pages/api/indexing.js
 import { google } from 'googleapis';
 
 export default async function handler(req, res) {
@@ -9,11 +8,18 @@ export default async function handler(req, res) {
 
   const { GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } = process.env;
 
+  // Pastikan GOOGLE_PRIVATE_KEY diubah agar newline (\n) diproses dengan benar
+  const privateKey = GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');  // Mengganti \\n dengan karakter newline yang sebenarnya
+
+  if (!GOOGLE_CLIENT_EMAIL || !privateKey) {
+    return res.status(500).json({ error: 'Missing environment variables for Google Auth' });
+  }
+
   // Setup autentikasi Google API menggunakan JWT
   const auth = new google.auth.JWT(
     GOOGLE_CLIENT_EMAIL,
     null,
-    GOOGLE_PRIVATE_KEY,
+    privateKey,
     ['https://www.googleapis.com/auth/indexing'],  // Scope untuk Indexing API
     null
   );
@@ -22,6 +28,7 @@ export default async function handler(req, res) {
 
   const { url } = req.body;  // Ambil URL dari body request
 
+  // Verifikasi bahwa URL disertakan dalam request body
   if (!url) {
     return res.status(400).json({ error: 'URL is required' });
   }
@@ -33,7 +40,10 @@ export default async function handler(req, res) {
       type: 'URL_UPDATED',  // Tipe URL: 'URL_UPDATED' atau 'URL_DELETED'
     });
 
-    return res.status(200).json({ message: 'URL submitted successfully', data: response.data });
+    return res.status(200).json({
+      message: 'URL submitted successfully',
+      data: response.data,
+    });
   } catch (error) {
     console.error('Error submitting URL to Google:', error);
     return res.status(500).json({ error: 'Failed to submit URL to Google Indexing API' });
