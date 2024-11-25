@@ -75,18 +75,6 @@ const faqSchema = {
 const FaqSection = ({ city }) => {
   const router = useRouter();
 
-  // Menyesuaikan FAQ dengan kota tertentu
-  const citySpecificContent = {
-    bandung: {
-      costInfo: "Biaya jasa SEO Bandung bervariasi tergantung pada berbagai faktor...",
-    },
-    cianjur: {
-      costInfo: "Biaya jasa SEO Cianjur biasanya lebih terjangkau...",
-    },
-  };
-
-  const currentCity = citySpecificContent[city.toLowerCase()] || citySpecificContent.bandung;
-
   return (
     <>
       <section className="faq-section ptb-100">
@@ -116,12 +104,12 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="b">
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        Kenapa bisnis perlu menggunakan jasa SEO?
+                        Kenapa bisnis perlu menggunakan jasa SEO di {city}?
                       </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <p>
-                        SEO membantu bisnis agar lebih mudah ditemukan oleh pelanggan yang mencari produk atau layanan yang relevan dengan apa yang ditawarkan. Dengan menggunakan SEO, website Anda bisa muncul di hasil pencarian mesin pencari seperti Google, meningkatkan jumlah pengunjung yang datang dan potensi penjualan.
+                        SEO membantu bisnis di {city} agar lebih mudah ditemukan oleh pelanggan yang mencari produk atau layanan yang relevan dengan apa yang ditawarkan. Dengan menggunakan SEO, website Anda bisa muncul di hasil pencarian mesin pencari seperti Google, meningkatkan jumlah pengunjung yang datang dan potensi penjualan.
                       </p>
                     </AccordionItemPanel>
                   </AccordionItem>
@@ -129,12 +117,12 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="c">
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        Apa yang harus dipertimbangkan saat memilih penyedia jasa SEO yang tepat?
+                        Apa yang harus dipertimbangkan saat memilih penyedia jasa SEO di {city} yang tepat?
                       </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <p>
-                        Pilih penyedia jasa SEO yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda.
+                        Pilih penyedia jasa SEO di {city} yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda.
                       </p>
                     </AccordionItemPanel>
                   </AccordionItem>
@@ -142,12 +130,12 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="d">
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        Apa perbedaan antara SEO umum dan SEO lokal untuk bisnis?
+                        Apa perbedaan antara SEO umum dan SEO lokal untuk bisnis di {city}?
                       </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <p>
-                        SEO lokal fokus pada peningkatan visibilitas bisnis di area geografis tertentu. Ini melibatkan penggunaan kata kunci yang lebih spesifik dengan lokasi, seperti nama kota atau wilayah, agar website bisnis muncul di hasil pencarian lokal. SEO untuk bisnis lokal juga dapat melibatkan pengoptimalan di Google My Business untuk menjangkau audiens yang lebih dekat dengan lokasi fisik bisnis.
+                        SEO lokal di {city} fokus pada peningkatan visibilitas bisnis di area geografis tertentu. Ini melibatkan penggunaan kata kunci yang lebih spesifik dengan lokasi, seperti nama kota atau wilayah, agar website bisnis muncul di hasil pencarian lokal. SEO untuk bisnis lokal di {city} juga dapat melibatkan pengoptimalan di Google My Business untuk menjangkau audiens yang lebih dekat dengan lokasi fisik bisnis.
                       </p>
                     </AccordionItemPanel>
                   </AccordionItem>
@@ -155,12 +143,12 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="e">
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        Seberapa cepat hasil SEO dapat terlihat pada website bisnis?
+                        Seberapa cepat hasil SEO dapat terlihat pada website bisnis di {city}?
                       </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <p>
-                        Biasanya, hasil SEO mulai terlihat dalam waktu 3 hingga 6 bulan setelah strategi diterapkan. Kecepatan hasil dapat bervariasi tergantung pada kompetisi dalam industri dan seberapa efektif teknik SEO yang digunakan. Hasil yang lebih cepat bisa terlihat jika SEO dilakukan dengan benar dan di pasar yang lebih terfokus atau lokal.
+                        Biasanya, hasil SEO mulai terlihat dalam waktu 3 hingga 6 bulan setelah strategi diterapkan. Kecepatan hasil dapat bervariasi tergantung pada kompetisi dalam industri dan seberapa efektif teknik SEO yang digunakan. Hasil yang lebih cepat bisa terlihat jika SEO dilakukan dengan benar dan di pasar yang lebih terfokus atau lokal di {city}.
                       </p>
                     </AccordionItemPanel>
                   </AccordionItem>
@@ -168,23 +156,25 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="f">
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        Berapa biaya yang diperlukan untuk menggunakan jasa SEO {city}?
+                        Berapa biaya yang diperlukan untuk menggunakan jasa SEO di {city}?
                       </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel>
-                      <p>{currentCity.costInfo}</p> {/* Konten dinamis berdasarkan kota */}
+                      <p>
+                        Biaya jasa SEO di {city} bervariasi tergantung pada berbagai faktor, seperti tingkat persaingan pasar, ukuran dan kompleksitas bisnis, serta jenis layanan yang diperlukan. Umumnya, biaya mencakup analisis situs, optimasi SEO on-page dan off-page, link building, serta pembuatan konten yang relevan.
+                      </p>
                     </AccordionItemPanel>
                   </AccordionItem>
 
                   <AccordionItem uuid="g">
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        Apakah SEO bisa diterapkan untuk bisnis dengan anggaran terbatas?
+                        Apakah SEO bisa diterapkan untuk bisnis dengan anggaran terbatas di {city}?
                       </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <p>
-                        Ya, SEO dapat diterapkan meskipun dengan anggaran terbatas. Fokus pada optimasi SEO on-page, seperti riset kata kunci yang tepat, memperbaiki kecepatan situs, dan membuat konten yang berkualitas dapat membantu bisnis mendapatkan hasil meskipun dengan investasi yang minimal.
+                        Ya, SEO dapat diterapkan meskipun dengan anggaran terbatas. Fokus pada optimasi SEO on-page, seperti riset kata kunci yang tepat, memperbaiki kecepatan situs, dan membuat konten yang berkualitas dapat membantu bisnis di {city} mendapatkan hasil meskipun dengan investasi yang minimal.
                       </p>
                     </AccordionItemPanel>
                   </AccordionItem>
