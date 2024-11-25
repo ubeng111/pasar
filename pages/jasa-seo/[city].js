@@ -68,37 +68,6 @@ const Index = ({ city }) => {
     }
   };
 
-  useEffect(() => {
-    if (currentCity) {
-      const pageUrl = `https://pasar.web.id/jasa-seo-${currentCity.slug}`;
-
-      const indexPage = async () => {
-        try {
-          const response = await fetch('/api/index-google', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              url: pageUrl,
-              type: 'URL_UPDATED',
-            }),
-          });
-
-          const result = await response.json();
-          if (response.ok) {
-            setStatus('URL successfully indexed');
-          } else {
-            setStatus(`Error: ${result.error}`);
-          }
-        } catch (error) {
-          console.error('Error during indexing:', error);
-          setStatus('Error indexing the URL');
-        }
-      };
-
-      indexPage();
-    }
-  }, [currentCity]);
-
   return (
     <>
       <Head>
@@ -127,7 +96,7 @@ const Index = ({ city }) => {
       <FaqSection city={sanitizedCityName} />
       <Footer />
 
-      {/* Status Indeks */}
+      {/* Status Indeks (Not used anymore) */}
       <div>
         <p>{status}</p>
       </div>
