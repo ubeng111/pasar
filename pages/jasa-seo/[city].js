@@ -68,6 +68,29 @@ const Index = ({ city }) => {
     }
   };
 
+  useEffect(() => {
+    const submitToIndexingAPI = async () => {
+      try {
+        // Kirimkan URL halaman dinamis ke API route
+        const res = await fetch('/api/indexing', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ url: `https://pasar.web.id/jasa-seo-${currentCity.slug}` }),
+        });
+
+        const data = await res.json();
+        console.log('Indexing Response:', data);
+      } catch (error) {
+        console.error('Error submitting URL:', error);
+      }
+    };
+
+    // Panggil fungsi hanya setelah halaman dimuat
+    submitToIndexingAPI();
+  }, [currentCity.slug]);  // Dependencies include the city slug
+
   return (
     <>
       <Head>
