@@ -104,6 +104,10 @@ const Index = ({ city }) => {
       <Head>
         <title>Jasa SEO Murah {sanitizedCityName} | Garansi Halaman #1 Google | Bulanan | Tahunan</title>
         <meta name="description" content={`Jasa SEO ${sanitizedCityName} dari Pasar.Web.id untuk membantu meningkatkan peringkat website Anda di Google.`} />
+
+        {/* Canonical Link */}
+        <link rel="canonical" href={`https://pasar.web.id/jasa-seo-${currentCity.slug}`} />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
