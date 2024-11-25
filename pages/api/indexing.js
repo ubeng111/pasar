@@ -7,6 +7,7 @@ export default async function handler(req, res) {
 
   // Pastikan kredensial tersedia
   if (!clientEmail || !privateKey) {
+    console.log('Missing credentials');
     return res.status(400).json({ error: 'Missing credentials' });
   }
 
@@ -20,11 +21,17 @@ export default async function handler(req, res) {
       null
     );
 
+    console.log('JWT client created');
+
     // Initialize Google Indexing API
     const indexing = google.indexing({ version: 'v3', auth });
 
+    console.log('Google Indexing API initialized');
+
     // Pastikan menerima parameter URL yang ingin diindeks
     const { url, type } = req.body;  // 'url' dan 'type' dikirim dalam body request
+
+    console.log('Received URL and type from request body');
 
     // Kirimkan URL yang ingin diindeks
     const response = await indexing.urlNotifications.publish({
@@ -33,6 +40,8 @@ export default async function handler(req, res) {
         type: type || 'URL_UPDATED',  // Default 'URL_UPDATED'
       },
     });
+
+    console.log('URL successfully indexed');
 
     // Kirim respons jika berhasil
     res.status(200).json({ message: 'URL successfully indexed', data: response.data });
