@@ -1,9 +1,6 @@
-# Allow all bots to access everything except sensitive sections
+# Allow all bots to access everything
 User-agent: *
-Disallow: /admin/
-Disallow: /login/
-Disallow: /checkout/
-Disallow: /private/
+Disallow: 
 
 # Allow Googlebot full access (optional)
 User-agent: Googlebot
