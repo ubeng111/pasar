@@ -8,72 +8,78 @@ import {
   AccordionItemButton,
 } from "react-accessible-accordion";
 
-// Menambahkan schema markup untuk FAQ
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Apa yang dimaksud dengan layanan SEO dan bagaimana cara kerjanya?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Layanan SEO (Search Engine Optimization) adalah serangkaian teknik yang diterapkan pada website untuk meningkatkan visibilitasnya di hasil pencarian mesin pencari, seperti Google. Proses SEO mencakup riset kata kunci, pengoptimalan halaman web, serta pembuatan dan pengelolaan konten berkualitas untuk menarik pengunjung dan meningkatkan peringkat situs."
+// Fungsi untuk membuat schema FAQ dengan city yang dinamis
+const generateFaqSchema = (city) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apa yang dimaksud dengan layanan SEO dan bagaimana cara kerjanya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layanan SEO (Search Engine Optimization) adalah serangkaian teknik yang diterapkan pada website untuk meningkatkan visibilitasnya di hasil pencarian mesin pencari, seperti Google. Proses SEO mencakup riset kata kunci, pengoptimalan halaman web, serta pembuatan dan pengelolaan konten berkualitas untuk menarik pengunjung dan meningkatkan peringkat situs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Kenapa bisnis perlu menggunakan jasa SEO di ${city}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `SEO membantu bisnis di ${city} agar lebih mudah ditemukan oleh pelanggan yang mencari produk atau layanan yang relevan dengan apa yang ditawarkan.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Apa yang harus dipertimbangkan saat memilih penyedia jasa SEO di ${city} yang tepat?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Pilih penyedia jasa SEO di ${city} yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda. 
+          Untuk informasi lebih lanjut, kunjungi halaman kami di <a href="/jasa-seo-${city.toLowerCase()}" target="_blank" rel="noopener noreferrer">Jasa SEO di ${city}</a>.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Apa perbedaan antara SEO umum dan SEO lokal untuk bisnis di ${city}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `SEO lokal di ${city} fokus pada peningkatan visibilitas bisnis di area geografis tertentu. Ini melibatkan penggunaan kata kunci yang lebih spesifik dengan lokasi, seperti nama kota atau wilayah, agar website bisnis muncul di hasil pencarian lokal. SEO untuk bisnis lokal di ${city} juga dapat melibatkan pengoptimalan di Google My Business untuk menjangkau audiens yang lebih dekat dengan lokasi fisik bisnis.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Seberapa cepat hasil SEO dapat terlihat pada website bisnis di ${city}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Biasanya, hasil SEO mulai terlihat dalam waktu 3 hingga 6 bulan setelah strategi diterapkan. Kecepatan hasil dapat bervariasi tergantung pada kompetisi dalam industri dan seberapa efektif teknik SEO yang digunakan. Hasil yang lebih cepat bisa terlihat jika SEO dilakukan dengan benar dan di pasar yang lebih terfokus atau lokal di ${city}.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Berapa biaya yang diperlukan untuk menggunakan jasa SEO di ${city}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Biaya jasa SEO di ${city} bervariasi tergantung pada berbagai faktor, seperti tingkat persaingan pasar, ukuran dan kompleksitas bisnis, serta jenis layanan yang diperlukan. Umumnya, biaya mencakup analisis situs, optimasi SEO on-page dan off-page, link building, serta pembuatan konten yang relevan.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Apakah SEO bisa diterapkan untuk bisnis dengan anggaran terbatas di ${city}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Ya, SEO dapat diterapkan meskipun dengan anggaran terbatas. Fokus pada optimasi SEO on-page, seperti riset kata kunci yang tepat, memperbaiki kecepatan situs, dan membuat konten yang berkualitas dapat membantu bisnis di ${city} mendapatkan hasil meskipun dengan investasi yang minimal.`
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Kenapa bisnis perlu menggunakan jasa SEO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SEO membantu bisnis agar lebih mudah ditemukan oleh pelanggan yang mencari produk atau layanan yang relevan dengan apa yang ditawarkan. Dengan menggunakan SEO, website Anda bisa muncul di hasil pencarian mesin pencari seperti Google, meningkatkan jumlah pengunjung yang datang dan potensi penjualan."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Apa yang harus dipertimbangkan saat memilih penyedia jasa SEO yang tepat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pilih penyedia jasa SEO yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Apa perbedaan antara SEO umum dan SEO lokal untuk bisnis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SEO lokal fokus pada peningkatan visibilitas bisnis di area geografis tertentu. Ini melibatkan penggunaan kata kunci yang lebih spesifik dengan lokasi, seperti nama kota atau wilayah, agar website bisnis muncul di hasil pencarian lokal. SEO untuk bisnis lokal juga dapat melibatkan pengoptimalan di Google My Business untuk menjangkau audiens yang lebih dekat dengan lokasi fisik bisnis."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Seberapa cepat hasil SEO dapat terlihat pada website bisnis?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Biasanya, hasil SEO mulai terlihat dalam waktu 3 hingga 6 bulan setelah strategi diterapkan. Kecepatan hasil dapat bervariasi tergantung pada kompetisi dalam industri dan seberapa efektif teknik SEO yang digunakan. Hasil yang lebih cepat bisa terlihat jika SEO dilakukan dengan benar dan di pasar yang lebih terfokus atau lokal."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Berapa biaya yang diperlukan untuk menggunakan jasa SEO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Biaya jasa SEO bervariasi tergantung pada berbagai faktor, seperti tingkat persaingan pasar, ukuran dan kompleksitas bisnis, serta jenis layanan yang diperlukan. Umumnya, biaya mencakup analisis situs, optimasi SEO on-page dan off-page, link building, serta pembuatan konten yang relevan."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Apakah SEO bisa diterapkan untuk bisnis dengan anggaran terbatas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ya, SEO dapat diterapkan meskipun dengan anggaran terbatas. Fokus pada optimasi SEO on-page, seperti riset kata kunci yang tepat, memperbaiki kecepatan situs, dan membuat konten yang berkualitas dapat membantu bisnis mendapatkan hasil meskipun dengan investasi yang minimal."
-      }
-    }
-  ]
+    ]
+  };
 };
 
 const FaqSection = ({ city }) => {
   const router = useRouter();
+
+  // Menghasilkan schema FAQ dinamis berdasarkan kota
+  const faqSchema = generateFaqSchema(city);
 
   return (
     <>
@@ -109,7 +115,7 @@ const FaqSection = ({ city }) => {
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <p>
-                        SEO membantu bisnis di {city} agar lebih mudah ditemukan oleh pelanggan yang mencari produk atau layanan yang relevan dengan apa yang ditawarkan. Dengan menggunakan SEO, website Anda bisa muncul di hasil pencarian mesin pencari seperti Google, meningkatkan jumlah pengunjung yang datang dan potensi penjualan.
+                        SEO membantu bisnis di {city} agar lebih mudah ditemukan oleh pelanggan yang mencari produk atau layanan yang relevan dengan apa yang ditawarkan.
                       </p>
                     </AccordionItemPanel>
                   </AccordionItem>
@@ -122,7 +128,9 @@ const FaqSection = ({ city }) => {
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <p>
-                        Pilih penyedia jasa SEO di {city} yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda.
+                        Pilih penyedia jasa SEO di {city} yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda. 
+                        <br />
+                        Untuk informasi lebih lanjut, kunjungi halaman kami di <a href={`/jasa-seo-${city.toLowerCase()}`} target="_blank" rel="noopener noreferrer">Jasa SEO di {city}</a>.
                       </p>
                     </AccordionItemPanel>
                   </AccordionItem>
@@ -206,7 +214,6 @@ const FaqSection = ({ city }) => {
 export async function getServerSideProps({ params }) {
   const { city } = params;
 
-  // Validasi kota dan kirim sebagai props
   return {
     props: {
       city: city || 'bandung', // Default ke Bandung jika tidak ada kota
