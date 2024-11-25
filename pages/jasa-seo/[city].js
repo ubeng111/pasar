@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
-import Head from 'next/head';  // Ensure to import Head for meta data
-import { cities } from "../../components/Cianjur/cities";  // Correct path to cities
-import NavbarTwo from "../../components/Cianjur/NavbarTwo";  // Import necessary components
+import { useEffect, useState } from 'react';
+import Head from 'next/head'; // Ensure to import Head for meta data
+import { cities } from "../../components/Cianjur/cities"; // Correct path to cities
+import NavbarTwo from "../../components/Cianjur/NavbarTwo"; // Import necessary components
 import MainBanner from "../../components/Cianjur/MainBanner";
 import AnalysisFormContent from "../../components/Cianjur/AnalysisFormContent";
 import AboutContent from "../../components/Cianjur/AboutContent";
@@ -15,21 +16,24 @@ import Footer from "../../components/Cianjur/Footer";
 const Index = ({ city }) => {
   const router = useRouter();
   const currentCity = cities.find((c) => c.slug === city); // Dynamic city content
+  const [status, setStatus] = useState(null); // To store indexing status
 
+  // If city is not found
   if (!currentCity) {
     return (
       <div>
         <h1>City Not Found</h1>
         <p>The city you requested could not be found.</p>
       </div>
-    ); // Handle if city is not found
+    );
   }
 
+  // JSON-LD structured data for SEO
   const aggregateRatingSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": `Jasa SEO ${currentCity.name}`, // Corrected string interpolation
-    "description": `Layanan SEO terbaik di ${currentCity.name} untuk meningkatkan peringkat website Anda di Google.`, // Corrected string interpolation
+    "name": `Jasa SEO ${currentCity.name}`, 
+    "description": `Layanan SEO terbaik di ${currentCity.name} untuk meningkatkan peringkat website Anda di Google.`,
     "brand": {
       "@type": "Brand",
       "name": "Pasar.Web.id"
@@ -42,20 +46,54 @@ const Index = ({ city }) => {
     },
     "offers": {
       "@type": "AggregateOffer",
-      "name": `Layanan Jasa SEO ${currentCity.name}`, // Corrected string interpolation
+      "name": `Layanan Jasa SEO ${currentCity.name}`,
       "priceCurrency": "IDR",
       "lowPrice": 750000,
       "highPrice": 33600000,
       "offerCount": 1000,
-      "url": `https://pasar.web.id/jasa-seo-${currentCity.slug}` // Corrected string interpolation
+      "url": `https://pasar.web.id/jasa-seo-${currentCity.slug}`
     }
   };
+
+  useEffect(() => {
+    if (currentCity) {
+      // Membuat URL dinamis berdasarkan kota
+      const pageUrl = `https://pasar.web.id/jasa-seo-${currentCity.slug}`;
+
+      // Fungsi untuk mengindeks URL
+      const indexPage = async () => {
+        try {
+          const response = await fetch('/api/index-google', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              url: pageUrl,  // URL yang ingin diindeks
+              type: 'URL_UPDATED',  // Jenis pemberitahuan (bisa 'URL_UPDATED' atau 'URL_REMOVED')
+            }),
+          });
+
+          const result = await response.json();
+          if (response.ok) {
+            setStatus('URL successfully indexed');
+          } else {
+            setStatus(`Error: ${result.error}`);
+          }
+        } catch (error) {
+          console.error('Error during indexing:', error);
+          setStatus('Error indexing the URL');
+        }
+      };
+
+      // Panggil fungsi indexPage untuk mengindeks URL
+      indexPage();
+    }
+  }, [currentCity]); // Jalankan efek saat currentCity sudah ada
 
   return (
     <>
       <Head>
         <title>Jasa SEO Murah {currentCity.name} | Garansi Halaman #1 Google | Bulanan | Tahunan </title>
-        <meta name="description" content={`Jasa SEO ${currentCity.name} dari Pasar.Web.id untuk membantu meningkatkan peringkat website Anda di Google.`} /> {/* Corrected string interpolation */}
+        <meta name="description" content={`Jasa SEO ${currentCity.name} dari Pasar.Web.id untuk membantu meningkatkan peringkat website Anda di Google.`} />
         {/* Inject JSON-LD for structured data */}
         <script
           type="application/ld+json"
@@ -75,6 +113,11 @@ const Index = ({ city }) => {
       <AnalysisFormContent city={currentCity.name} />
       <FaqSection city={currentCity.name} />
       <Footer />
+
+      {/* Status Indeks */}
+      <div>
+        <p>{status}</p>
+      </div>
     </>
   );
 };

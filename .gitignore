@@ -65,3 +65,4 @@ out
 
 # dotenv environment variables file
 .env
+google-api-credentials.json
