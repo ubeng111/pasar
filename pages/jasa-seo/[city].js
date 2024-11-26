@@ -45,7 +45,7 @@ const Index = ({ city }) => {
   const aggregateRatingSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": `Jasa SEO ${sanitizedCityName}`, 
+    "name": `Jasa SEO ${sanitizedCityName}`,
     "description": `Layanan SEO terbaik di ${sanitizedCityName} untuk meningkatkan peringkat website Anda di Google.`,
     "brand": {
       "@type": "Brand",

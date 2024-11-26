@@ -130,7 +130,7 @@ const FaqSection = ({ city }) => {
                       <p>
                         Pilih penyedia jasa SEO di {city} yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda. 
                         <br />
-                        Untuk informasi lebih lanjut, kunjungi halaman kami di <a href={`/jasa-seo-${city.toLowerCase()}`} target="_blank" rel="noopener noreferrer">Jasa SEO di {city}</a>.
+                        Untuk informasi lebih lanjut, hubungi kami
                       </p>
                     </AccordionItemPanel>
                   </AccordionItem>
