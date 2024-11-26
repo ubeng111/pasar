@@ -4042,7 +4042,7 @@ export const cities = [
   { name: "Kranggan", slug: "kranggan" },
   { name: "Magersari", slug: "magersari" },
   { name: "Prajuritkulon", slug: "prajuritkulon" },
-  { name: "Kota Surabaya", slug: "kota-surabaya" },
+  { name: "Surabaya", slug: "surabaya" },
   { name: "Asem Rowo", slug: "asem-rowo" },
   { name: "Benowo", slug: "benowo" },
   { name: "Bubutan", slug: "bubutan" },
