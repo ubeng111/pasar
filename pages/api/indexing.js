@@ -28,9 +28,9 @@ export default async function handler(req, res) {
 
   const { url } = req.body;  // Ambil URL dari body request
 
-  // Verifikasi bahwa URL disertakan dalam request body
-  if (!url) {
-    return res.status(400).json({ error: 'URL is required' });
+  // Verifikasi bahwa URL disertakan dalam request body dan formatnya valid
+  if (!url || !/^https?:\/\/\S+\.\S+$/.test(url)) {
+    return res.status(400).json({ error: 'Invalid URL format or missing URL' });
   }
 
   try {
@@ -45,7 +45,9 @@ export default async function handler(req, res) {
       data: response.data,
     });
   } catch (error) {
-    console.error('Error submitting URL to Google:', error);
-    return res.status(500).json({ error: 'Failed to submit URL to Google Indexing API' });
+    console.error('Error submitting URL to Google:', error.response ? error.response.data : error.message);
+    return res.status(500).json({
+      error: error.response ? error.response.data : 'Failed to submit URL to Google Indexing API',
+    });
   }
 }

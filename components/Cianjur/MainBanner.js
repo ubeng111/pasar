@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const MainBanner = ({ city }) => {
   // Customize the content dynamically based on the city
-  const title = `Jasa SEO Profesional Terbaik di ${city} untuk Tingkatkan Bisnis Anda`;
+  const title = `Jasa SEO Murah ${city} | Garansi Halaman #1 Google | Bulanan | Tahunan`;
   const description = `Optimalkan peringkat website Anda di mesin pencari dengan layanan SEO profesional di ${city}. Kami menyediakan strategi yang tepat untuk membantu bisnis Anda lebih mudah ditemukan secara online.`;
 
   const titleTwo = `Strategi Digital Marketing SEO di ${city} yang Efektif`;
