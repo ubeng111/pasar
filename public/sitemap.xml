@@ -20,7 +20,7 @@
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
-=======
+<url>
         <loc>https://pasar.web.id/</loc>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
@@ -43,7 +43,6 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
->>>>>>> 52d7b31f9a2f997e129d4cdeb138d22eab271624
 <url>
 <loc>https://pasar.web.id/jasa-seo-bangli</loc>
 <changefreq>weekly</changefreq>
