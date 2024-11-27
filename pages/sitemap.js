@@ -1,4 +1,4 @@
-// pages/sitemap.js
+import Head from 'next/head';  // Impor Head dari next/head
 import Link from 'next/link';
 import { cities } from '../components/Cianjur/cities';  // Pastikan path ke cities.js benar
 import NavbarTwo from '../components/Cianjur/NavbarTwo';  // Path yang benar ke NavbarTwo
@@ -48,6 +48,16 @@ const Sitemap = () => {
 
   return (
     <>
+      <Head>
+        <title>Sitemap - Layanan Jasa SEO Kota</title>
+        <meta name="description" content="Temukan berbagai layanan jasa SEO untuk kota-kota di Indonesia. Halaman Sitemap ini menyediakan daftar kota yang dapat Anda pilih untuk mengoptimalkan SEO bisnis Anda." />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Sitemap - Layanan Jasa SEO Kota" />
+        <meta property="og:description" content="Daftar lengkap kota yang menawarkan layanan jasa SEO untuk membantu bisnis Anda mendapatkan peringkat lebih tinggi di mesin pencari." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.yourdomain.com/sitemap" />
+      </Head>
+
       <NavbarTwo />
       <div>
         <h1>Layanan Jasa SEO Kota</h1>
@@ -58,7 +68,7 @@ const Sitemap = () => {
             <ul key={index} className={styles.column}>
               {column.map((city) => (
                 <li key={city.slug}>
-                  <Link href={`/jasa-seo/${city.slug}`}>{city.name}</Link>
+                  <Link href={`/jasa-seo-${city.slug}`}>{city.name}</Link>
                 </li>
               ))}
             </ul>
