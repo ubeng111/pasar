@@ -21,6 +21,7 @@ export default async function handler(req, res) {
       '/',
       '/about',
       '/contact',
+      '/sitemap',
       '/services',
       '/faq',
     ];
