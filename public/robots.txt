@@ -7,4 +7,4 @@ User-agent: Googlebot
 Disallow:
 
 # Add the location of your sitemap
-Sitemap: https://pasar.web.id/sitemap.xml
+Sitemap: https://pasar.web.id/api/sitemap
