@@ -66,7 +66,7 @@ const Footer = () => {
                     <Link href="/jasa-seo-jakarta">Jakarta</Link>
                   </li>
                   <li>
-                    <Link href="/jasa-seo-bali">Bali</Link>
+                    <Link href="/sitemap">Lihat Lebih Banyak</Link>
                   </li>
                 </ul>
               </div>
