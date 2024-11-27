@@ -1,6 +1,5 @@
-// pages/api/sitemap.js
 import { SitemapStream, streamToPromise } from 'sitemap';
-import { cities } from '../../components/Cianjur/cities';  // Path yang benar
+import { cities } from '../../components/Cianjur/cities';  // Pastikan path benar
 
 export default async function handler(req, res) {
   try {
@@ -17,13 +16,39 @@ export default async function handler(req, res) {
     // Membuat stream untuk sitemap
     const smStream = new SitemapStream({ hostname: 'https://pasar.web.id' });
 
+    // Menambahkan halaman statis ke sitemap
+    const staticPages = [
+      '/',
+      '/about',
+      '/contact',
+      '/services',
+      '/faq',
+    ];
+
+    // Set untuk melacak URL yang sudah dimasukkan ke sitemap
+    const addedUrls = new Set();
+
+    // Fungsi untuk menambahkan URL ke sitemap jika belum ada
+    const addUrlToSitemap = (url, changefreq, priority) => {
+      if (!addedUrls.has(url)) {
+        smStream.write({
+          url,
+          changefreq,
+          priority,
+        });
+        addedUrls.add(url);
+      }
+    };
+
+    // Menambahkan halaman statis ke sitemap
+    staticPages.forEach(page => {
+      addUrlToSitemap(page, 'daily', 1.0);
+    });
+
     // Loop melalui cities dan tambahkan ke sitemap
     cities.forEach(city => {
-      smStream.write({
-        url: `/jasa-seo-${city.slug}`,  // URL dinamis berdasarkan slug
-        changefreq: 'weekly',
-        priority: 0.8,
-      });
+      const cityUrl = `/jasa-seo-${city.slug}`;
+      addUrlToSitemap(cityUrl, 'weekly', 0.8);
     });
 
     smStream.end();  // Akhiri stream sitemap
