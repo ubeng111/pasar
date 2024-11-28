@@ -1,0 +1,74 @@
+/* styles/sitemap.module.css */
+.container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  /* Membuat 5 kolom dalam satu baris */
+  gap: 20px;  /* Memberikan jarak antar kolom */
+}
+
+.column {
+  list-style-type: none;
+  padding: 0;
+}
+
+.column li {
+  margin-bottom: 8px;
+}
+
+.column a {
+  text-decoration: none;
+  color: #0070f3;
+  font-weight: normal;
+}
+
+.column a:hover {
+  text-decoration: underline;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button:hover {
+  background-color: #005bb5;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Media Queries untuk Responsivitas */
+
+@media (max-width: 1024px) {
+  /* Untuk tablet atau layar lebih kecil dari 1024px */
+  .container {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom per baris */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Untuk layar lebih kecil dari 768px (tablet dan perangkat kecil) */
+  .container {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom per baris */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Untuk layar lebih kecil dari 480px (ponsel dan perangkat lebih kecil) */
+  .container {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom per baris pada ponsel */
+  }
+}
