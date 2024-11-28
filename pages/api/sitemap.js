@@ -30,12 +30,13 @@ export default async function handler(req, res) {
     const addedUrls = new Set();
 
     // Fungsi untuk menambahkan URL ke sitemap jika belum ada
-    const addUrlToSitemap = (url, changefreq, priority) => {
+    const addUrlToSitemap = (url, changefreq, priority, lastmod) => {
       if (!addedUrls.has(url)) {
         smStream.write({
           url,
           changefreq,
           priority,
+          lastmod,
         });
         addedUrls.add(url);
       }
@@ -43,13 +44,13 @@ export default async function handler(req, res) {
 
     // Menambahkan halaman statis ke sitemap
     staticPages.forEach(page => {
-      addUrlToSitemap(page, 'daily', 1.0);
+      addUrlToSitemap(page, 'daily', 1.0, '2024-10-10T13:24:33.239Z');
     });
 
     // Loop melalui cities dan tambahkan ke sitemap
     cities.forEach(city => {
       const cityUrl = `/jasa-seo-${city.slug}`;
-      addUrlToSitemap(cityUrl, 'weekly', 0.8);
+      addUrlToSitemap(cityUrl, 'weekly', 0.8, '2024-10-10T13:24:33.239Z');
     });
 
     smStream.end();  // Akhiri stream sitemap
@@ -61,7 +62,7 @@ export default async function handler(req, res) {
     res.setHeader('Content-Type', 'application/xml');
     res.status(200).send(sitemap.toString());
   } catch (err) {
-    console.error('Error generating sitemap:', err);
+    console.error('Error generating sitemap:', err);  // Log error lebih detail
     res.status(500).send('Server error');
   }
 }
