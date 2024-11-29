@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+import Image from "next/image"; // Impor komponen Image dari Next.js
 
 const WhyChooseUs = ({ city }) => {
   useEffect(() => {
@@ -58,7 +59,16 @@ const WhyChooseUs = ({ city }) => {
             </div>
 
             <div className="col-lg-6 col-md-12" data-aos="fade-up">
-              <div className="choose-warp"></div>
+              <div className="choose-warp">
+                {/* Contoh penggunaan komponen Image */}
+                <Image
+                  src="/images/seo-service.jpg"  // Ganti dengan path gambar yang sesuai
+                  alt="Jasa SEO"
+                  width={500}                   // Sesuaikan lebar gambar
+                  height={300}                  // Sesuaikan tinggi gambar
+                  data-aos="fade-up"           // Jika ingin animasi AOS
+                />
+              </div>
             </div>
           </div>
         </div>

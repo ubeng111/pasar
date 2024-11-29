@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Jangan lupa untuk mengimpor CSS AOS
+import 'aos/dist/aos.css'; // Pastikan untuk mengimpor CSS AOS
 
 const AboutContent = ({ city }) => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Durasi animasi
+      duration: 1000, // Durasi animasi dalam milidetik
+      once: true, // Animasi hanya akan terjadi sekali
     });
   }, []);
 
@@ -14,30 +15,39 @@ const AboutContent = ({ city }) => {
     <div className="about-section pb-100">
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 col-md-12" data-aos="fade-up">
-            <div className="about-warp-image">
-              {/* Gambar tetap seperti semula */}
+          <div className="col-lg-6 col-md-12">
+            <div className="about-warp-image" data-aos="fade-up">
+              {/* Menampilkan gambar yang telah dipindahkan ke folder public */}
+              <img
+                src="/images/blog-details/1.jpg"
+                alt="Tentang Kami"
+                className="img-fluid" // Pastikan gambar responsif
+              />
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-12" data-aos="fade-up">
-            <div className="about-warp pl-15">
+          <div className="col-lg-6 col-md-12">
+            <div className="about-warp pl-15" data-aos="fade-up">
               <span>Tentang Kami</span>
               <h3>Spesialis Pembuatan Website Terpercaya di {city}</h3> {/* Judul dinamis berdasarkan kota */}
 
-              <p>
-                Di {city}, kami adalah tim yang ahli dalam pembuatan website profesional untuk bisnis Anda. Kami menawarkan layanan pembuatan website yang mudah digunakan, responsif, dan menarik, dengan desain yang disesuaikan dengan kebutuhan bisnis lokal di {city}.
+              <p data-aos="fade-up">
+                Di {city}, kami adalah tim yang fokus pada pembuatan website profesional untuk berbagai kebutuhan bisnis. Dari website perusahaan, toko online (e-commerce), hingga platform khusus yang dapat disesuaikan dengan kebutuhan Anda. Kami menciptakan solusi website yang tidak hanya menarik, tetapi juga efektif dan ramah pengguna.
               </p>
 
-              <p>
-                Dalam dunia digital yang semakin berkembang, memiliki website yang efektif dan representatif sangat penting untuk kesuksesan bisnis Anda. Kami memahami tantangan yang dihadapi oleh bisnis lokal di {city}, dan kami berkomitmen untuk memberikan solusi digital yang memudahkan Anda untuk menjangkau pelanggan baru.
+              <p data-aos="fade-up">
+                Kami tahu pentingnya memiliki website yang tidak hanya tampil baik, tetapi juga dapat berfungsi dengan optimal. Tim kami ahli dalam pengembangan website menggunakan teknologi terbaru, baik itu dengan menggunakan CMS seperti WordPress, platform e-commerce seperti Shopify, atau website custom berbasis React dan Next.js untuk performa tinggi.
               </p>
 
-              <p>
-                Tim kami berpengalaman dalam pembuatan berbagai jenis website, mulai dari website bisnis sederhana hingga website e-commerce yang kompleks. Kami juga memastikan bahwa website yang kami buat cepat, ramah pengguna (user-friendly), dan dioptimalkan untuk mesin pencari (SEO) sehingga dapat membantu Anda mendapatkan visibilitas yang lebih baik di dunia maya.
+              <p data-aos="fade-up">
+                Kami juga memastikan website yang kami bangun responsif di semua perangkat, memiliki kecepatan akses yang cepat, dan dioptimalkan untuk SEO sehingga bisnis Anda dapat ditemukan oleh calon pelanggan di {city} dan seluruh Indonesia.
               </p>
 
-              <div className="about-btn">
+              <p data-aos="fade-up">
+                Dengan pengalaman bertahun-tahun dalam industri ini, kami memahami bagaimana membangun website yang tidak hanya menarik perhatian, tetapi juga dapat meningkatkan konversi dan membantu bisnis Anda berkembang di dunia digital.
+              </p>
+
+              <div className="about-btn" data-aos="fade-up">
                 {/* Mengubah link menuju halaman dengan dynamic routing */}
                 <Link href={`/jasa-pembuatan-website/${city.toLowerCase()}`} className="default-btn-one">
                   Pelajari Lebih Lanjut

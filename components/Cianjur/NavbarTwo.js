@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image"; // Impor Image dari next/image
 
 const Navbar = () => {
   // Add active class
@@ -47,7 +48,13 @@ const Navbar = () => {
           <div className="container">
             <nav className="navbar navbar-expand-md navbar-light">
               <Link href="/" className="navbar-brand">
-                <img src="/images/logo.png" alt="logo" />
+                {/* Ganti img dengan Image dari next/image */}
+                <Image
+                  src="/images/logo.png" // Sumber gambar
+                  alt="logo" // Deskripsi gambar
+                  width={120} // Lebar gambar (sesuaikan ukuran)
+                  height={40} // Tinggi gambar (sesuaikan ukuran)
+                />
               </Link>
 
               {/* Toggle navigation */}
@@ -80,9 +87,7 @@ const Navbar = () => {
                   <li className="nav-item">
                     <Link
                       href="/about-us/"
-                      className={`nav-link ${
-                        currentPath == "/about-us/" && "active"
-                      }`}
+                      className={`nav-link ${currentPath == "/about-us/" && "active"}`}
                     >
                       About us
                     </Link>
@@ -91,9 +96,7 @@ const Navbar = () => {
                   <li className="nav-item">
                     <Link
                       href="/services/"
-                      className={`nav-link ${
-                        currentPath == "/services/" && "active"
-                      }`}
+                      className={`nav-link ${currentPath == "/services/" && "active"}`}
                     >
                       Services
                     </Link>
@@ -104,9 +107,7 @@ const Navbar = () => {
                   <li className="nav-item">
                     <Link
                       href="/contact/"
-                      className={`nav-link ${
-                        currentPath == "/contact/" && "active"
-                      }`}
+                      className={`nav-link ${currentPath == "/contact/" && "active"}`}
                     >
                       Contact
                     </Link>
@@ -129,9 +130,7 @@ const Navbar = () => {
 
       {/* Search Form */}
       <div
-        className={`search-overlay ${
-          isActiveSearchModal ? "" : "search-overlay-active"
-        }`}
+        className={`search-overlay ${isActiveSearchModal ? "" : "search-overlay-active"}`}
       >
         <div className="search-inner">
           <button

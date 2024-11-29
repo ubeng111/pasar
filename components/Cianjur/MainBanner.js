@@ -4,6 +4,7 @@ import { Autoplay, Navigation } from "swiper";
 import Link from "next/link";
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS CSS for animations
+import Image from 'next/image'; // Import next/image for optimized images
 
 const MainBanner = ({ city }) => {
   // Initialize AOS when the component mounts
@@ -51,6 +52,14 @@ const MainBanner = ({ city }) => {
                 </div>
               </div>
             </div>
+            {/* Example image with next/image */}
+            <Image 
+              src="/images/banner-image1.jpg" // Adjust path as needed
+              alt="Banner Image" 
+              width={1200} // Set appropriate width
+              height={500} // Set appropriate height
+              layout="responsive" // Optional: Use responsive layout for better scaling
+            />
           </div>
         </SwiperSlide>
 
@@ -71,6 +80,14 @@ const MainBanner = ({ city }) => {
                 </div>
               </div>
             </div>
+            {/* Example image with next/image */}
+            <Image 
+              src="/images/banner-image2.jpg" // Adjust path as needed
+              alt="Banner Image" 
+              width={1200} // Set appropriate width
+              height={500} // Set appropriate height
+              layout="responsive" // Optional: Use responsive layout for better scaling
+            />
           </div>
         </SwiperSlide>
       </Swiper>

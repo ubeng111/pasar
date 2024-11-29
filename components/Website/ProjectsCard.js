@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
+import Image from "next/image";  // Import Image from Next.js
 
 const ProjectsCard = () => {
   return (
@@ -41,10 +42,12 @@ const ProjectsCard = () => {
           >
             <SwiperSlide>
               <div className="single-project-box">
-                <img
+                <Image
                   src="/images/project/download (1).jfif"
-                  alt="image"
-                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                  alt="Project 1"
+                  width={600}  // Set width
+                  height={300} // Set height
+                  objectFit="cover" // Ensures the image covers the space while maintaining aspect ratio
                 />
                 <div className="project-hover-content">
                   <h3>Project 1</h3>
@@ -54,10 +57,12 @@ const ProjectsCard = () => {
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img
+                <Image
                   src="/images/project/download (2).jfif"
-                  alt="image"
-                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                  alt="Project 2"
+                  width={600}
+                  height={300}
+                  objectFit="cover"
                 />
                 <div className="project-hover-content">
                   <h3>Project 2</h3>
@@ -67,10 +72,12 @@ const ProjectsCard = () => {
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img
+                <Image
                   src="/images/project/download (3).jfif"
-                  alt="image"
-                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                  alt="Project 3"
+                  width={600}
+                  height={300}
+                  objectFit="cover"
                 />
                 <div className="project-hover-content">
                   <h3>Project 3</h3>
@@ -80,10 +87,12 @@ const ProjectsCard = () => {
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img
+                <Image
                   src="/images/project/download (4).jfif"
-                  alt="image"
-                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                  alt="Project 4"
+                  width={600}
+                  height={300}
+                  objectFit="cover"
                 />
                 <div className="project-hover-content">
                   <h3>Project 4</h3>
@@ -93,10 +102,12 @@ const ProjectsCard = () => {
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img
+                <Image
                   src="/images/project/download (5).jfif"
-                  alt="image"
-                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                  alt="Project 5"
+                  width={600}
+                  height={300}
+                  objectFit="cover"
                 />
                 <div className="project-hover-content">
                   <h3>Project 5</h3>
@@ -106,10 +117,12 @@ const ProjectsCard = () => {
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img
+                <Image
                   src="/images/project/download (6).jfif"
-                  alt="image"
-                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                  alt="Project 6"
+                  width={600}
+                  height={300}
+                  objectFit="cover"
                 />
                 <div className="project-hover-content">
                   <h3>Project 6</h3>

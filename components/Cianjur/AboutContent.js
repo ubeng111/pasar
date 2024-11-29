@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Pastikan untuk mengimpor CSS AOS
+import Image from 'next/image'; // Mengimpor komponen Image dari Next.js
 
 const AboutContent = ({ city }) => {
   useEffect(() => {
@@ -17,30 +18,41 @@ const AboutContent = ({ city }) => {
         <div className="row">
           <div className="col-lg-6 col-md-12">
             <div className="about-warp-image" data-aos="fade-up">
-              {/* Gambar tetap seperti semula */}
+              {/* Menambahkan gambar dengan komponen Image */}
+              <Image 
+                src="/images/about-image.jpg" // Gantilah dengan path gambar yang sesuai
+                alt="Tentang Kami" // Alt text untuk gambar
+                width={500} // Lebar gambar yang diinginkan
+                height={500} // Tinggi gambar yang diinginkan
+                layout="responsive" // Agar gambar responsif
+              />
             </div>
           </div>
 
           <div className="col-lg-6 col-md-12">
             <div className="about-warp pl-15" data-aos="fade-up">
               <span>Tentang Kami</span>
-              <h3>Spesialis SEO Website Terpercaya di {city}</h3> {/* Judul dinamis berdasarkan kota */}
+              <h3>Spesialis Pembuatan Website Terpercaya di {city}</h3> {/* Judul dinamis berdasarkan kota */}
 
               <p data-aos="fade-up">
-                Di {city}, kami adalah tim yang fokus pada optimasi mesin pencari (SEO) untuk membantu bisnis Anda berkembang secara digital. Kami menggunakan metode yang terbukti efektif, menggabungkan teknik SEO terbaru untuk memastikan website Anda mendapatkan peringkat terbaik di Google dan mesin pencari lainnya.
+                Di {city}, kami adalah tim yang fokus pada pembuatan website profesional untuk berbagai kebutuhan bisnis. Dari website perusahaan, toko online (e-commerce), hingga platform khusus yang dapat disesuaikan dengan kebutuhan Anda. Kami menciptakan solusi website yang tidak hanya menarik, tetapi juga efektif dan ramah pengguna.
               </p>
 
               <p data-aos="fade-up">
-                Dalam era digital yang semakin maju, memiliki kehadiran yang kuat di dunia maya sangat penting. Kami tahu betul tantangan yang dihadapi bisnis lokal {city} dan kami menggunakan pengetahuan mendalam tentang algoritma pencarian untuk menarik pelanggan lebih banyak dari {city} maupun seluruh Indonesia.
+                Kami tahu pentingnya memiliki website yang tidak hanya tampil baik, tetapi juga dapat berfungsi dengan optimal. Tim kami ahli dalam pengembangan website menggunakan teknologi terbaru, baik itu dengan menggunakan CMS seperti WordPress, platform e-commerce seperti Shopify, atau website custom berbasis React dan Next.js untuk performa tinggi.
               </p>
 
               <p data-aos="fade-up">
-                Tim kami ahli dalam berbagai teknik SEO Wordpress, mulai dari riset kata kunci yang sangat relevan, hingga penerapan strategi SEO yang bersifat teknis dan konten. Kami juga mengoptimalkan pengalaman pengguna (UX), memastikan kecepatan situs yang optimal, dan menggunakan backlink yang berkualitas tinggi untuk meningkatkan otoritas situs web Anda. Semua ini kami lakukan untuk memberikan hasil yang nyata dan meningkatkan pendapatan bisnis Anda.
+                Kami juga memastikan website yang kami bangun responsif di semua perangkat, memiliki kecepatan akses yang cepat, dan dioptimalkan untuk SEO sehingga bisnis Anda dapat ditemukan oleh calon pelanggan di {city} dan seluruh Indonesia.
+              </p>
+
+              <p data-aos="fade-up">
+                Dengan pengalaman bertahun-tahun dalam industri ini, kami memahami bagaimana membangun website yang tidak hanya menarik perhatian, tetapi juga dapat meningkatkan konversi dan membantu bisnis Anda berkembang di dunia digital.
               </p>
 
               <div className="about-btn" data-aos="fade-up">
                 {/* Mengubah link menuju halaman dengan dynamic routing */}
-                <Link href={`/jasa-seo/${city.toLowerCase()}`} className="default-btn-one">
+                <Link href={`/jasa-pembuatan-website/${city.toLowerCase()}`} className="default-btn-one">
                   Pelajari Lebih Lanjut
                 </Link>
               </div>

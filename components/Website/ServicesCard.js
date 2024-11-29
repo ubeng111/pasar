@@ -16,7 +16,7 @@ const ServicesCard = ({ city }) => {
         <div className="container">
           <div className="section-title" data-aos="fade-up">
             <span>Fitur & Keunggulan Kami</span>
-            <h3>Solusi Lengkap untuk Website Profesional yang Meningkatkan Bisnis Anda di {city}</h3>
+            <h2>Solusi Lengkap untuk Website Profesional yang Meningkatkan Bisnis Anda di {city}</h2>
           </div>
 
           <div className="row justify-content-center">

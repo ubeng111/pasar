@@ -1,10 +1,12 @@
-import React from "react"; 
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";  // Import Image from Next.js
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
   return (
-    <>            
+    <>
       <footer className="footer-section pt-100 pb-70">
         <div className="container">
           <div className="row">
@@ -102,19 +104,49 @@ const Footer = () => {
         {/* Shape Images */}
         <div className="default-animation">
           <div className="shape-img1">
-            <img src="/images/shape/12.svg" alt="image" />
+            <Image 
+              src="/images/shape/12.svg" 
+              alt="Shape 1" 
+              width={500} 
+              height={500} 
+              loading="lazy" 
+            />
           </div>
           <div className="shape-img2">
-            <img src="/images/shape/13.svg" alt="image" />
+            <Image 
+              src="/images/shape/13.svg" 
+              alt="Shape 2" 
+              width={500} 
+              height={500} 
+              loading="lazy" 
+            />
           </div>
           <div className="shape-img3">
-            <img src="/images/shape/14.png" alt="image" />
+            <Image 
+              src="/images/shape/14.png" 
+              alt="Shape 3" 
+              width={500} 
+              height={500} 
+              loading="lazy" 
+            />
           </div>
           <div className="shape-img4">
-            <img src="/images/shape/15.png" alt="image" />
+            <Image 
+              src="/images/shape/15.png" 
+              alt="Shape 4" 
+              width={500} 
+              height={500} 
+              loading="lazy" 
+            />
           </div>
           <div className="shape-img5">
-            <img src="/images/shape/2.png" alt="image" />
+            <Image 
+              src="/images/shape/2.png" 
+              alt="Shape 5" 
+              width={500} 
+              height={500} 
+              loading="lazy" 
+            />
           </div>
         </div>
       </footer>

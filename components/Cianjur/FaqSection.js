@@ -9,6 +9,7 @@ import {
   AccordionItemPanel,
   AccordionItemButton,
 } from "react-accessible-accordion";
+import Image from 'next/image';  // Impor Image dari Next.js
 
 const FaqSection = ({ city }) => {
   const router = useRouter();
@@ -196,7 +197,14 @@ const FaqSection = ({ city }) => {
 
             <div className="col-lg-6" data-aos="fade-up">
               <div className="faq-image">
-                <img src="/images/faq-image.png" alt="FAQ tentang SEO untuk Bisnis Lokal" />
+                {/* Gunakan komponen Image dari Next.js */}
+                <Image 
+                  src="/images/faq-image.png" 
+                  alt="FAQ tentang SEO untuk Bisnis Lokal" 
+                  width={500}   // Tentukan lebar gambar
+                  height={300}  // Tentukan tinggi gambar
+                  layout="responsive"  // Layout responsif
+                />
               </div>
             </div>
           </div>

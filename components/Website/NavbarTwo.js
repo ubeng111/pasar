@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";  // Import Image from Next.js
 
 const Navbar = () => {
   // Add active class
@@ -47,7 +48,14 @@ const Navbar = () => {
           <div className="container">
             <nav className="navbar navbar-expand-md navbar-light">
               <Link href="/" className="navbar-brand">
-                <img src="/images/logo.png" alt="logo" />
+                {/* Use next/image for optimized logo */}
+                <Image
+                  src="/images/logo.png"
+                  alt="logo"
+                  width={150}  // Set the width of the logo
+                  height={50}  // Set the height of the logo
+                  layout="intrinsic"  // Intrinsic layout ensures the aspect ratio is maintained
+                />
               </Link>
 
               {/* Toggle navigation */}

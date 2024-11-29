@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Pastikan untuk mengimpor AOS CSS
+import Image from "next/image"; // Impor komponen Image dari Next.js
 
 const AnalysisFormContent = () => {
   useEffect(() => {
@@ -83,7 +84,13 @@ const AnalysisFormContent = () => {
 
             <div className="col-lg-6 col-md-12" data-aos="fade-up">
               <div className="analysis-image right">
-                <img src="/images/analysis-image.png" alt="SEO Analysis" />
+                {/* Ganti tag <img> dengan <Image> */}
+                <Image 
+                  src="/images/analysis-image.png" 
+                  alt="SEO Analysis" 
+                  width={500} // Sesuaikan dengan ukuran gambar yang diinginkan
+                  height={300} // Sesuaikan dengan ukuran gambar yang diinginkan
+                />
               </div>
             </div>
           </div>

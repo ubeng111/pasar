@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+import Image from "next/image";  // Import Image from Next.js
 
 const WhyChooseUs = ({ city }) => {
   useEffect(() => {
@@ -58,7 +59,14 @@ const WhyChooseUs = ({ city }) => {
             </div>
 
             <div className="col-lg-6 col-md-12" data-aos="fade-up">
-              <div className="choose-warp"></div>
+              {/* Gambar diganti dengan path yang sesuai */}
+              <Image
+                src="/images/blog-details/1.jpg" // Path gambar yang telah dipindahkan ke folder public
+                alt="Why Choose Us"
+                width={600}  // Atur lebar gambar sesuai kebutuhan
+                height={400} // Atur tinggi gambar sesuai kebutuhan
+                objectFit="cover" // Pastikan gambar mengisi area tanpa merusak proporsi
+              />
             </div>
           </div>
         </div>

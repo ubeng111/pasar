@@ -1,12 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"; 
 import { useRouter } from "next/router";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemPanel,
-  AccordionItemButton,
-} from "react-accessible-accordion";
+import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemPanel, AccordionItemButton } from "react-accessible-accordion";
 import { 
   FaQuestionCircle, 
   FaRegClock, 
@@ -21,6 +15,7 @@ import {
 } from "react-icons/fa";  // Mengimpor ikon dari react-icons
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS CSS
+import Image from "next/image"; // Import komponen Image dari Next.js
 
 const faqSchema = (city) => ({
   "@context": "https://schema.org",
@@ -158,7 +153,13 @@ const FaqSection = ({ city }) => {
 
             <div className="col-lg-6" data-aos="fade-up">
               <div className="faq-image">
-                <img src="/images/tab/2.jpg" alt="FAQ tentang Pembuatan Website untuk Bisnis" />
+                <Image 
+                  src="/images/tab/2.jpg" 
+                  alt="FAQ tentang Pembuatan Website untuk Bisnis"
+                  width={500} 
+                  height={500} // Tentukan ukuran gambar sesuai kebutuhan
+                  layout="responsive" // Menjaga proporsi gambar
+                />
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Image from "next/image"; // Import Image from Next.js
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS CSS
 
@@ -83,7 +84,15 @@ const AnalysisFormContent = () => {
 
             <div className="col-lg-6 col-md-12" data-aos="fade-up">
               <div className="analysis-image right">
-                <img src="/images/analysis-image.png" alt="Pembuatan Website" />
+                {/* Optimized Image with next/image */}
+                <Image
+                  src="/images/analysis-image.png" // Main image source
+                  alt="Pembuatan Website"
+                  width={800} // Set width (adjust as needed)
+                  height={500} // Set height (adjust as needed)
+                  layout="responsive" // Makes the image responsive
+                  priority // Preloads the image
+                />
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { Autoplay, Navigation } from "swiper";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Pastikan AOS CSS sudah diimpor
+import Image from "next/image";  // Import Image from Next.js
 
 const MainBanner = ({ city }) => {
   // Customize the content dynamically based on the city
@@ -48,6 +49,18 @@ const MainBanner = ({ city }) => {
                 </div>
               </div>
             </div>
+
+            {/* Banner Image */}
+            <div className="banner-image">
+              <Image 
+                src="/images/banner/banner1.jpg" 
+                alt={`Jasa Pembuatan Website Profesional di ${city}`} 
+                width={1920} 
+                height={1080} 
+                layout="responsive" 
+                loading="lazy" 
+              />
+            </div>
           </div>
         </SwiperSlide>
 
@@ -67,6 +80,18 @@ const MainBanner = ({ city }) => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Banner Image */}
+            <div className="banner-image">
+              <Image 
+                src="/images/banner/banner2.jpg" 
+                alt={`Website Custom dan Desain Profesional di ${city}`} 
+                width={1920} 
+                height={1080} 
+                layout="responsive" 
+                loading="lazy" 
+              />
             </div>
           </div>
         </SwiperSlide>
