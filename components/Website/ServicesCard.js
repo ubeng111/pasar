@@ -15,88 +15,128 @@ const ServicesCard = ({ city }) => {
       <div className="services-section pb-70 bg-ffffff">
         <div className="container">
           <div className="section-title" data-aos="fade-up">
-            <span>Jasa Kami</span>
-            <h3>Bagaimana Kami Membantu Meningkatkan Bisnis Anda di {city} dengan Website Profesional</h3>
+            <span>Fitur & Keunggulan Kami</span>
+            <h3>Solusi Lengkap untuk Website Profesional yang Meningkatkan Bisnis Anda di {city}</h3>
           </div>
 
           <div className="row justify-content-center">
-            {/* Jasa Pembuatan Website */}
+            {/* Gratis Iklan Google (Bulan Pertama) */}
             <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
-              <div className="single-services-box bg-f3f3f3">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
                 <div className="icon">
-                  <i className="fas fa-laptop-code"></i> {/* Ikon web design dari Font Awesome */}
+                  <i className="fab fa-google"></i> {/* Ikon Google Ads */}
                 </div>
-                <h3>Pembuatan Website Profesional di {city}</h3>
+                <h3>Gratis Iklan Google (Bulan Pertama)</h3>
                 <p>
-                  Kami menyediakan layanan pembuatan website profesional untuk bisnis Anda di {city}. Dari desain yang menarik dan responsif hingga pengembangan fitur canggih, kami memastikan website Anda siap untuk menarik pelanggan dan meningkatkan kredibilitas bisnis Anda.
+                  Dapatkan lebih banyak pengunjung dengan iklan Google gratis di bulan pertama. Kami akan membantu mempromosikan website Anda secara online, meningkatkan visibilitas dan jangkauan pasar di {city}, tanpa biaya tambahan di awal.
                 </p>
               </div>
             </div>
 
-            {/* Website E-Commerce */}
+            {/* Desain Interaktif & Profesional */}
             <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
-              <div className="single-services-box bg-f3f3f3">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
                 <div className="icon">
-                  <i className="fas fa-shopping-cart"></i> {/* Ikon e-commerce dari Font Awesome */}
+                  <i className="fas fa-paint-brush"></i> {/* Ikon desain */}
                 </div>
-                <h3>Pembuatan Website E-Commerce di {city}</h3>
+                <h3>Desain Interaktif & Profesional</h3>
                 <p>
-                  Kami membantu Anda membangun platform e-commerce yang mudah digunakan, aman, dan terintegrasi dengan berbagai metode pembayaran. Dengan website e-commerce kami, bisnis Anda di {city} dapat menjangkau pasar yang lebih luas dan meningkatkan penjualan.
+                  Website Anda akan tampil modern, rapi, dan mudah digunakan. Desain yang responsif dan menarik akan meningkatkan pengalaman pengunjung serta membantu menciptakan kesan profesional yang mendalam bagi pelanggan di {city}.
                 </p>
               </div>
             </div>
 
-            {/* Website Portofolio */}
+            {/* Gratis Desain Logo, Banner, & Artikel */}
             <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
-              <div className="single-services-box bg-f3f3f3">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
                 <div className="icon">
-                  <i className="fas fa-briefcase"></i> {/* Ikon portofolio dari Font Awesome */}
+                  <i className="fas fa-cogs"></i> {/* Ikon branding */}
                 </div>
-                <h3>Pembuatan Website Portofolio di {city}</h3>
+                <h3>Gratis Desain Logo, Banner & Artikel</h3>
                 <p>
-                  Tampilkan karya terbaik Anda melalui website portofolio profesional. Kami membuat desain yang kreatif dan responsif, sehingga dapat menarik perhatian klien atau calon pelanggan di {city} dan di seluruh dunia.
+                  Kami bantu Anda dengan branding yang kuat, termasuk desain logo, banner menarik, dan pembuatan artikel untuk kesan pertama yang maksimal di {city}. Semua untuk memperkuat identitas bisnis Anda.
                 </p>
               </div>
             </div>
 
-            {/* Website Bisnis Kecil */}
+            {/* Tema Modern & Mobile-Friendly */}
             <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
-              <div className="single-services-box bg-f3f3f3">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
                 <div className="icon">
-                  <i className="fas fa-store"></i> {/* Ikon bisnis dari Font Awesome */}
+                  <i className="fas fa-mobile-alt"></i> {/* Ikon mobile-friendly */}
                 </div>
-                <h3>Pembuatan Website Bisnis Kecil di {city}</h3>
+                <h3>Tema Modern & Mobile-Friendly</h3>
                 <p>
-                  Kami memahami kebutuhan bisnis kecil di {city}. Dengan paket pembuatan website terjangkau dan mudah dikelola, kami membantu Anda memulai dan mengembangkan kehadiran online bisnis Anda dengan solusi yang efektif.
+                  Tampilan website tetap optimal di berbagai perangkat, dari desktop hingga smartphone. Kami pastikan website Anda responsif dan siap memberikan pengalaman terbaik di semua layar, baik untuk pelanggan di {city} maupun di luar kota.
                 </p>
               </div>
             </div>
 
-            {/* Optimasi SEO untuk Website */}
+            {/* Garansi Keamanan dari Virus & Hacker */}
             <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
-              <div className="single-services-box bg-f3f3f3">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
                 <div className="icon">
-                  <i className="fas fa-search"></i> {/* Ikon SEO dari Font Awesome */}
+                  <i className="fas fa-shield-alt"></i> {/* Ikon keamanan */}
                 </div>
-                <h3>Optimasi SEO untuk Website di {city}</h3>
+                <h3>Garansi Keamanan dari Virus & Hacker</h3>
                 <p>
-                  Setiap website yang kami buat juga dilengkapi dengan optimasi SEO dasar untuk memastikan situs Anda mudah ditemukan di mesin pencari. Kami memastikan website Anda memiliki struktur SEO yang optimal untuk meningkatkan peringkat di {city} dan daerah lainnya.
+                  Website Anda akan aman dari ancaman virus dan hacker. Dengan proteksi tingkat tinggi, Anda bisa fokus mengembangkan bisnis Anda di {city} tanpa khawatir data atau sistem Anda terancam.
                 </p>
               </div>
             </div>
 
-            {/* Pengelolaan dan Pemeliharaan Website */}
+            {/* Fitur WhatsApp Button & Contact Form */}
             <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
-              <div className="single-services-box bg-f3f3f3">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
                 <div className="icon">
-                  <i className="fas fa-cogs"></i> {/* Ikon pemeliharaan website dari Font Awesome */}
+                  <i className="fab fa-whatsapp"></i> {/* Ikon WhatsApp */}
                 </div>
-                <h3>Pengelolaan dan Pemeliharaan Website di {city}</h3>
+                <h3>Fitur WhatsApp Button & Contact Form</h3>
                 <p>
-                  Kami tidak hanya membangun website, tetapi juga menawarkan layanan pemeliharaan dan pembaruan untuk memastikan website Anda tetap aman, cepat, dan up-to-date. Layanan ini membantu bisnis di {city} tetap kompetitif di dunia digital yang terus berkembang.
+                  Mudah dihubungi! Kami tambahkan fitur tombol WhatsApp dan formulir kontak langsung di website Anda, memungkinkan pengunjung untuk menghubungi Anda dengan cepat dan mudah, terutama bagi pelanggan di {city}.
                 </p>
               </div>
             </div>
+
+            {/* Panduan Kelola Website */}
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
+                <div className="icon">
+                  <i className="fas fa-book-open"></i> {/* Ikon tutorial */}
+                </div>
+                <h3>Panduan Lengkap untuk Kelola Website</h3>
+                <p>
+                  Kami menyediakan tutorial lengkap untuk memudahkan Anda mengelola dan mengoptimalkan website kapan saja. Anda akan diberikan panduan langkah demi langkah untuk menguasai platform website Anda, dengan fokus pada kebutuhan bisnis di {city}.
+                </p>
+              </div>
+            </div>
+
+            {/* Fitur SEO */}
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
+                <div className="icon">
+                  <i className="fas fa-search"></i> {/* Ikon SEO */}
+                </div>
+                <h3>Optimasi SEO Website</h3>
+                <p>
+                  Kami optimalkan website Anda dengan SEO terbaik, sehingga website Anda mudah ditemukan di mesin pencari seperti Google. Peringkat yang lebih tinggi berarti lebih banyak pengunjung, terutama dari {city} dan sekitarnya.
+                </p>
+              </div>
+            </div>
+
+            {/* Pengelolaan & Pemeliharaan Website */}
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
+              <div className="single-services-box bg-f3f3f3 shadow-lg rounded">
+                <div className="icon">
+                  <i className="fas fa-cogs"></i> {/* Ikon pemeliharaan */}
+                </div>
+                <h3>Pengelolaan & Pemeliharaan Website</h3>
+                <p>
+                  Kami juga menawarkan layanan pemeliharaan website untuk memastikan website Anda tetap aman, up-to-date, dan bebas masalah. Biarkan kami mengurus teknisnya, Anda fokus pada bisnis Anda di {city}.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
 

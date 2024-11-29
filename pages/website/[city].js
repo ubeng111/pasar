@@ -40,7 +40,7 @@ const Index = ({ city }) => {
     );
   }
 
-  // JSON-LD structured data for SEO
+  // JSON-LD structured data for SEO (Jasa Pembuatan Website)
   const aggregateRatingSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -99,6 +99,7 @@ const Index = ({ city }) => {
         {/* Canonical Link */}
         <link rel="canonical" href={`https://pasar.web.id/website-${currentCity.slug}`} />
 
+        {/* JSON-LD Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
