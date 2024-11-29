@@ -43,7 +43,7 @@ const Index = ({ city }) => {
   // JSON-LD structured data for SEO (Jasa Pembuatan Website)
   const aggregateRatingSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "Product",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Layanan pembuatan website profesional di ${sanitizedCityName} untuk membantu membangun website bisnis Anda dengan desain modern dan fungsional.`,
     "brand": {
@@ -54,13 +54,13 @@ const Index = ({ city }) => {
       "@type": "AggregateRating",
       "ratingValue": 5,
       "bestRating": 5,
-      "ratingCount": 566
+      "ratingCount":4546
     },
     "offers": {
       "@type": "AggregateOffer",
       "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
       "priceCurrency": "IDR",
-      "lowPrice": 1000000,
+      "lowPrice": 3000000,
       "highPrice": 25000000,
       "offerCount": 1000,
       "url": `https://pasar.web.id/website-${currentCity.slug}`
