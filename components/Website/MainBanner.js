@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Pastikan AOS CSS sudah diimpor
 
 const MainBanner = ({ city }) => {
   // Customize the content dynamically based on the city
@@ -10,6 +12,12 @@ const MainBanner = ({ city }) => {
 
   const titleTwo = `Website Custom dan Desain Profesional di ${city}`;
   const descriptionTwo = `Buat website yang sesuai dengan kebutuhan bisnis Anda dengan desain custom yang menarik. Kami membantu bisnis di ${city} untuk mendapatkan website yang efektif dan mudah digunakan.`; 
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi dalam ms
+    });
+  }, []);
 
   return (
     <>
@@ -28,7 +36,7 @@ const MainBanner = ({ city }) => {
             <div className="d-table">
               <div className="d-table-cell">
                 <div className="container">
-                  <div className="main-banner-content">
+                  <div className="main-banner-content" data-aos="fade-up">
                     <h1>{title}</h1>
                     <p>{description}</p>
                     <div className="banner-btn">
@@ -48,7 +56,7 @@ const MainBanner = ({ city }) => {
             <div className="d-table">
               <div className="d-table-cell">
                 <div className="container">
-                  <div className="main-banner-content">
+                  <div className="main-banner-content" data-aos="fade-up">
                     <h1>{titleTwo}</h1>
                     <p>{descriptionTwo}</p>
                     <div className="banner-btn">

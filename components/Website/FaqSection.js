@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import {
   Accordion,
@@ -7,184 +7,158 @@ import {
   AccordionItemPanel,
   AccordionItemButton,
 } from "react-accessible-accordion";
+import { 
+  FaQuestionCircle, 
+  FaRegClock, 
+  FaCogs, 
+  FaServer, 
+  FaDesktop, 
+  FaTools, 
+  FaMobileAlt, 
+  FaWrench, 
+  FaNetworkWired, 
+  FaRegMoneyBillAlt 
+} from "react-icons/fa";  // Mengimpor ikon dari react-icons
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS CSS
 
-// Menambahkan schema markup untuk FAQ
-const faqSchema = {
+const faqSchema = (city) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Apa yang dimaksud dengan layanan SEO dan bagaimana cara kerjanya?",
+      "name": "Apa yang dimaksud dengan layanan pembuatan website dan bagaimana cara kerjanya?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Layanan SEO (Search Engine Optimization) adalah serangkaian teknik yang diterapkan pada website untuk meningkatkan visibilitasnya di hasil pencarian mesin pencari, seperti Google. Proses SEO mencakup riset kata kunci, pengoptimalan halaman web, serta pembuatan dan pengelolaan konten berkualitas untuk menarik pengunjung dan meningkatkan peringkat situs."
+        "text": `Layanan pembuatan website mencakup perancangan dan pengembangan website yang sesuai dengan kebutuhan bisnis Anda di ${city}. Proses ini meliputi desain web, pengembangan fungsionalitas, dan pengujian untuk memastikan website berjalan dengan baik di berbagai perangkat.`
       }
     },
     {
       "@type": "Question",
-      "name": "Kenapa bisnis perlu menggunakan jasa SEO?",
+      "name": `Kenapa bisnis perlu menggunakan jasa pembuatan website di ${city}?`,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "SEO membantu bisnis agar lebih mudah ditemukan oleh pelanggan yang mencari produk atau layanan yang relevan dengan apa yang ditawarkan. Dengan menggunakan SEO, website Anda bisa muncul di hasil pencarian mesin pencari seperti Google, meningkatkan jumlah pengunjung yang datang dan potensi penjualan."
+        "text": `Website yang baik membantu bisnis di ${city} untuk terlihat profesional, memudahkan pelanggan mengakses informasi tentang produk atau layanan Anda, serta meningkatkan kredibilitas dan kepercayaan pelanggan. Dengan memiliki website, bisnis Anda bisa lebih mudah ditemukan secara online.`
       }
     },
     {
       "@type": "Question",
-      "name": "Apa yang harus dipertimbangkan saat memilih penyedia jasa SEO yang tepat?",
+      "name": `Apa yang harus dipertimbangkan saat memilih penyedia jasa pembuatan website di ${city} yang tepat?`,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pilih penyedia jasa SEO yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda."
+        "text": `Pastikan penyedia jasa pembuatan website di ${city} memiliki portofolio yang relevan, pengalaman dalam pembuatan website sesuai industri Anda, serta pemahaman yang baik tentang teknologi web dan desain responsif. Pilih penyedia jasa yang dapat menawarkan solusi yang disesuaikan dengan kebutuhan bisnis Anda.`
       }
     },
     {
       "@type": "Question",
-      "name": "Apa perbedaan antara SEO umum dan SEO lokal untuk bisnis?",
+      "name": "Berapa lama waktu yang dibutuhkan untuk membuat website?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "SEO lokal fokus pada peningkatan visibilitas bisnis di area geografis tertentu. Ini melibatkan penggunaan kata kunci yang lebih spesifik dengan lokasi, seperti nama kota atau wilayah, agar website bisnis muncul di hasil pencarian lokal. SEO untuk bisnis lokal juga dapat melibatkan pengoptimalan di Google My Business untuk menjangkau audiens yang lebih dekat dengan lokasi fisik bisnis."
+        "text": "Waktu pembuatan website tergantung pada kompleksitas proyek. Biasanya, pembuatan website sederhana dapat memakan waktu 2-4 minggu, sementara website dengan fitur kompleks atau kustomisasi lebih lanjut bisa memakan waktu lebih lama."
       }
     },
     {
       "@type": "Question",
-      "name": "Seberapa cepat hasil SEO dapat terlihat pada website bisnis?",
+      "name": "Apakah jasa pembuatan website juga menyediakan layanan pemeliharaan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Biasanya, hasil SEO mulai terlihat dalam waktu 3 hingga 6 bulan setelah strategi diterapkan. Kecepatan hasil dapat bervariasi tergantung pada kompetisi dalam industri dan seberapa efektif teknik SEO yang digunakan. Hasil yang lebih cepat bisa terlihat jika SEO dilakukan dengan benar dan di pasar yang lebih terfokus atau lokal."
+        "text": "Banyak penyedia jasa pembuatan website juga menawarkan layanan pemeliharaan untuk memastikan website Anda tetap berfungsi dengan baik dan up-to-date, termasuk pembaruan keamanan, perbaikan bug, dan peningkatan fungsionalitas."
       }
     },
     {
       "@type": "Question",
-      "name": "Berapa biaya yang diperlukan untuk menggunakan jasa SEO?",
+      "name": "Apakah saya perlu hosting dan domain untuk website saya?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Biaya jasa SEO bervariasi tergantung pada berbagai faktor, seperti tingkat persaingan pasar, ukuran dan kompleksitas bisnis, serta jenis layanan yang diperlukan. Umumnya, biaya mencakup analisis situs, optimasi SEO on-page dan off-page, link building, serta pembuatan konten yang relevan."
+        "text": "Ya, untuk membuat website berfungsi secara online, Anda memerlukan layanan hosting untuk menyimpan file website Anda dan nama domain untuk alamat website. Penyedia jasa pembuatan website biasanya juga menawarkan layanan hosting dan registrasi domain."
       }
     },
     {
       "@type": "Question",
-      "name": "Apakah SEO bisa diterapkan untuk bisnis dengan anggaran terbatas?",
+      "name": "Apakah desain website harus responsif?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ya, SEO dapat diterapkan meskipun dengan anggaran terbatas. Fokus pada optimasi SEO on-page, seperti riset kata kunci yang tepat, memperbaiki kecepatan situs, dan membuat konten yang berkualitas dapat membantu bisnis mendapatkan hasil meskipun dengan investasi yang minimal."
+        "text": "Desain responsif sangat penting agar website Anda dapat diakses dengan baik di berbagai perangkat, mulai dari desktop hingga smartphone. Ini juga membantu meningkatkan peringkat SEO dan pengalaman pengguna."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bagaimana cara mengelola konten website setelah selesai dibuat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Penyedia jasa pembuatan website biasanya memberikan akses ke sistem manajemen konten (CMS) seperti WordPress, sehingga Anda dapat mengelola dan memperbarui konten website secara mandiri tanpa perlu keterampilan pengkodean."
       }
     }
   ]
-};
+});
 
 const FaqSection = ({ city }) => {
   const router = useRouter();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi
+    });
+  }, []);
+
+  // Fungsi untuk memilih ikon berdasarkan nama pertanyaan
+  const getIconForQuestion = (question) => {
+    switch (question) {
+      case "Apa yang dimaksud dengan layanan pembuatan website dan bagaimana cara kerjanya?":
+        return <FaCogs className="faq-icon" />;
+      case `Kenapa bisnis perlu menggunakan jasa pembuatan website di ${city}?`:
+        return <FaDesktop className="faq-icon" />;
+      case `Apa yang harus dipertimbangkan saat memilih penyedia jasa pembuatan website di ${city} yang tepat?`:
+        return <FaTools className="faq-icon" />;
+      case "Berapa lama waktu yang dibutuhkan untuk membuat website?":
+        return <FaRegClock className="faq-icon" />;
+      case "Apakah jasa pembuatan website juga menyediakan layanan pemeliharaan?":
+        return <FaWrench className="faq-icon" />;
+      case "Apakah saya perlu hosting dan domain untuk website saya?":
+        return <FaNetworkWired className="faq-icon" />;
+      case "Apakah desain website harus responsif?":
+        return <FaMobileAlt className="faq-icon" />;
+      case "Bagaimana cara mengelola konten website setelah selesai dibuat?":
+        return <FaRegMoneyBillAlt className="faq-icon" />;
+      default:
+        return <FaQuestionCircle className="faq-icon" />;
+    }
+  };
 
   return (
     <>
       <section className="faq-section ptb-100">
         <div className="container">
-          <div className="faq-area-content">
+          <div className="faq-area-content" data-aos="fade-up">
             <span>FAQ</span>
-            <h3>Pertanyaan yang Sering Diajukan tentang SEO di {city}</h3> {/* Judul dinamis berdasarkan kota */}
+            <h3>Pertanyaan yang Sering Diajukan tentang Jasa Pembuatan Website di {city}</h3>
           </div>
 
           <div className="row align-items-center">
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="fade-up">
               <div className="faq-accordion">
                 <Accordion preExpanded={["a"]}>
-                  <AccordionItem uuid="a">
-                    <AccordionItemHeading>
-                      <AccordionItemButton>
-                        Apa yang dimaksud dengan layanan SEO dan bagaimana cara kerjanya?
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <p>
-                        Layanan SEO (Search Engine Optimization) adalah serangkaian teknik yang diterapkan pada website untuk meningkatkan visibilitasnya di hasil pencarian mesin pencari, seperti Google. Proses SEO mencakup riset kata kunci, pengoptimalan halaman web, serta pembuatan dan pengelolaan konten berkualitas untuk menarik pengunjung dan meningkatkan peringkat situs.
-                      </p>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-
-                  <AccordionItem uuid="b">
-                    <AccordionItemHeading>
-                      <AccordionItemButton>
-                        Kenapa bisnis perlu menggunakan jasa SEO di {city}?
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <p>
-                        SEO membantu bisnis di {city} agar lebih mudah ditemukan oleh pelanggan yang mencari produk atau layanan yang relevan dengan apa yang ditawarkan. Dengan menggunakan SEO, website Anda bisa muncul di hasil pencarian mesin pencari seperti Google, meningkatkan jumlah pengunjung yang datang dan potensi penjualan.
-                      </p>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-
-                  <AccordionItem uuid="c">
-                    <AccordionItemHeading>
-                      <AccordionItemButton>
-                        Apa yang harus dipertimbangkan saat memilih penyedia jasa SEO di {city} yang tepat?
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <p>
-                        Pilih penyedia jasa SEO di {city} yang memiliki rekam jejak yang terbukti dalam meningkatkan peringkat di mesin pencari. Pastikan mereka memiliki pemahaman yang baik tentang strategi SEO yang sesuai dengan pedoman Google, serta pengalaman dalam bekerja dengan industri serupa dengan bisnis Anda.
-                      </p>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-
-                  <AccordionItem uuid="d">
-                    <AccordionItemHeading>
-                      <AccordionItemButton>
-                        Apa perbedaan antara SEO umum dan SEO lokal untuk bisnis di {city}?
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <p>
-                        SEO lokal di {city} fokus pada peningkatan visibilitas bisnis di area geografis tertentu. Ini melibatkan penggunaan kata kunci yang lebih spesifik dengan lokasi, seperti nama kota atau wilayah, agar website bisnis muncul di hasil pencarian lokal. SEO untuk bisnis lokal di {city} juga dapat melibatkan pengoptimalan di Google My Business untuk menjangkau audiens yang lebih dekat dengan lokasi fisik bisnis.
-                      </p>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-
-                  <AccordionItem uuid="e">
-                    <AccordionItemHeading>
-                      <AccordionItemButton>
-                        Seberapa cepat hasil SEO dapat terlihat pada website bisnis di {city}?
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <p>
-                        Biasanya, hasil SEO mulai terlihat dalam waktu 3 hingga 6 bulan setelah strategi diterapkan. Kecepatan hasil dapat bervariasi tergantung pada kompetisi dalam industri dan seberapa efektif teknik SEO yang digunakan. Hasil yang lebih cepat bisa terlihat jika SEO dilakukan dengan benar dan di pasar yang lebih terfokus atau lokal di {city}.
-                      </p>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-
-                  <AccordionItem uuid="f">
-                    <AccordionItemHeading>
-                      <AccordionItemButton>
-                        Berapa biaya yang diperlukan untuk menggunakan jasa SEO di {city}?
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <p>
-                        Biaya jasa SEO di {city} bervariasi tergantung pada berbagai faktor, seperti tingkat persaingan pasar, ukuran dan kompleksitas bisnis, serta jenis layanan yang diperlukan. Umumnya, biaya mencakup analisis situs, optimasi SEO on-page dan off-page, link building, serta pembuatan konten yang relevan.
-                      </p>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-
-                  <AccordionItem uuid="g">
-                    <AccordionItemHeading>
-                      <AccordionItemButton>
-                        Apakah SEO bisa diterapkan untuk bisnis dengan anggaran terbatas di {city}?
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <p>
-                        Ya, SEO dapat diterapkan meskipun dengan anggaran terbatas. Fokus pada optimasi SEO on-page, seperti riset kata kunci yang tepat, memperbaiki kecepatan situs, dan membuat konten yang berkualitas dapat membantu bisnis di {city} mendapatkan hasil meskipun dengan investasi yang minimal.
-                      </p>
-                    </AccordionItemPanel>
-                  </AccordionItem>
+                  {faqSchema(city).mainEntity.map((faq, index) => (
+                    <AccordionItem key={index} uuid={String(index)}>
+                      <AccordionItemHeading>
+                        <AccordionItemButton>
+                          {/* Menambahkan ikon sesuai pertanyaan */}
+                          {getIconForQuestion(faq.name)} {faq.name}
+                        </AccordionItemButton>
+                      </AccordionItemHeading>
+                      <AccordionItemPanel>
+                        <p>{faq.acceptedAnswer.text}</p>
+                      </AccordionItemPanel>
+                    </AccordionItem>
+                  ))}
                 </Accordion>
               </div>
             </div>
 
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="fade-up">
               <div className="faq-image">
-                <img src="/images/faq-image.png" alt="FAQ tentang SEO untuk Bisnis Lokal" />
+                <img src="/images/tab/2.jpg" alt="FAQ tentang Pembuatan Website untuk Bisnis" />
               </div>
             </div>
           </div>
@@ -195,18 +169,15 @@ const FaqSection = ({ city }) => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
+          __html: JSON.stringify(faqSchema(city)),
         }}
       ></script>
     </>
   );
 };
 
-// Fungsi getServerSideProps untuk mendapatkan parameter kota dari URL
 export async function getServerSideProps({ params }) {
   const { city } = params;
-
-  // Validasi kota dan kirim sebagai props
   return {
     props: {
       city: city || 'bandung', // Default ke Bandung jika tidak ada kota

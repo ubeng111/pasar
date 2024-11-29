@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Jangan lupa untuk mengimpor CSS AOS
 
 const AboutContent = ({ city }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi
+    });
+  }, []);
+
   return (
     <div className="about-section pb-100">
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 col-md-12">
+          <div className="col-lg-6 col-md-12" data-aos="fade-up">
             <div className="about-warp-image">
               {/* Gambar tetap seperti semula */}
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-12">
+          <div className="col-lg-6 col-md-12" data-aos="fade-up">
             <div className="about-warp pl-15">
               <span>Tentang Kami</span>
               <h3>Spesialis Pembuatan Website Terpercaya di {city}</h3> {/* Judul dinamis berdasarkan kota */}

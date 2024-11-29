@@ -1,7 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
-import Link from "next/link";
 
 const ProjectsCard = () => {
   return (
@@ -42,78 +41,78 @@ const ProjectsCard = () => {
           >
             <SwiperSlide>
               <div className="single-project-box">
-                <img src="/images/project/1.jpg" alt="image" />
+                <img
+                  src="/images/project/download (1).jfif"
+                  alt="image"
+                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                />
                 <div className="project-hover-content">
-                  <h3>
-                    <Link href="/single-project">
-                      Search Enginee Optimization
-                    </Link>
-                  </h3>
+                  <h3>Project 1</h3>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img src="/images/project/2.jpg" alt="image" />
+                <img
+                  src="/images/project/download (2).jfif"
+                  alt="image"
+                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                />
                 <div className="project-hover-content">
-                  <h3>
-                    <Link href="/single-project">
-                      Opertray Division
-                    </Link>
-                  </h3>
+                  <h3>Project 2</h3>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img src="/images/project/3.jpg" alt="image" />
+                <img
+                  src="/images/project/download (3).jfif"
+                  alt="image"
+                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                />
                 <div className="project-hover-content">
-                  <h3>
-                    <Link href="/single-project">
-                      Tremely Designs
-                    </Link>
-                  </h3>
+                  <h3>Project 3</h3>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img src="/images/project/4.jpg" alt="image" />
+                <img
+                  src="/images/project/download (4).jfif"
+                  alt="image"
+                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                />
                 <div className="project-hover-content">
-                  <h3>
-                    <Link href="/single-project">
-                      Plainst Tech
-                    </Link>
-                  </h3>
+                  <h3>Project 4</h3>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img src="/images/project/5.jpg" alt="image" />
+                <img
+                  src="/images/project/download (5).jfif"
+                  alt="image"
+                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                />
                 <div className="project-hover-content">
-                  <h3>
-                    <Link href="/single-project">
-                      Maindex Solutions
-                    </Link>
-                  </h3>
+                  <h3>Project 5</h3>
                 </div>
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
               <div className="single-project-box">
-                <img src="/images/project/6.jpg" alt="image" />
+                <img
+                  src="/images/project/download (6).jfif"
+                  alt="image"
+                  style={{ width: "600px", height: "300px", objectFit: "cover" }}
+                />
                 <div className="project-hover-content">
-                  <h3>
-                    <Link href="/single-project">
-                      Email Campaign Design
-                    </Link>
-                  </h3>
+                  <h3>Project 6</h3>
                 </div>
               </div>
             </SwiperSlide>

@@ -1,45 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 const WhyChooseUs = ({ city }) => {
+  useEffect(() => {
+    // Inisialisasi AOS setelah komponen dimuat
+    AOS.init({
+      duration: 1000,  // Durasi animasi dalam milidetik
+      once: true,      // Animasi hanya terjadi sekali
+    });
+  }, []);
+
   return (
     <>
       <div className="choose-section pt-0">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 col-md-12">
+            <div className="col-lg-6 col-md-12" data-aos="fade-up">
               <div className="choose-content-warp">
                 <span>Kenapa Memilih Kami</span>
-                <h3>Jasa SEO Terpercaya untuk Meningkatkan Bisnis Anda di {city}</h3>
-                <p>
-                  Kami menawarkan layanan SEO profesional yang dirancang untuk meningkatkan visibilitas website Anda di mesin pencari. Dengan pendekatan berbasis data dan pengalaman bertahun-tahun, kami membantu bisnis Anda di {city} mencapai peringkat terbaik dan menarik lebih banyak pengunjung.
+                <h3 data-aos="fade-up">Jasa Pembuatan Website Profesional untuk Bisnis Anda di {city}</h3>
+                <p data-aos="fade-up">
+                  Kami menawarkan layanan pembuatan website yang dirancang untuk menciptakan situs yang profesional dan mudah diakses. Dengan tim berpengalaman, kami membantu bisnis Anda di {city} memiliki website yang responsif dan menarik untuk pengunjung.
                 </p>
 
-                <div className="choose-text">
+                <div className="choose-text" data-aos="fade-up">
                   <i className="flaticon-check-mark"></i>
-                  <h4>Strategi SEO yang Terbukti dan Terukur di {city}</h4>
+                  <h4>Desain Website yang Menarik dan Fungsional di {city}</h4>
                   <p>
-                    Kami menggunakan metode SEO yang telah terbukti efektif untuk mendongkrak peringkat website Anda. Mulai dari riset kata kunci yang mendalam hingga optimasi on-page dan off-page, kami selalu mengutamakan hasil yang berkelanjutan untuk bisnis Anda di {city}.
+                    Kami menciptakan desain website yang tidak hanya menarik tetapi juga fungsional, memastikan pengalaman pengguna yang optimal. Setiap elemen situs dirancang agar mudah digunakan dan sesuai dengan kebutuhan bisnis Anda di {city}.
                   </p>
                 </div>
 
-                <div className="choose-text">
+                <div className="choose-text" data-aos="fade-up">
                   <i className="flaticon-check-mark"></i>
-                  <h4>Tim SEO Profesional dengan Pengalaman Luas di {city}</h4>
+                  <h4>Website Responsif untuk Semua Perangkat di {city}</h4>
                   <p>
-                    Dengan pengalaman bertahun-tahun, tim SEO kami memiliki keahlian dalam memajukan peringkat website dengan mengikuti tren dan algoritma terbaru dari mesin pencari. Kami bekerja keras untuk memastikan bisnis Anda tetap unggul di pasar digital di {city}.
+                    Kami memastikan bahwa website yang kami buat dapat diakses dengan lancar di berbagai perangkat, dari desktop hingga mobile. Ini penting untuk memastikan pengunjung di {city} dapat menikmati pengalaman yang konsisten di semua platform.
                   </p>
                 </div>
 
-                <div className="choose-text">
+                <div className="choose-text" data-aos="fade-up">
                   <i className="flaticon-check-mark"></i>
-                  <h4>Pelayanan 24/7 untuk Menjamin Kepuasan Anda di {city}</h4>
+                  <h4>Fitur Khusus untuk Memajukan Bisnis Anda di {city}</h4>
                   <p>
-                    Kami menyediakan dukungan pelanggan yang responsif dan tersedia sepanjang waktu. Tim kami siap membantu Anda kapan saja, memastikan bisnis Anda di {city} selalu mendapat perhatian di dunia digital yang dinamis.
+                    Kami menawarkan berbagai fitur tambahan untuk website Anda, seperti sistem manajemen konten, SEO on-page, integrasi dengan platform e-commerce, dan banyak lagi. Kami berfokus pada kebutuhan bisnis Anda di {city}.
                   </p>
                 </div>
 
-                <div className="choose-btn">
+                <div className="choose-btn" data-aos="fade-up">
                   <Link href="/about-us" className="default-btn-one">
                     Pelajari Lebih Lanjut
                   </Link>
@@ -47,7 +57,7 @@ const WhyChooseUs = ({ city }) => {
               </div>
             </div>
 
-            <div className="col-lg-6 col-md-12">
+            <div className="col-lg-6 col-md-12" data-aos="fade-up">
               <div className="choose-warp"></div>
             </div>
           </div>

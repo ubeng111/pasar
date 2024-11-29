@@ -91,13 +91,13 @@ const FaqSection = ({ city }) => {
     <>
       <section className="faq-section ptb-100">
         <div className="container">
-          <div className="faq-area-content" data-aos="fade-left">
+          <div className="faq-area-content" data-aos="fade-up">
             <span>FAQ</span>
             <h3>Pertanyaan yang Sering Diajukan tentang SEO di {city}</h3>
           </div>
 
           <div className="row align-items-center">
-            <div className="col-lg-6" data-aos="fade-left">
+            <div className="col-lg-6" data-aos="fade-up">
               <div className="faq-accordion">
                 <Accordion preExpanded={["a"]}>
                   <AccordionItem uuid="a">
@@ -194,7 +194,7 @@ const FaqSection = ({ city }) => {
               </div>
             </div>
 
-            <div className="col-lg-6" data-aos="fade-right">
+            <div className="col-lg-6" data-aos="fade-up">
               <div className="faq-image">
                 <img src="/images/faq-image.png" alt="FAQ tentang SEO untuk Bisnis Lokal" />
               </div>

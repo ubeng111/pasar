@@ -51,6 +51,10 @@ export default async function handler(req, res) {
     cities.forEach(city => {
       const cityUrl = `/jasa-seo-${city.slug}`;
       addUrlToSitemap(cityUrl, 'weekly', 0.8, '2024-10-10T13:24:33.239Z');
+
+      // Menambahkan URL website-:city ke sitemap
+      const websiteUrl = `/website-${city.slug}`;
+      addUrlToSitemap(websiteUrl, 'weekly', 0.8, '2024-10-10T13:24:33.239Z');
     });
 
     smStream.end();  // Akhiri stream sitemap

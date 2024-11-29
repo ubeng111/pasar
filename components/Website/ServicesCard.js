@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Pastikan AOS CSS sudah diimpor
 
 const ServicesCard = ({ city }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi dalam ms
+      once: true, // Efek animasi hanya dijalankan sekali
+    });
+  }, []);
+
   return (
     <>
       <div className="services-section pb-70 bg-ffffff">
         <div className="container">
-          <div className="section-title">
+          <div className="section-title" data-aos="fade-up">
             <span>Jasa Kami</span>
             <h3>Bagaimana Kami Membantu Meningkatkan Bisnis Anda di {city} dengan Website Profesional</h3>
           </div>
 
           <div className="row justify-content-center">
             {/* Jasa Pembuatan Website */}
-            <div className="col-lg-4 col-md-6 col-sm-6">
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
               <div className="single-services-box bg-f3f3f3">
                 <div className="icon">
-                  <i className="flaticon-website-design"></i>
+                  <i className="fas fa-laptop-code"></i> {/* Ikon web design dari Font Awesome */}
                 </div>
                 <h3>Pembuatan Website Profesional di {city}</h3>
                 <p>
@@ -25,10 +34,10 @@ const ServicesCard = ({ city }) => {
             </div>
 
             {/* Website E-Commerce */}
-            <div className="col-lg-4 col-md-6 col-sm-6">
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
               <div className="single-services-box bg-f3f3f3">
                 <div className="icon">
-                  <i className="flaticon-shopping-cart"></i>
+                  <i className="fas fa-shopping-cart"></i> {/* Ikon e-commerce dari Font Awesome */}
                 </div>
                 <h3>Pembuatan Website E-Commerce di {city}</h3>
                 <p>
@@ -38,10 +47,10 @@ const ServicesCard = ({ city }) => {
             </div>
 
             {/* Website Portofolio */}
-            <div className="col-lg-4 col-md-6 col-sm-6">
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
               <div className="single-services-box bg-f3f3f3">
                 <div className="icon">
-                  <i className="flaticon-portfolio"></i>
+                  <i className="fas fa-briefcase"></i> {/* Ikon portofolio dari Font Awesome */}
                 </div>
                 <h3>Pembuatan Website Portofolio di {city}</h3>
                 <p>
@@ -51,10 +60,10 @@ const ServicesCard = ({ city }) => {
             </div>
 
             {/* Website Bisnis Kecil */}
-            <div className="col-lg-4 col-md-6 col-sm-6">
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
               <div className="single-services-box bg-f3f3f3">
                 <div className="icon">
-                  <i className="flaticon-business"></i>
+                  <i className="fas fa-store"></i> {/* Ikon bisnis dari Font Awesome */}
                 </div>
                 <h3>Pembuatan Website Bisnis Kecil di {city}</h3>
                 <p>
@@ -64,10 +73,10 @@ const ServicesCard = ({ city }) => {
             </div>
 
             {/* Optimasi SEO untuk Website */}
-            <div className="col-lg-4 col-md-6 col-sm-6">
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
               <div className="single-services-box bg-f3f3f3">
                 <div className="icon">
-                  <i className="flaticon-seo"></i>
+                  <i className="fas fa-search"></i> {/* Ikon SEO dari Font Awesome */}
                 </div>
                 <h3>Optimasi SEO untuk Website di {city}</h3>
                 <p>
@@ -77,10 +86,10 @@ const ServicesCard = ({ city }) => {
             </div>
 
             {/* Pengelolaan dan Pemeliharaan Website */}
-            <div className="col-lg-4 col-md-6 col-sm-6">
+            <div className="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up">
               <div className="single-services-box bg-f3f3f3">
                 <div className="icon">
-                  <i className="flaticon-web-maintenance"></i>
+                  <i className="fas fa-cogs"></i> {/* Ikon pemeliharaan website dari Font Awesome */}
                 </div>
                 <h3>Pengelolaan dan Pemeliharaan Website di {city}</h3>
                 <p>

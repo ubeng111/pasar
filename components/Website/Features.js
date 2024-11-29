@@ -6,10 +6,11 @@ const Features = ({ city }) => {
       <div className="features-section bg-color">
         <div className="container">
           <div className="row justify-content-center">
+            {/* First Feature */}
             <div className="col-lg-4 col-md-6">
               <div className="single-features-item-two">
                 <div className="icon">
-                  <i className="flaticon-web-design"></i> {/* Ganti ikon sesuai kebutuhan */}
+                  <i className="fas fa-laptop-code"></i> {/* Ikon web design dari Font Awesome */}
                 </div>
                 <h3>
                   Layanan Pembuatan Website Profesional di {city}
@@ -20,10 +21,11 @@ const Features = ({ city }) => {
               </div>
             </div>
 
+            {/* Second Feature */}
             <div className="col-lg-4 col-md-6">
               <div className="single-features-item-two">
                 <div className="icon">
-                  <i className="flaticon-ecommerce"></i> {/* Ganti ikon sesuai kebutuhan */}
+                  <i className="fas fa-shopping-cart"></i> {/* Ikon e-commerce dari Font Awesome */}
                 </div>
                 <h3>
                   Pembuatan Website E-commerce di {city}
@@ -34,10 +36,11 @@ const Features = ({ city }) => {
               </div>
             </div>
 
+            {/* Third Feature */}
             <div className="col-lg-4 col-md-6">
               <div className="single-features-item-two">
                 <div className="icon">
-                  <i className="flaticon-responsive"></i> {/* Ganti ikon sesuai kebutuhan */}
+                  <i className="fas fa-mobile-alt"></i> {/* Ikon responsif design dari Font Awesome */}
                 </div>
                 <h3>
                   Desain Website Responsif untuk Semua Perangkat

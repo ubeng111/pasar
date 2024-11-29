@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import Link from "next/link";
+import AOS from 'aos'; // Import AOS
+import 'aos/dist/aos.css'; // Import AOS CSS for animations
 
 const MainBanner = ({ city }) => {
+  // Initialize AOS when the component mounts
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration (optional)
+      easing: 'ease-in-out', // Animation easing (optional)
+      once: true, // Trigger animation once (optional)
+    });
+  }, []);
+
   // Customize the content dynamically based on the city
   const title = `Jasa SEO Murah ${city} | Garansi Halaman #1 Google | Bulanan | Tahunan`;
   const description = `Optimalkan peringkat website Anda di mesin pencari dengan layanan SEO profesional di ${city}. Kami menyediakan strategi yang tepat untuk membantu bisnis Anda lebih mudah ditemukan secara online.`;
@@ -24,7 +35,7 @@ const MainBanner = ({ city }) => {
         className="home-slides"
       >
         <SwiperSlide>
-          <div className="main-banner-item">
+          <div className="main-banner-item" data-aos="fade-down"> {/* Apply AOS Fade-down effect */}
             <div className="d-table">
               <div className="d-table-cell">
                 <div className="container">
@@ -44,7 +55,7 @@ const MainBanner = ({ city }) => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="main-banner-item item-two">
+          <div className="main-banner-item item-two" data-aos="fade-down"> {/* Apply AOS Fade-down effect */}
             <div className="d-table">
               <div className="d-table-cell">
                 <div className="container">

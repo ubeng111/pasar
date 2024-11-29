@@ -126,9 +126,9 @@ const Footer = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <p>
-                © {currentYear} Pasar Seo. All Rights Reserved by{" "}
+                © {currentYear} Pasar.web.id. All Rights Reserved by{" "}
                 <a href="https://pasar.web.id/" target="_blank">
-                  Pasar Seo
+                  Pasar.web.id
                 </a>
               </p>
             </div>

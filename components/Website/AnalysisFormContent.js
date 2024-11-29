@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS CSS
 
 const AnalysisFormContent = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi
+    });
+  }, []);
+
   return (
     <>
       <section className="analysis-section">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6 col-md-12">
+            <div className="col-lg-6 col-md-12" data-aos="fade-up">
               <div className="analysis-area-content">
                 <span>Jasa Pembuatan Website</span>
                 <h3>Dapatkan Konsultasi Pembuatan Website Gratis</h3>
@@ -19,7 +27,7 @@ const AnalysisFormContent = () => {
 
               <form className="contactForm">
                 <div className="row">
-                  <div className="col-lg-6 col-md-6 col-sm-6">
+                  <div className="col-lg-6 col-md-6 col-sm-6" data-aos="fade-up">
                     <div className="form-group">
                       <input
                         type="text"
@@ -30,7 +38,7 @@ const AnalysisFormContent = () => {
                       />
                     </div>
                   </div>
-                  <div className="col-lg-6 col-md-6 col-sm-6">
+                  <div className="col-lg-6 col-md-6 col-sm-6" data-aos="fade-up">
                     <div className="form-group">
                       <input
                         type="email"
@@ -41,7 +49,7 @@ const AnalysisFormContent = () => {
                       />
                     </div>
                   </div>
-                  <div className="col-lg-6 col-md-6 col-sm-6">
+                  <div className="col-lg-6 col-md-6 col-sm-6" data-aos="fade-up">
                     <div className="form-group">
                       <input
                         type="tel"
@@ -52,7 +60,7 @@ const AnalysisFormContent = () => {
                       />
                     </div>
                   </div>
-                  <div className="col-lg-6 col-md-6 col-sm-6">
+                  <div className="col-lg-6 col-md-6 col-sm-6" data-aos="fade-up">
                     <div className="form-group">
                       <input
                         type="text"
@@ -65,7 +73,7 @@ const AnalysisFormContent = () => {
                   </div>
                 </div>
 
-                <div className="send-btn">
+                <div className="send-btn" data-aos="fade-up">
                   <button type="submit" className="default-btn-one">
                     Kirim Pesan
                   </button>
@@ -73,7 +81,7 @@ const AnalysisFormContent = () => {
               </form>
             </div>
 
-            <div className="col-lg-6 col-md-12">
+            <div className="col-lg-6 col-md-12" data-aos="fade-up">
               <div className="analysis-image right">
                 <img src="/images/analysis-image.png" alt="Pembuatan Website" />
               </div>

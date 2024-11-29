@@ -73,7 +73,7 @@ const Navbar = () => {
                       href="/"
                       className={`nav-link ${currentPath == "/" && "active"}`}
                     >
-                      Home
+                      <i className="fa fa-home"></i> Home
                     </Link>
                   </li>
 
@@ -84,7 +84,7 @@ const Navbar = () => {
                         currentPath == "/about-us/" && "active"
                       }`}
                     >
-                      About us
+                      <i className="fa fa-info-circle"></i> About Us
                     </Link>
                   </li>
 
@@ -95,12 +95,11 @@ const Navbar = () => {
                         currentPath == "/services/" && "active"
                       }`}
                     >
-                      Services
+                      <i className="fa fa-cogs"></i> Services
                     </Link>
                   </li>
 
                   {/* Removed Projects and Blog */}
-                  
                   <li className="nav-item">
                     <Link
                       href="/contact/"
@@ -108,7 +107,7 @@ const Navbar = () => {
                         currentPath == "/contact/" && "active"
                       }`}
                     >
-                      Contact
+                      <i className="fa fa-envelope"></i> Contact
                     </Link>
                   </li>
                 </ul>
@@ -129,9 +128,7 @@ const Navbar = () => {
 
       {/* Search Form */}
       <div
-        className={`search-overlay ${
-          isActiveSearchModal ? "" : "search-overlay-active"
-        }`}
+        className={`search-overlay ${isActiveSearchModal ? "" : "search-overlay-active"}`}
       >
         <div className="search-inner">
           <button
