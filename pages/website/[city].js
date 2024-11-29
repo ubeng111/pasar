@@ -54,13 +54,13 @@ const Index = ({ city }) => {
       "@type": "AggregateRating",
       "ratingValue": 5,
       "bestRating": 5,
-      "ratingCount": 2566
+      "ratingCount": 566
     },
     "offers": {
       "@type": "AggregateOffer",
       "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
       "priceCurrency": "IDR",
-      "lowPrice": 5000000,
+      "lowPrice": 1000000,
       "highPrice": 25000000,
       "offerCount": 1000,
       "url": `https://pasar.web.id/website-${currentCity.slug}`
@@ -93,7 +93,7 @@ const Index = ({ city }) => {
   return (
     <>
       <Head>
-        <title>Jasa Pembuatan Website Profesional {sanitizedCityName} | Desain Modern & Fungsional</title>
+        <title>Jasa Pembuatan Website {sanitizedCityName} | Desain Modern & Fungsional</title>
         <meta name="description" content={`Jasa pembuatan website terbaik di ${sanitizedCityName} dari Pasar.Web.id untuk membantu membangun website bisnis Anda.`} />
 
         {/* Canonical Link */}
