@@ -61,7 +61,7 @@ const WhyChooseUs = ({ city }) => {
             <div className="col-lg-6 col-md-12" data-aos="fade-up">
               {/* Gambar diganti dengan path yang sesuai */}
               <Image
-                src="/images/blog-details/1.jpg" // Path gambar yang telah dipindahkan ke folder public
+                src="/images/ubeng1.webp" // Path gambar yang telah dipindahkan ke folder public
                 alt="Why Choose Us"
                 width={600}  // Atur lebar gambar sesuai kebutuhan
                 height={400} // Atur tinggi gambar sesuai kebutuhan

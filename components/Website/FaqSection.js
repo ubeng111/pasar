@@ -154,7 +154,7 @@ const FaqSection = ({ city }) => {
             <div className="col-lg-6" data-aos="fade-up">
               <div className="faq-image">
                 <Image 
-                  src="/images/tab/2.jpg" 
+                  src="/images/faq-image.webp" 
                   alt="FAQ tentang Pembuatan Website untuk Bisnis"
                   width={500} 
                   height={500} // Tentukan ukuran gambar sesuai kebutuhan

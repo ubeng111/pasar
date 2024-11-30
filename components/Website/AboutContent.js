@@ -19,7 +19,7 @@ const AboutContent = ({ city }) => {
             <div className="about-warp-image" data-aos="fade-up">
               {/* Menampilkan gambar yang telah dipindahkan ke folder public */}
               <img
-                src="/images/blog-details/1.jpg"
+                src="/images/blog-details/3.webp"
                 alt="Tentang Kami"
                 className="img-fluid" // Pastikan gambar responsif
               />

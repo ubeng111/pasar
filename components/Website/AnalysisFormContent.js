@@ -86,7 +86,7 @@ const AnalysisFormContent = () => {
               <div className="analysis-image right">
                 {/* Optimized Image with next/image */}
                 <Image
-                  src="/images/analysis-image.png" // Main image source
+                  src="/images/analysis-image.webp" // Main image source
                   alt="Pembuatan Website"
                   width={800} // Set width (adjust as needed)
                   height={500} // Set height (adjust as needed)

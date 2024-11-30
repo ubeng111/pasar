@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Pastikan untuk mengimpor CSS AOS
-import Image from 'next/image'; // Mengimpor komponen Image dari Next.js
 
 const AboutContent = ({ city }) => {
   useEffect(() => {
@@ -17,16 +16,13 @@ const AboutContent = ({ city }) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-12">
-            <div className="about-warp-image" data-aos="fade-up">
-              {/* Menambahkan gambar dengan komponen Image */}
-              <Image 
-                src="/images/saas-image/arrow.png" // Gantilah dengan path gambar yang sesuai
-                alt="Tentang Kami" // Alt text untuk gambar
-                width={500} // Lebar gambar yang diinginkan
-                height={500} // Tinggi gambar yang diinginkan
-                layout="responsive" // Agar gambar responsif
-              />
-            </div>
+            {/* Menambahkan gambar */}
+            <img 
+              src="/images/ubeng1.webp" 
+              alt="Tentang Kami" 
+              className="img-fluid" 
+              data-aos="fade-up" 
+            />
           </div>
 
           <div className="col-lg-6 col-md-12">

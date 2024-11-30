@@ -4548,7 +4548,7 @@ Coming Soon Area CSS
 Footer Section CSS
 =================================================*/
 .footer-section {
-  background-image: url(/images/footer-bg.jpg);
+  background-image: url(/images/footer-bg1.webp);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4827,7 +4827,7 @@ Go Top CSS
 }
 
 .main-banner-item {
-  background-image: url(/images/slider-bg.jpg);
+  background-image: url(/images/slider-bg1.webp);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4848,7 +4848,7 @@ Go Top CSS
   z-index: -1;
 }
 .main-banner-item.item-two {
-  background-image: url(/images/slider-bg2.jpg);
+  background-image: url(/images/slider-bg22.webp);
 }
 .main-banner-item .main-banner-content {
   max-width: 550px;
@@ -4935,7 +4935,7 @@ Go Top CSS
 }
 
 .about-warp-image {
-  background-image: url(/images/about-image2.jpg);
+  background-image: url(/images/about-image2.webp);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5035,7 +5035,7 @@ Go Top CSS
 }
 
 .choose-warp {
-  background-image: url(/images/choose-image2.jpg);
+  background-image: url(/images/choose-image2.webp);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

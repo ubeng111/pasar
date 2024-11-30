@@ -86,7 +86,7 @@ const AnalysisFormContent = () => {
               <div className="analysis-image right">
                 {/* Ganti tag <img> dengan <Image> */}
                 <Image 
-                  src="/images/analysis-image.png" 
+                  src="/images/analysis-image.webp" 
                   alt="SEO Analysis" 
                   width={500} // Sesuaikan dengan ukuran gambar yang diinginkan
                   height={300} // Sesuaikan dengan ukuran gambar yang diinginkan

@@ -199,7 +199,7 @@ const FaqSection = ({ city }) => {
               <div className="faq-image">
                 {/* Gunakan komponen Image dari Next.js */}
                 <Image 
-                  src="/images/faq-image.png" 
+                  src="/images/faq-image.webp" 
                   alt="FAQ tentang SEO untuk Bisnis Lokal" 
                   width={500}   // Tentukan lebar gambar
                   height={300}  // Tentukan tinggi gambar
