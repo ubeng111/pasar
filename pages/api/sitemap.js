@@ -1,5 +1,5 @@
 import { SitemapStream, streamToPromise } from 'sitemap';
-import { cities } from '../../components/Cianjur/cities';  // Pastikan path benar
+import { cities } from '../../components/Website/cities';  // Pastikan path benar
 
 export default async function handler(req, res) {
   try {
