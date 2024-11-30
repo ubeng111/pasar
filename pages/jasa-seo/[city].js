@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { cities } from "../../components/Cianjur/cities"; // Correct path to cities
+import { cities } from "../../components/Website/cities"; // Correct path to cities
 import NavbarTwo from "../../components/Cianjur/NavbarTwo";
 import MainBanner from "../../components/Cianjur/MainBanner";
 import AnalysisFormContent from "../../components/Cianjur/AnalysisFormContent";
