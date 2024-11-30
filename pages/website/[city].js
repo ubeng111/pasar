@@ -54,7 +54,7 @@ const Index = ({ city }) => {
       "@type": "AggregateRating",
       "ratingValue": 5,
       "bestRating": 5,
-      "ratingCount":4546
+      "ratingCount": 4546
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -126,7 +126,21 @@ const Index = ({ city }) => {
   );
 };
 
-export async function getServerSideProps({ params }) {
+// Static Site Generation (SSG) with getStaticPaths
+export async function getStaticPaths() {
+  // Ambil slug kota dari array cities untuk menentukan rute dinamis
+  const paths = cities.map(city => ({
+    params: { city: city.slug }
+  }));
+
+  return {
+    paths,
+    fallback: false // Jika halaman tidak ditemukan, akan menghasilkan 404
+  };
+}
+
+// getStaticProps untuk mendapatkan data saat build time
+export async function getStaticProps({ params }) {
   const { city } = params;
   const currentCity = cities.find((c) => c.slug === city);
 
@@ -134,7 +148,9 @@ export async function getServerSideProps({ params }) {
     return { notFound: true };
   }
 
-  return { props: { city: currentCity.slug } };
+  return {
+    props: { city: currentCity.slug },
+  };
 }
 
 export default Index;

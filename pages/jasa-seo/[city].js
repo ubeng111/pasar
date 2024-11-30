@@ -127,7 +127,20 @@ const Index = ({ city }) => {
   );
 };
 
-export async function getServerSideProps({ params }) {
+// Implementasi Static Site Generation (SSG)
+export async function getStaticPaths() {
+  // Ambil slug kota dari array cities untuk menentukan rute dinamis
+  const paths = cities.map(city => ({
+    params: { city: city.slug }
+  }));
+
+  return {
+    paths,
+    fallback: false // Jika halaman tidak ditemukan, akan menghasilkan 404
+  };
+}
+
+export async function getStaticProps({ params }) {
   const { city } = params;
   const currentCity = cities.find((c) => c.slug === city);
 
@@ -135,7 +148,9 @@ export async function getServerSideProps({ params }) {
     return { notFound: true };
   }
 
-  return { props: { city: currentCity.slug } };
+  return {
+    props: { city: currentCity.slug },
+  };
 }
 
 export default Index;
