@@ -43,7 +43,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/download (1).jfif"
+                  src="/images/project/1.jfif"
                   alt="Project 1"
                   width={600}  // Set width
                   height={300} // Set height
@@ -58,7 +58,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/download (2).jfif"
+                  src="/images/project/2.jfif"
                   alt="Project 2"
                   width={600}
                   height={300}
@@ -73,7 +73,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/download (3).jfif"
+                  src="/images/project/3.jfif"
                   alt="Project 3"
                   width={600}
                   height={300}
@@ -88,7 +88,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/download (4).jfif"
+                  src="/images/project/4.jfif"
                   alt="Project 4"
                   width={600}
                   height={300}
@@ -103,7 +103,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/download (5).jfif"
+                  src="/images/project/5.jfif"
                   alt="Project 5"
                   width={600}
                   height={300}
@@ -118,7 +118,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/download (6).jfif"
+                  src="/images/project/6.jfif"
                   alt="Project 6"
                   width={600}
                   height={300}
