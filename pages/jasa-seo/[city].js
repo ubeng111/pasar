@@ -136,7 +136,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false // Jika halaman tidak ditemukan, akan menghasilkan 404
+    fallback: 'blocking' // Menggunakan blocking untuk ISR
   };
 }
 
@@ -150,6 +150,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { city: currentCity.slug },
+    revalidate: 60,  // Halaman akan di-regenerate setiap 60 detik
   };
 }
 
