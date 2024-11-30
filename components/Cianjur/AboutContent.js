@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'; 
 import Link from 'next/link';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Pastikan untuk mengimpor CSS AOS
@@ -28,27 +28,27 @@ const AboutContent = ({ city }) => {
           <div className="col-lg-6 col-md-12">
             <div className="about-warp pl-15" data-aos="fade-up">
               <span>Tentang Kami</span>
-              <h3>Spesialis Pembuatan Website Terpercaya di {city}</h3> {/* Judul dinamis berdasarkan kota */}
+              <h3>Spesialis SEO Terpercaya di {city}</h3> {/* Judul dinamis berdasarkan kota */}
 
               <p data-aos="fade-up">
-                Di {city}, kami adalah tim yang fokus pada pembuatan website profesional untuk berbagai kebutuhan bisnis. Dari website perusahaan, toko online (e-commerce), hingga platform khusus yang dapat disesuaikan dengan kebutuhan Anda. Kami menciptakan solusi website yang tidak hanya menarik, tetapi juga efektif dan ramah pengguna.
+                Di {city}, kami adalah tim ahli yang fokus pada optimasi SEO untuk bisnis Anda. Kami memahami bahwa SEO adalah kunci untuk meningkatkan visibilitas online, menarik pengunjung, dan mengonversi pengunjung menjadi pelanggan. Dengan layanan SEO yang terarah, kami membantu bisnis Anda mencapai peringkat tertinggi di mesin pencari.
               </p>
 
               <p data-aos="fade-up">
-                Kami tahu pentingnya memiliki website yang tidak hanya tampil baik, tetapi juga dapat berfungsi dengan optimal. Tim kami ahli dalam pengembangan website menggunakan teknologi terbaru, baik itu dengan menggunakan CMS seperti WordPress, platform e-commerce seperti Shopify, atau website custom berbasis React dan Next.js untuk performa tinggi.
+                Kami menawarkan berbagai layanan SEO, termasuk optimasi on-page, optimasi off-page, riset kata kunci, dan analisis kompetitor. Tim kami berpengalaman dalam menggunakan teknik SEO terbaru yang sesuai dengan algoritma mesin pencari, sehingga situs Anda akan lebih mudah ditemukan oleh calon pelanggan di {city} dan seluruh Indonesia.
               </p>
 
               <p data-aos="fade-up">
-                Kami juga memastikan website yang kami bangun responsif di semua perangkat, memiliki kecepatan akses yang cepat, dan dioptimalkan untuk SEO sehingga bisnis Anda dapat ditemukan oleh calon pelanggan di {city} dan seluruh Indonesia.
+                Kami juga mengutamakan kecepatan situs, pengalaman pengguna yang optimal, dan penggunaan strategi yang berkelanjutan untuk memastikan bahwa website Anda tidak hanya tampil menarik, tetapi juga efektif dalam menarik perhatian pasar yang tepat.
               </p>
 
               <p data-aos="fade-up">
-                Dengan pengalaman bertahun-tahun dalam industri ini, kami memahami bagaimana membangun website yang tidak hanya menarik perhatian, tetapi juga dapat meningkatkan konversi dan membantu bisnis Anda berkembang di dunia digital.
+                Dengan pengalaman bertahun-tahun dalam industri SEO, kami telah membantu banyak bisnis meningkatkan posisi mereka di mesin pencari dan meraih kesuksesan dalam dunia digital.
               </p>
 
               <div className="about-btn" data-aos="fade-up">
                 {/* Mengubah link menuju halaman dengan dynamic routing */}
-                <Link href={`/jasa-pembuatan-website/${city.toLowerCase()}`} className="default-btn-one">
+                <Link href={`/jasa-seo/${city.toLowerCase()}`} className="default-btn-one">
                   Pelajari Lebih Lanjut
                 </Link>
               </div>
