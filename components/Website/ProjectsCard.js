@@ -43,7 +43,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/1.jfif"
+                  src="/images/project/16.webp"
                   alt="Project 1"
                   width={600}  // Set width
                   height={300} // Set height
@@ -58,7 +58,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/2.jfif"
+                  src="/images/project/15.webp"
                   alt="Project 2"
                   width={600}
                   height={300}
@@ -73,7 +73,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/3.jfif"
+                  src="/images/project/14.webp"
                   alt="Project 3"
                   width={600}
                   height={300}
@@ -88,7 +88,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/4.jfif"
+                  src="/images/project/13.webp"
                   alt="Project 4"
                   width={600}
                   height={300}
@@ -103,7 +103,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/5.jfif"
+                  src="/images/project/12.webp"
                   alt="Project 5"
                   width={600}
                   height={300}
@@ -118,7 +118,7 @@ const ProjectsCard = () => {
             <SwiperSlide>
               <div className="single-project-box">
                 <Image
-                  src="/images/project/6.jfif"
+                  src="/images/project/11.webp"
                   alt="Project 6"
                   width={600}
                   height={300}

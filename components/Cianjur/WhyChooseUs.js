@@ -62,7 +62,7 @@ const WhyChooseUs = ({ city }) => {
               <div className="choose-warp">
                 {/* Contoh penggunaan komponen Image */}
                 <Image
-                  src="/images/team/5.jpg"  // Ganti dengan path gambar yang sesuai
+                  src="/images/saas-image/arrow.png"  // Ganti dengan path gambar yang sesuai
                   alt="Jasa SEO"
                   width={500}                   // Sesuaikan lebar gambar
                   height={300}                  // Sesuaikan tinggi gambar
