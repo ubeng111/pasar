@@ -20,7 +20,7 @@ const AboutContent = ({ city }) => {
             <div className="about-warp-image" data-aos="fade-up">
               {/* Menambahkan gambar dengan komponen Image */}
               <Image 
-                src="/images/about-image.jpg" // Gantilah dengan path gambar yang sesuai
+                src="/images/about-image2.jpg" // Gantilah dengan path gambar yang sesuai
                 alt="Tentang Kami" // Alt text untuk gambar
                 width={500} // Lebar gambar yang diinginkan
                 height={500} // Tinggi gambar yang diinginkan

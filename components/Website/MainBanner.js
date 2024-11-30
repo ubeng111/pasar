@@ -50,11 +50,11 @@ const MainBanner = ({ city }) => {
               </div>
             </div>
 
-            {/* Banner Image */}
+            {/* banner-image */}
             <div className="banner-image">
               <Image 
-                src="/images/banner/banner1.jpg" 
-                alt={`Jasa Pembuatan Website Profesional di ${city}`} 
+                src="/images/slider-bg.jpg" 
+                alt={`Jasa Pembuatan Website Profesional ${city}`} 
                 width={1920} 
                 height={1080} 
                 layout="responsive" 
@@ -85,7 +85,7 @@ const MainBanner = ({ city }) => {
             {/* Banner Image */}
             <div className="banner-image">
               <Image 
-                src="/images/banner/banner2.jpg" 
+                src="/images/slider-bg.jpg" 
                 alt={`Website Custom dan Desain Profesional di ${city}`} 
                 width={1920} 
                 height={1080} 

@@ -54,7 +54,7 @@ const MainBanner = ({ city }) => {
             </div>
             {/* Example image with next/image */}
             <Image 
-              src="/images/banner-image1.jpg" // Adjust path as needed
+              src="/images/slider-bg.jpg" // Adjust path as needed
               alt="Banner Image" 
               width={1200} // Set appropriate width
               height={500} // Set appropriate height
@@ -82,7 +82,7 @@ const MainBanner = ({ city }) => {
             </div>
             {/* Example image with next/image */}
             <Image 
-              src="/images/banner-image2.jpg" // Adjust path as needed
+              src="/images/slider-bg.jpg2" // Adjust path as needed
               alt="Banner Image" 
               width={1200} // Set appropriate width
               height={500} // Set appropriate height
