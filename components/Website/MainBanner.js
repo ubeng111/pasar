@@ -53,7 +53,7 @@ const MainBanner = ({ city }) => {
             {/* banner-image */}
             <div className="banner-image">
               <Image 
-                src="/images/slider-bg.jpg" 
+                src="/images/slider-bg22.webp" 
                 alt={`Jasa Pembuatan Website Profesional ${city}`} 
                 width={1920} 
                 height={1080} 
@@ -85,7 +85,7 @@ const MainBanner = ({ city }) => {
             {/* Banner Image */}
             <div className="banner-image">
               <Image 
-                src="/images/slider-bg.jpg" 
+                src="/images/slider-bg1.webp" 
                 alt={`Website Custom dan Desain Profesional di ${city}`} 
                 width={1920} 
                 height={1080} 
