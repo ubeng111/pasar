@@ -1,17 +1,20 @@
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'; 
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { cities } from "../../components/Website/cities"; // Correct path to cities
-import NavbarTwo from "../../components/Cianjur/NavbarTwo";
-import MainBanner from "../../components/Cianjur/MainBanner";
-import AnalysisFormContent from "../../components/Cianjur/AnalysisFormContent";
-import AboutContent from "../../components/Cianjur/AboutContent";
-import ServicesCard from "../../components/Cianjur/ServicesCard";
-import WhyChooseUs from "../../components/Cianjur/WhyChooseUs";
-import Features from "../../components/Cianjur/Features";
-import FaqSection from "../../components/Cianjur/FaqSection";
-import PricingContent from "../../components/Cianjur/PricingContent";
-import Footer from "../../components/Cianjur/Footer";
+import { cities } from "../../components/Website/cities"; // Path ke cities yang benar
+import dynamic from 'next/dynamic';  // Import dynamic untuk komponen dinamis
+
+// Dynamic import untuk komponen besar
+const NavbarTwo = dynamic(() => import("../../components/Cianjur/NavbarTwo"));
+const MainBanner = dynamic(() => import("../../components/Cianjur/MainBanner"));
+const Features = dynamic(() => import("../../components/Cianjur/Features"));
+const AboutContent = dynamic(() => import("../../components/Cianjur/AboutContent"));
+const ServicesCard = dynamic(() => import("../../components/Cianjur/ServicesCard"));
+const WhyChooseUs = dynamic(() => import("../../components/Cianjur/WhyChooseUs"));
+const PricingContent = dynamic(() => import("../../components/Cianjur/PricingContent"));
+const AnalysisFormContent = dynamic(() => import("../../components/Cianjur/AnalysisFormContent"));
+const FaqSection = dynamic(() => import("../../components/Cianjur/FaqSection"));
+const Footer = dynamic(() => import("../../components/Cianjur/Footer"));
 
 // Sanitasi nama kota untuk menghindari karakter yang tidak diinginkan
 const sanitizeCityName = (cityName) => {
@@ -127,30 +130,17 @@ const Index = ({ city }) => {
   );
 };
 
-// Implementasi Static Site Generation (SSG)
-export async function getStaticPaths() {
-  // Ambil slug kota dari array cities untuk menentukan rute dinamis
-  const paths = cities.map(city => ({
-    params: { city: city.slug }
-  }));
-
-  return {
-    paths,
-    fallback: 'blocking' // Menggunakan blocking untuk ISR
-  };
-}
-
-export async function getStaticProps({ params }) {
+// Menggunakan getServerSideProps untuk data fetching di server-side
+export async function getServerSideProps({ params }) {
   const { city } = params;
   const currentCity = cities.find((c) => c.slug === city);
 
   if (!currentCity) {
-    return { notFound: true };
+    return { notFound: true }; // Mengembalikan halaman 404 jika kota tidak ditemukan
   }
 
   return {
-    props: { city: currentCity.slug },
-    revalidate: 60,  // Halaman akan di-regenerate setiap 60 detik
+    props: { city: currentCity.slug }, // Mengirimkan slug kota ke komponen
   };
 }
 
