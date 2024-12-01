@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Pastikan AOS CSS sudah diimpor
+import 'aos/dist/aos.css'; // Ensure AOS CSS is imported
 
 class PricingContent extends Component {
 
@@ -22,10 +22,10 @@ class PricingContent extends Component {
     }
 
     componentDidMount() {
-        // Inisialisasi AOS setelah komponen dipasang
+        // Initialize AOS after the component mounts
         AOS.init({
-            duration: 1000, // Durasi animasi dalam ms
-            once: true, // Efek animasi hanya dijalankan sekali
+            duration: 1000, // Animation duration in ms
+            once: true, // Animation happens only once
         });
     }
 
@@ -43,104 +43,102 @@ class PricingContent extends Component {
                         <ul className="tabs">
                             <li
                                 className="current"
-                                onClick={(e) => this.openTabSection(e, 'silver')}
-                                data-aos="fade-up" // Menambahkan AOS fade-up pada tab
+                                onClick={(e) => this.openTabSection(e, 'basic')}
+                                data-aos="fade-up"
                             >
-                                <i className="fa fa-silver"></i> Paket Silver
+                                Paket Basic
                             </li>
                             <li
-                                onClick={(e) => this.openTabSection(e, 'gold')}
-                                data-aos="fade-up" // Menambahkan AOS fade-up pada tab
+                                onClick={(e) => this.openTabSection(e, 'profesional')}
+                                data-aos="fade-up"
                             >
-                                <i className="fa fa-gold"></i> Paket Gold
+                                Paket Profesional
+                            </li>
+                            <li
+                                onClick={(e) => this.openTabSection(e, 'ultimate')}
+                                data-aos="fade-up"
+                            >
+                                Paket Ultimate
                             </li>
                         </ul>
 
                         <div className="tab-content">
-                            {/* Paket Silver */}
-                            <div id="silver" className="tabs-item" data-aos="fade-up">
+                            {/* Paket Basic */}
+                            <div id="basic" className="tabs-item" style={{ display: 'block' }} data-aos="fade-up">
                                 <div className="row justify-content-center">
+                                    {/* BASIC WEB 1 */}
                                     <div className="col-lg-4 col-md-6" data-aos="fade-up">
                                         <div className="single-pricing-box bg-f6f5fb">
                                             <div className="pricing-header">
-                                                <h3><i className="fa fa-laptop"></i> Pembuatan Website Basic</h3>
+                                                <h3>BASIC WEB 1</h3>
                                             </div>
-
                                             <div className="price">
                                                 <strong>Rp</strong>
-                                                <span style={{ fontSize: '24px', marginLeft: '5px' }}>5.000.000</span>
+                                                <span>431.250</span>
                                             </div>
-
                                             <ul className="pricing-features">
-                                                <li><i className='flaticon-check-mark'></i> 1 Halaman Website</li>
-                                                <li><i className='flaticon-check-mark'></i> Desain Responsif</li>
-                                                <li><i className='flaticon-check-mark'></i> SEO On-page dasar</li>
-                                                <li><i className='flaticon-check-mark'></i> Integrasi Kontak Form</li>
-                                                <li><i className='flaticon-check-mark'></i> Domain & Hosting 1 Tahun</li>
-                                                <li><i className='flaticon-check-mark'></i> 1 Revisi Desain</li>
+                                                <li>Domain WEB.ID | SCH.ID | OR.ID</li>
+                                                <li>SSD Hosting 1 GB</li>
+                                                <li>Bandwidth 5GB/bln</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 0</li>
+                                                <li>Design BASIC 1</li>
                                             </ul>
-
                                             <div className="price-btn">
                                                 <Link href="/contact" className="price-btn-one">
-                                                    <i className="fa fa-arrow-right"></i> Mulai Sekarang
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
                                                 </Link>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/* Paket Website Business */}
+                                    {/* BASIC WEB 2 */}
                                     <div className="col-lg-4 col-md-6" data-aos="fade-up">
                                         <div className="single-pricing-box bg-ed0678">
                                             <div className="pricing-header">
-                                                <h3><i className="fa fa-building"></i> Pembuatan Website Business</h3>
+                                                <h3>BASIC WEB 2</h3>
                                             </div>
-
                                             <div className="price">
                                                 <strong>Rp</strong>
-                                                <span style={{ fontSize: '24px', marginLeft: '5px' }}>8.500.000</span>
+                                                <span>718.750</span>
                                             </div>
-
                                             <ul className="pricing-features">
-                                                <li><i className='flaticon-check-mark'></i> 3 Halaman Website</li>
-                                                <li><i className='flaticon-check-mark'></i> Desain Responsif</li>
-                                                <li><i className='flaticon-check-mark'></i> SEO On-page & Off-page</li>
-                                                <li><i className='flaticon-check-mark'></i> Integrasi Google Analytics</li>
-                                                <li><i className='flaticon-check-mark'></i> Domain & Hosting 1 Tahun</li>
-                                                <li><i className='flaticon-check-mark'></i> 2 Revisi Desain</li>
+                                                <li>Domain COM</li>
+                                                <li>SSD Hosting 2 GB</li>
+                                                <li>Bandwidth 10GB/bln</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 0</li>
+                                                <li>Design BASIC 2</li>
                                             </ul>
-
                                             <div className="price-btn">
                                                 <Link href="/contact" className="price-btn-one">
-                                                    <i className="fa fa-arrow-right"></i> Mulai Sekarang
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
                                                 </Link>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/* Paket Website E-commerce */}
+                                    {/* BASIC WEB 3 */}
                                     <div className="col-lg-4 col-md-6" data-aos="fade-up">
                                         <div className="single-pricing-box bg-edfbf8">
                                             <div className="pricing-header">
-                                                <h3><i className="fa fa-shopping-cart"></i> Pembuatan Website E-commerce</h3>
+                                                <h3>BASIC WEB 3</h3>
                                             </div>
-
                                             <div className="price">
                                                 <strong>Rp</strong>
-                                                <span style={{ fontSize: '24px', marginLeft: '5px' }}>15.000.000</span>
+                                                <span>1.063.750</span>
                                             </div>
-
                                             <ul className="pricing-features">
-                                                <li><i className='flaticon-check-mark'></i> Website E-commerce dengan 5 Produk</li>
-                                                <li><i className='flaticon-check-mark'></i> Desain Responsif</li>
-                                                <li><i className='flaticon-check-mark'></i> SEO On-page & Off-page</li>
-                                                <li><i className='flaticon-check-mark'></i> Integrasi Pembayaran & Pengiriman</li>
-                                                <li><i className='flaticon-check-mark'></i> Domain & Hosting 1 Tahun</li>
-                                                <li><i className='flaticon-check-mark'></i> 3 Revisi Desain</li>
+                                                <li>Domain COM</li>
+                                                <li>SSD Hosting 3 GB</li>
+                                                <li>Bandwidth Unlimited</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 1</li>
+                                                <li>Design BASIC 3</li>
                                             </ul>
-
                                             <div className="price-btn">
                                                 <Link href="/contact" className="price-btn-one">
-                                                    <i className="fa fa-arrow-right"></i> Mulai Sekarang
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
                                                 </Link>
                                             </div>
                                         </div>
@@ -148,68 +146,172 @@ class PricingContent extends Component {
                                 </div>
                             </div>
 
-                            {/* Paket Gold */}
-                            <div id="gold" className="tabs-item" data-aos="fade-up">
+                            {/* Paket Profesional */}
+                            <div id="profesional" className="tabs-item" style={{ display: 'none' }} data-aos="fade-up">
                                 <div className="row justify-content-center">
+                                    {/* WEB PROFESIONAL */}
                                     <div className="col-lg-4 col-md-6" data-aos="fade-up">
                                         <div className="single-pricing-box bg-f6f5fb">
                                             <div className="pricing-header">
-                                                <h3><i className="fa fa-gem"></i> Pembuatan Website Premium</h3>
+                                                <h3>Paket Web Super Pro</h3>
                                             </div>
-
                                             <div className="price">
                                                 <strong>Rp</strong>
-                                                <span style={{ fontSize: '24px', marginLeft: '5px' }}>25.000.000</span>
+                                                <span>1.357.000</span>
                                             </div>
-
                                             <ul className="pricing-features">
-                                                <li><i className='flaticon-check-mark'></i> Website Full Custom</li>
-                                                <li><i className='flaticon-check-mark'></i> Desain Responsif & Animasi</li>
-                                                <li><i className='flaticon-check-mark'></i> SEO On-page & Off-page Lengkap</li>
-                                                <li><i className='flaticon-check-mark'></i> Integrasi Google Analytics & Google Ads</li>
-                                                <li><i className='flaticon-check-mark'></i> Domain & Hosting 1 Tahun</li>
-                                                <li><i className='flaticon-check-mark'></i> 5 Revisi Desain</li>
-                                                <li><i className='flaticon-check-mark'></i> Fitur Keamanan SSL</li>
+                                                <li>Domain COM</li>
+                                                <li>SSD Hosting 5 GB</li>
+                                                <li>Bandwidth Unlimited</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 3</li>
+                                                <li>Design PRO 1</li>
                                             </ul>
-
                                             <div className="price-btn">
                                                 <Link href="/contact" className="price-btn-one">
-                                                    <i className="fa fa-arrow-right"></i> Mulai Sekarang
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
                                                 </Link>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/* Paket Website Corporate */}
+                                    {/* WEB PROFESIONAL 2 */}
                                     <div className="col-lg-4 col-md-6" data-aos="fade-up">
                                         <div className="single-pricing-box bg-ed0678">
                                             <div className="pricing-header">
-                                                <h3><i className="fa fa-building"></i> Pembuatan Website Corporate</h3>
+                                                <h3>Paket Web PowerBoost</h3>
                                             </div>
-
                                             <div className="price">
                                                 <strong>Rp</strong>
-                                                <span style={{ fontSize: '24px', marginLeft: '5px' }}>50.000.000</span>
+                                                <span>2.242.500</span>
                                             </div>
-
                                             <ul className="pricing-features">
-                                                <li><i className='flaticon-check-mark'></i> Website Corporate dengan Fitur Kustom</li>
-                                                <li><i className='flaticon-check-mark'></i> Desain Premium</li>
-                                                <li><i className='flaticon-check-mark'></i> SEO On-page & Off-page Premium</li>
-                                                <li><i className='flaticon-check-mark'></i> Integrasi CRM & Sistem Pembayaran</li>
-                                                <li><i className='flaticon-check-mark'></i> Domain & Hosting 1 Tahun</li>
-                                                <li><i className='flaticon-check-mark'></i> 10 Revisi Desain</li>
+                                                <li>Domain COM</li>
+                                                <li>SSD Hosting 7 GB</li>
+                                                <li>Bandwidth Unlimited</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 4</li>
+                                                <li>Design PRO 2</li>
                                             </ul>
-
                                             <div className="price-btn">
                                                 <Link href="/contact" className="price-btn-one">
-                                                    <i className="fa fa-arrow-right"></i> Mulai Sekarang
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* WEB PROFESIONAL 3 */}
+                                    <div className="col-lg-4 col-md-6" data-aos="fade-up">
+                                        <div className="single-pricing-box bg-edfbf8">
+                                            <div className="pricing-header">
+                                                <h3>Paket Web Prime</h3>
+                                            </div>
+                                            <div className="price">
+                                                <strong>Rp</strong>
+                                                <span>3.128.000</span>
+                                            </div>
+                                            <ul className="pricing-features">
+                                                <li>Domain COM</li>
+                                                <li>SSD Hosting 10 GB</li>
+                                                <li>Bandwidth Unlimited</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 6</li>
+                                                <li>Design PRO 3</li>
+                                            </ul>
+                                            <div className="price-btn">
+                                                <Link href="/contact" className="price-btn-one">
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
                                                 </Link>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Paket Ultimate */}
+                            <div id="ultimate" className="tabs-item" style={{ display: 'none' }} data-aos="fade-up">
+                                <div className="row justify-content-center">
+                                    {/* ULTIMATE WEB 1 */}
+                                    <div className="col-lg-4 col-md-6" data-aos="fade-up">
+                                        <div className="single-pricing-box bg-f6f5fb">
+                                            <div className="pricing-header">
+                                                <h3>Ultimate Web 1</h3>
+                                            </div>
+                                            <div className="price">
+                                                <strong>Rp</strong>
+                                                <span>5.000.000</span>
+                                            </div>
+                                            <ul className="pricing-features">
+                                                <li>Domain COM</li>
+                                                <li>SSD Hosting 20 GB</li>
+                                                <li>Bandwidth Unlimited</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 10</li>
+                                                <li>Design Ultimate 1</li>
+                                            </ul>
+                                            <div className="price-btn">
+                                                <Link href="/contact" className="price-btn-one">
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* ULTIMATE WEB 2 */}
+                                    <div className="col-lg-4 col-md-6" data-aos="fade-up">
+                                        <div className="single-pricing-box bg-ed0678">
+                                            <div className="pricing-header">
+                                                <h3>Ultimate Web 2</h3>
+                                            </div>
+                                            <div className="price">
+                                                <strong>Rp</strong>
+                                                <span>7.000.000</span>
+                                            </div>
+                                            <ul className="pricing-features">
+                                                <li>Domain COM</li>
+                                                <li>SSD Hosting 30 GB</li>
+                                                <li>Bandwidth Unlimited</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 20</li>
+                                                <li>Design Ultimate 2</li>
+                                            </ul>
+                                            <div className="price-btn">
+                                                <Link href="/contact" className="price-btn-one">
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* ULTIMATE WEB 3 */}
+                                    <div className="col-lg-4 col-md-6" data-aos="fade-up">
+                                        <div className="single-pricing-box bg-edfbf8">
+                                            <div className="pricing-header">
+                                                <h3>Ultimate Web 3</h3>
+                                            </div>
+                                            <div className="price">
+                                                <strong>Rp</strong>
+                                                <span>9.000.000</span>
+                                            </div>
+                                            <ul className="pricing-features">
+                                                <li>Domain COM</li>
+                                                <li>SSD Hosting 50 GB</li>
+                                                <li>Bandwidth Unlimited</li>
+                                                <li>Free SSL</li>
+                                                <li>Email Domain 30</li>
+                                                <li>Design Ultimate 3</li>
+                                            </ul>
+                                            <div className="price-btn">
+                                                <Link href="/contact" className="price-btn-one">
+                                                    <i className="fa fa-arrow-right"></i> Pesan Sekarang
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
