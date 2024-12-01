@@ -4,7 +4,7 @@ import path from 'path';
 import { cities } from '../../components/Website/cities'; // Import daftar kota Anda
 import { format } from 'date-fns';
 
-const MAX_URLS_PER_SITEMAP = 5000; // Batas URL per sitemap (5000 per file)
+const MAX_URLS_PER_SITEMAP = 30000; // Update to 30000 per sitemap
 
 // Fungsi untuk menangani pembuatan sitemap
 export default async function handler(req, res) {
