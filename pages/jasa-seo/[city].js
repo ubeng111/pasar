@@ -5,7 +5,7 @@ import { cities } from "../../components/Website/cities"; // Path ke cities yang
 import dynamic from 'next/dynamic';  // Import dynamic untuk komponen dinamis
 
 // Dynamic import untuk komponen besar
-const NavbarTwo = dynamic(() => import("../../components/Cianjur/NavbarTwo"));
+const NavbarTwo = dynamic(() => import("../../components/Website/NavbarTwo"));
 const MainBanner = dynamic(() => import("../../components/Cianjur/MainBanner"));
 const Features = dynamic(() => import("../../components/Cianjur/Features"));
 const AboutContent = dynamic(() => import("../../components/Cianjur/AboutContent"));

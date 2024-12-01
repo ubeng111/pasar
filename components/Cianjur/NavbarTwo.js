@@ -52,8 +52,8 @@ const Navbar = () => {
                 <Image
                   src="/images/logo.png" // Sumber gambar
                   alt="logo" // Deskripsi gambar
-                  width={120} // Lebar gambar (sesuaikan ukuran)
-                  height={40} // Tinggi gambar (sesuaikan ukuran)
+                  width={250} // Lebar gambar (sesuaikan ukuran)
+                  height={65} // Tinggi gambar (sesuaikan ukuran)
                 />
               </Link>
 

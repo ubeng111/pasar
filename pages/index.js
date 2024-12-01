@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head"; // Impor Head dari Next.js
-import NavbarTwo from "../components/Layouts/NavbarTwo";
+import NavbarTwo from "../components/Website/NavbarTwo";
 import MainBanner from "../components/HomeThree/MainBanner";
 import Features from "../components/HomeThree/Features";
 import AboutContent from "../components/HomeThree/AboutContent";
