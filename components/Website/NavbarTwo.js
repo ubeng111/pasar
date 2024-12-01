@@ -52,8 +52,8 @@ const Navbar = () => {
                 <Image
                   src="/images/logo.png"
                   alt="logo"
-                  width={250}  // Set the width of the logo
-                  height={65}  // Set the height of the logo
+                  width={200}  // Set the width of the logo
+                  height={50}  // Set the height of the logo
                   layout="intrinsic"  // Intrinsic layout ensures the aspect ratio is maintained
                 />
               </Link>
