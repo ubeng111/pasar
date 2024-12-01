@@ -4,7 +4,8 @@ import path from 'path';
 import { cities } from '../../components/Website/cities'; // Import daftar kota Anda
 import { format } from 'date-fns';
 
-const MAX_URLS_PER_SITEMAP = 30000; // Update to 30000 per sitemap
+// Set MAX_URLS_PER_SITEMAP to 10,000 URLs per sitemap
+const MAX_URLS_PER_SITEMAP = 10000; // Updated to 10,000 URLs per sitemap
 
 // Fungsi untuk menangani pembuatan sitemap
 export default async function handler(req, res) {
@@ -118,7 +119,7 @@ export default async function handler(req, res) {
     writeStream.end();
 
     console.log('Sitemap Index created at:', sitemapIndexFilePath);
-
+    
     // Kirimkan response ke API setelah sitemap selesai dibuat
     writeStream.on('finish', async () => {
       // Kirimkan sitemap index sebagai response API

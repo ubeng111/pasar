@@ -6,4 +6,4 @@ Allow: /
 Host: https://pasar.web.id
 
 # Sitemaps
-Sitemap: https://pasar.web.id/sitemap-index.xml
+Sitemap: https://pasar.web.id/sitemap.xml
