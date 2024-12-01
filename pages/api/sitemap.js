@@ -4,7 +4,7 @@ import path from 'path';
 import { cities } from '../../components/Website/cities'; // Import daftar kota Anda
 import { format } from 'date-fns';
 
-const MAX_URLS_PER_SITEMAP = 10000; // Batas URL per sitemap (10000 per file)
+const MAX_URLS_PER_SITEMAP = 5000; // Batas URL per sitemap (5000 per file)
 
 // Fungsi untuk menangani pembuatan sitemap
 export default async function handler(req, res) {
@@ -99,23 +99,32 @@ export default async function handler(req, res) {
     }
 
     // Membuat sitemap index yang berisi link ke semua file sitemap
-    const sitemapIndexStream = new SitemapStream({ hostname: 'https://pasar.web.id' });
-    sitemapIndexStream.write({ urls: sitemapIndexUrls });
-    sitemapIndexStream.end();
-
-    // Menulis sitemap index ke file
     const sitemapIndexFilePath = path.resolve('./public/sitemaps', 'sitemap-index.xml');
     const writeStream = fs.createWriteStream(sitemapIndexFilePath);
-    sitemapIndexStream.pipe(writeStream);
+
+    // Mulai menulis sitemap index
+    writeStream.write('<?xml version="1.0" encoding="UTF-8"?>\n');
+    writeStream.write('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n');
+
+    // Menambahkan setiap file sitemap ke sitemap index
+    sitemapIndexUrls.forEach((sitemapUrl) => {
+      writeStream.write(`  <sitemap>\n`);
+      writeStream.write(`    <loc>${sitemapUrl.loc}</loc>\n`);
+      writeStream.write(`  </sitemap>\n`);
+    });
+
+    // Menutup sitemap index
+    writeStream.write('</sitemapindex>\n');
+    writeStream.end();
 
     console.log('Sitemap Index created at:', sitemapIndexFilePath);
 
     // Kirimkan response ke API setelah sitemap selesai dibuat
     writeStream.on('finish', async () => {
       // Kirimkan sitemap index sebagai response API
-      const sitemapIndexXML = await streamToPromise(sitemapIndexStream);
+      const sitemapIndexXML = await fs.promises.readFile(sitemapIndexFilePath, 'utf-8');
       res.setHeader('Content-Type', 'application/xml');
-      res.status(200).send(sitemapIndexXML.toString());
+      res.status(200).send(sitemapIndexXML);
     });
 
   } catch (err) {
