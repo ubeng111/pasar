@@ -5,8 +5,8 @@ import { cities } from '../../components/Website/cities'; // Import daftar kota 
 import { format } from 'date-fns';
 import zlib from 'zlib';  // Import zlib untuk kompresi gzip
 
-// Set MAX_URLS_PER_SITEMAP to 10,000 URLs per sitemap
-const MAX_URLS_PER_SITEMAP = 10000; // Updated to 10,000 URLs per sitemap
+// Set MAX_URLS_PER_SITEMAP to 2,000 URLs per sitemap
+const MAX_URLS_PER_SITEMAP = 2000; // Updated to 2,000 URLs per sitemap
 
 // Fungsi untuk menangani pembuatan sitemap
 export default async function handler(req, res) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";  // Import Helmet untuk mengatur title dan meta
-import NavbarTwo from "../components/Layouts/NavbarTwo";
+import NavbarTwo from "../components/Website/NavbarTwo";
 import PageBanner from "../components/Common/PageBanner";
 import ServicesContent from "../components/Common/ServicesContent";
 import WhyChooseUs from "../components/Common/WhyChooseUs";
