@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import { cities } from '../../components/Website/cities'; // Import daftar kota Anda
 import { format } from 'date-fns';
-import zlib from 'zlib';  // Import zlib untuk kompresi gzip
 
 // Set MAX_URLS_PER_SITEMAP to 2,000 URLs per sitemap
 const MAX_URLS_PER_SITEMAP = 2000; // Updated to 2,000 URLs per sitemap
@@ -43,29 +42,6 @@ export default async function handler(req, res) {
         // Menambahkan log jika stream berhasil ditulis
         writeStream.on('finish', () => {
           console.log(`Sitemap file written successfully: ${sitemapFilePath}`);
-
-          // Setelah file ditulis, kompres file .xml menjadi .xml.gz
-          const gzippedFilePath = sitemapFilePath.replace('.xml', '.xml.gz');
-          const readStream = fs.createReadStream(sitemapFilePath);
-          const writeGzStream = fs.createWriteStream(gzippedFilePath);
-          const gzip = zlib.createGzip();  // Membuat stream kompresi gzip
-
-          // Pipe file XML ke dalam gzip untuk kompresi
-          readStream.pipe(gzip).pipe(writeGzStream);
-
-          // Menambahkan log setelah kompresi selesai
-          writeGzStream.on('finish', () => {
-            console.log(`Sitemap file gzipped successfully: ${gzippedFilePath}`);
-            
-            // Hapus file XML yang tidak terkompresi jika tidak diperlukan
-            fs.unlink(sitemapFilePath, (err) => {
-              if (err) {
-                console.error('Error deleting uncompressed file:', err);
-              } else {
-                console.log('Uncompressed XML file deleted.');
-              }
-            });
-          });
         });
 
         // Menangani error dalam penulisan file
@@ -81,7 +57,7 @@ export default async function handler(req, res) {
       if (currentStream.writableLength >= MAX_URLS_PER_SITEMAP) {
         currentStream.end(); // Akhiri stream untuk sitemap saat ini
         sitemapIndexUrls.push({
-          loc: `https://pasar.web.id/sitemaps/sitemap-${currentSitemapCount}.xml.gz`, // Perbarui dengan .xml.gz
+          loc: `https://pasar.web.id/sitemaps/sitemap-${currentSitemapCount}.xml`, // Menggunakan file XML
           lastmod: new Date().toISOString(),
         });
 
@@ -118,7 +94,7 @@ export default async function handler(req, res) {
     if (currentStream) {
       currentStream.end();
       sitemapIndexUrls.push({
-        loc: `https://pasar.web.id/sitemaps/sitemap-${currentSitemapCount}.xml.gz`, // Perbarui dengan .xml.gz
+        loc: `https://pasar.web.id/sitemaps/sitemap-${currentSitemapCount}.xml`, // Menggunakan file XML
         lastmod: new Date().toISOString(),
       });
     }
