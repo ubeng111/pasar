@@ -98,10 +98,13 @@ const Index = ({ city }) => {
       <Head>
         <title>Jasa Pembuatan Website {sanitizedCityName} | Desain Modern & Fungsional</title>
         <meta name="description" content={`Jasa pembuatan website terbaik di ${sanitizedCityName} Desain modern, fungsional, harga mulai 400 ribuan. Hubungi Pasar.Web.id sekarang!.`} />
-
+        
+        {/* Add meta keywords */}
+        <meta name="keywords" content={`jasa website ${sanitizedCityName}, website murah ${sanitizedCityName}, desain website, web developer, pembuatan website di ${sanitizedCityName}, pembuatan website profesional, jasa desain website di ${sanitizedCityName}, web development ${sanitizedCityName}, pembuatan website bisnis ${sanitizedCityName}, jasa bikin web ${sanitizedCityName}, pembuatan website modern, harga website ${sanitizedCityName}, website untuk usaha, jasa pembuatan website di ${sanitizedCityName}, pembuatan website murah ${sanitizedCityName}, jasa pembuatan website terbaik, pembuatan website di ${sanitizedCityName} Indonesia, jasa pembuatan website e-commerce, desain website profesional, pengembangan website, pembuatan website responsive, pengembangan web, jasa website profesional, pembuatan website personal, website marketing, pembuatan aplikasi web, website untuk startup, jasa website murah, pembuatan website untuk bisnis kecil, pengembangan website untuk UKM, jasa pembuatan website perusahaan, desain web kreatif, desain website responsif, pengembangan website custom, pembuatan website SEO friendly ${sanitizedCityName}`} />
+        
         {/* Canonical Link */}
         <link rel="canonical" href={`https://pasar.web.id/website-${currentCity.slug}`} />
-
+        
         {/* JSON-LD Structured Data for SEO */}
         <script
           type="application/ld+json"

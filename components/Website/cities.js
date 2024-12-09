@@ -88981,6 +88981,7 @@ export const cities = [
   { name: "Bokat", slug: "bokat" },
   { name: "Bukal", slug: "bukal" },
   { name: "Bunobogu", slug: "bunobogu" },
+  { name: "Batam", slug: "batam" },
   { name: "Gadung", slug: "gadung" },
   { name: "Karamat", slug: "karamat" },
   { name: "Lakea", slug: "lakea" },

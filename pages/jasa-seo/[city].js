@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'; 
+import { useRouter } from 'next/router';  
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { cities } from "../../components/Website/cities"; // Path ke cities yang benar
@@ -97,12 +97,15 @@ const Index = ({ city }) => {
   return (
     <>
       <Head>
-        <title>Jasa SEO Murah {sanitizedCityName} | Garansi Halaman #1 Google | Bulanan | Tahunan</title>
+        <title>Jasa SEO {sanitizedCityName} | Garansi Halaman #1 Google | Bulanan | Tahunan</title>
         <meta name="description" content={`Jasa SEO ${sanitizedCityName} dari Pasar.Web.id untuk membantu meningkatkan peringkat website Anda di Google.`} />
-
+        
+        {/* Meta keywords - 20 kata kunci */}
+        <meta name="keywords" content={`jasa seo, ahli seo ${sanitizedCityName}, layanan seo, seo terbaik, jasa seo di ${sanitizedCityName}, seo Google, optimasi SEO ${sanitizedCityName}, optimasi website ${sanitizedCityName}, pakar seo ${sanitizedCityName}, harga jasa seo ${sanitizedCityName}, konsultasi seo ${sanitizedCityName}, SEO lokal ${sanitizedCityName}, SEO website ${sanitizedCityName}, SEO profesional, SEO murah ${sanitizedCityName}, SEO untuk bisnis ${sanitizedCityName}, SEO untuk UMKM ${sanitizedCityName}, jasa backlink ${sanitizedCityName}, jasa SEO berpengalaman, perusahaan SEO ${sanitizedCityName}, SEO halaman pertama`} />
+        
         {/* Canonical Link */}
         <link rel="canonical" href={`https://pasar.web.id/jasa-seo-${currentCity.slug}`} />
-
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
