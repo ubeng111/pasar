@@ -38,63 +38,60 @@ const Index = ({ city }) => {
     );
   }
 
-  // JSON-LD schema untuk Local Business
-  const localBusinessSchema = {
+  // Combined JSON-LD schema for Local Business, Product, and WebPage
+  const combinedSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "image": "https://pasar.web.id/images/logo.png",
-    "telephone": "+62 898 6871 468",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Jl. Contoh Alamat No. 123",
-      "addressLocality": sanitizedCityName,
-      "addressRegion": "ID",
-      "postalCode": "12345",
-      "addressCountry": "ID"
-    },
-    "url": `https://pasar.web.id/website-${currentCity.slug}`,
-    "priceRange": "IDR 431,000 - IDR 9,000,000",
-    "sameAs": [
-      "https://www.facebook.com/pasarwebid",
-      "https://www.instagram.com/pasarwebid"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 5,
-      "bestRating": 5,
-      "ratingCount": 4546
-    }
-  };
-
-  // JSON-LD schema untuk Product (menampilkan produk)
-  const aggregateRatingSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "WebPage",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-    "brand": {
-      "@type": "Brand",
-      "name": "Pasar.Web.id"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 5,
-      "bestRating": 5,
-      "ratingCount": 2566
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
-      "priceCurrency": "IDR",
-      "lowPrice": 431000,  // Minimum price
-      "highPrice": 9000000,  // Maximum price
-      "offerCount": 1000,
+    "url": `https://pasar.web.id/website-${currentCity.slug}`,
+    "mainEntityOfPage": {
+      "@type": "LocalBusiness",
+      "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+      "image": "https://pasar.web.id/images/logo.png",
+      "telephone": "+62 898 6871 468",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Contoh Alamat No. 123",
+        "addressLocality": sanitizedCityName,
+        "addressRegion": "ID",
+        "postalCode": "12345",
+        "addressCountry": "ID"
+      },
       "url": `https://pasar.web.id/website-${currentCity.slug}`,
-      "priceValidUntil": "2025-12-31"
-    },
-    "image": "https://pasar.web.id/images/logo.png",
-    "productID": "website-service-id"
+      "priceRange": "IDR 431,000 - IDR 9,000,000",
+      "sameAs": [
+        "https://www.facebook.com/pasarwebid",
+        "https://www.instagram.com/pasarwebid"
+      ],
+      "product": {
+        "@type": "Product",
+        "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+        "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
+        "brand": {
+          "@type": "Brand",
+          "name": "Pasar.Web.id"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5,
+          "bestRating": 5,
+          "ratingCount": 2566
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
+          "priceCurrency": "IDR",
+          "lowPrice": 431000,
+          "highPrice": 9000000,
+          "offerCount": 1000,
+          "url": `https://pasar.web.id/website-${currentCity.slug}`,
+          "priceValidUntil": "2025-12-31"
+        },
+        "productID": "website-service-id",
+        "image": "https://pasar.web.id/images/logo.png"
+      }
+    }
   };
 
   useEffect(() => {
@@ -121,9 +118,8 @@ const Index = ({ city }) => {
         <meta name="description" content={`Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern, fungsional, harga mulai 400 ribuan. Hubungi Pasar.Web.id sekarang!`} />
         <link rel="canonical" href={`https://pasar.web.id/website-${currentCity.slug}`} />
         
-        {/* JSON-LD Structured Data for SEO */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }} />
+        {/* Combined JSON-LD Structured Data for SEO */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }} />
       </Head>
 
       {/* Komponen yang dimuat dinamis */}
