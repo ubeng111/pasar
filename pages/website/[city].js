@@ -63,7 +63,22 @@ const Index = ({ city }) => {
     "sameAs": [
       "https://www.facebook.com/pasarwebid", // URL social media yang relevan
       "https://www.instagram.com/pasarwebid"
-    ]
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 5,
+      "bestRating": 5,
+      "ratingCount": 4546
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+      "priceCurrency": "IDR",
+      "lowPrice": 431000,
+      "highPrice": 9000000,
+      "offerCount": 1000,
+      "url": `https://pasar.web.id/website-${currentCity.slug}`
+    }
   };
 
   // JSON-LD schema untuk Open Graph (Jasa SEO)
