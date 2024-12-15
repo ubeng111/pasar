@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 
 const NavbarTwo = dynamic(() => import("../../components/Website/NavbarTwo"));
 const MainBanner = dynamic(() => import("../../components/Website/MainBanner"));
-const ProductCard = dynamic(() => import("../../components/Website/ServicesCard"));  // Renaming to ProductCard
+const ServicesCard = dynamic(() => import("../../components/Website/ServicesCard"));
 const ProjectsCard = dynamic(() => import("../../components/Website/ProjectsCard"));
 const WhyChooseUs = dynamic(() => import("../../components/Website/WhyChooseUs"));
 const PricingContent = dynamic(() => import("../../components/Website/PricingContent"));
@@ -54,7 +54,7 @@ const Index = ({ city }) => {
       "addressCountry": "ID"
     },
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
-    "priceRange": "IDR 431,000 - IDR 9,000,000", // Rentang harga
+    "priceRange": "IDR 431,000 - IDR 9,000,000",
     "sameAs": [
       "https://www.facebook.com/pasarwebid",
       "https://www.instagram.com/pasarwebid"
@@ -68,48 +68,33 @@ const Index = ({ city }) => {
   };
 
   // JSON-LD schema untuk Product (menampilkan produk)
-  const productSchema = {
+  const aggregateRatingSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "productID": "website-service-id",  // You can define your product ID or SKU here
-    "category": "Web Design & Development",
-    "manufacturer": {  // Replaced provider with manufacturer
-      "@type": "Organization",
-      "name": "Pasar.Web.id",
-      "url": `https://pasar.web.id/website-${currentCity.slug}`,
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://pasar.web.id/images/logo.png"
-      }
+    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
+    "brand": {
+      "@type": "Brand",
+      "name": "Pasar.Web.id"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 5,
+      "bestRating": 5,
+      "ratingCount": 2566
     },
     "offers": {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
+      "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
       "priceCurrency": "IDR",
-      "price": "431000",  // Update as per the actual price
+      "lowPrice": 431000,  // Minimum price
+      "highPrice": 9000000,  // Maximum price
+      "offerCount": 1000,
       "url": `https://pasar.web.id/website-${currentCity.slug}`,
       "priceValidUntil": "2025-12-31"
     },
     "image": "https://pasar.web.id/images/logo.png",
-    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`
-  };
-
-  // JSON-LD schema untuk Open Graph (Product)
-  const openGraphSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "url": `https://pasar.web.id/website-${currentCity.slug}`,
-    "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern, fungsional, harga mulai 400 ribuan. Hubungi Pasar.Web.id sekarang!`,
-    "image": "https://pasar.web.id/images/logo.png",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Pasar.Web.id",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://pasar.web.id/images/logo.png"
-      }
-    }
+    "productID": "website-service-id"
   };
 
   useEffect(() => {
@@ -138,14 +123,13 @@ const Index = ({ city }) => {
         
         {/* JSON-LD Structured Data for SEO */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(openGraphSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }} />
       </Head>
 
       {/* Komponen yang dimuat dinamis */}
       <NavbarTwo />
       <MainBanner city={sanitizedCityName} />
-      <ProductCard city={sanitizedCityName} />  {/* Changed to ProductCard */}
+      <ServicesCard city={sanitizedCityName} />
       <ProjectsCard />
       <WhyChooseUs city={sanitizedCityName} />
       <PricingContent city={sanitizedCityName} />
