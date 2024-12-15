@@ -38,7 +38,7 @@ const Index = ({ city }) => {
     );
   }
 
-  // Corrected combined schema for WebPage, Local Business, and Product
+  // Corrected combined schema for WebPage and LocalBusiness with Offer and Product
   const combinedSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -68,29 +68,29 @@ const Index = ({ city }) => {
         "https://www.instagram.com/pasarwebid"
       ]
     },
-    "product": {
-      "@type": "Product",
-      "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-      "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-      "productID": "website-service-id",
-      "image": "https://pasar.web.id/images/logo.png",
-      "brand": {
-        "@type": "Brand",
-        "name": "Pasar.Web.id"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 5,
-        "bestRating": 5,
-        "ratingCount": 2566
-      },
-      "offers": {
-        "@type": "Offer",
-        "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
-        "priceCurrency": "IDR",
-        "price": 431000,
-        "url": `https://pasar.web.id/website-${currentCity.slug}`,
-        "priceValidUntil": "2025-12-31"
+    "offers": {
+      "@type": "Offer",
+      "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
+      "priceCurrency": "IDR",
+      "price": 431000,
+      "url": `https://pasar.web.id/website-${currentCity.slug}`,
+      "priceValidUntil": "2025-12-31",
+      "product": {
+        "@type": "Product",
+        "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+        "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
+        "productID": "website-service-id",
+        "image": "https://pasar.web.id/images/logo.png",
+        "brand": {
+          "@type": "Brand",
+          "name": "Pasar.Web.id"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5,
+          "bestRating": 5,
+          "ratingCount": 2566
+        }
       }
     }
   };
