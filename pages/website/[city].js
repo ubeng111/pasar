@@ -1,10 +1,9 @@
-import { useRouter } from 'next/router';  
-import { useEffect, useState } from 'react'; 
-import Head from 'next/head'; 
-import { cities } from "../../components/Website/cities"; // Updated import path 
-import dynamic from 'next/dynamic'; // Import dynamic untuk komponen dinamis
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import { cities } from "../../components/Website/cities";
+import dynamic from 'next/dynamic';
 
-// Dynamic imports untuk komponen besar
 const NavbarTwo = dynamic(() => import("../../components/Website/NavbarTwo"));
 const MainBanner = dynamic(() => import("../../components/Website/MainBanner"));
 const ServicesCard = dynamic(() => import("../../components/Website/ServicesCard"));
@@ -15,25 +14,21 @@ const AnalysisFormContent = dynamic(() => import("../../components/Website/Analy
 const FaqSection = dynamic(() => import("../../components/Website/FaqSection"));
 const Footer = dynamic(() => import("../../components/Website/Footer"));
 
-// Sanitasi nama kota untuk menghindari karakter yang tidak diinginkan
 const sanitizeCityName = (cityName) => {
   return cityName
-    .replace(/<!--.*?-->/g, '')   // Menghapus komentar HTML
-    .replace(/&.*;/g, '')         // Menghapus entitas HTML
-    .replace(/[^a-zA-Z0-9\s]/g, '') // Menghapus karakter non-alphanumeric
-    .trim(); // Menghapus spasi ekstra
+    .replace(/<!--.*?-->/g, '')
+    .replace(/&.*;/g, '')
+    .replace(/[^a-zA-Z0-9\s]/g, '')
+    .trim();
 };
 
 const Index = ({ city }) => {
   const router = useRouter();
   const currentCity = cities.find((c) => c.slug === city);
-
-  // Sanitasi nama kota
   const sanitizedCityName = currentCity ? sanitizeCityName(currentCity.name) : '';
 
   const [status, setStatus] = useState(null);
 
-  // If city is not found
   if (!currentCity) {
     return (
       <div>
@@ -48,8 +43,8 @@ const Index = ({ city }) => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "image": "https://pasar.web.id/images/logo.png", // Gambar bisnis lokal
-    "telephone": "+62 898 6871 468", // Ganti dengan nomor telepon yang sesuai
+    "image": "https://pasar.web.id/images/logo.png",
+    "telephone": "+62 898 6871 468",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Jl. Contoh Alamat No. 123",
@@ -59,9 +54,9 @@ const Index = ({ city }) => {
       "addressCountry": "ID"
     },
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
-    "priceRange": "IDR 431000 - 9000000", // Rentang harga layanan
+    "priceRange": "IDR 431,000 - IDR 9,000,000", // Rentang harga
     "sameAs": [
-      "https://www.facebook.com/pasarwebid", // URL social media yang relevan
+      "https://www.facebook.com/pasarwebid",
       "https://www.instagram.com/pasarwebid"
     ],
     "aggregateRating": {
@@ -72,7 +67,7 @@ const Index = ({ city }) => {
     }
   };
 
-  // JSON-LD schema untuk Service (Menampilkan layanan/penawaran) tanpa priceRange
+  // JSON-LD schema untuk Service (menampilkan layanan/penawaran)
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -95,7 +90,8 @@ const Index = ({ city }) => {
       "@type": "Offer",
       "priceCurrency": "IDR",
       "price": "431000",
-      "url": `https://pasar.web.id/website-${currentCity.slug}`
+      "url": `https://pasar.web.id/website-${currentCity.slug}`,
+      "priceValidUntil": "2025-12-31"
     }
   };
 
@@ -106,7 +102,7 @@ const Index = ({ city }) => {
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-    "image": "https://pasar.web.id/images/logo.png", // URL gambar thumbnail
+    "image": "https://pasar.web.id/images/logo.png",
     "publisher": {
       "@type": "Organization",
       "name": "Pasar.Web.id",
@@ -122,19 +118,15 @@ const Index = ({ city }) => {
       try {
         const res = await fetch('/api/indexing', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ url: `https://pasar.web.id/website-${currentCity.slug}` }),
         });
-
         const data = await res.json();
         console.log('Indexing Response:', data);
       } catch (error) {
         console.error('Error submitting URL:', error);
       }
     };
-
     submitToIndexingAPI();
   }, [currentCity.slug]);
 
@@ -142,48 +134,26 @@ const Index = ({ city }) => {
     <>
       <Head>
         <title>Jasa Pembuatan Website {sanitizedCityName} | Desain Modern & Fungsional</title>
-        <meta name="description" content={`Jasa pembuatan website terbaik di ${sanitizedCityName} Desain modern, fungsional, harga mulai 400 ribuan. Hubungi Pasar.Web.id sekarang!.`} />
-        
-        {/* Canonical Link */}
+        <meta name="description" content={`Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern, fungsional, harga mulai 400 ribuan. Hubungi Pasar.Web.id sekarang!`} />
         <link rel="canonical" href={`https://pasar.web.id/website-${currentCity.slug}`} />
         
         {/* JSON-LD Structured Data for SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
-          }}
-        />
-        
-        {/* Service Schema for offers */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(serviceSchema),
-          }}
-        />
-        
-        {/* Open Graph WebPage Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(openGraphSchema),
-          }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(openGraphSchema) }} />
       </Head>
 
       {/* Komponen yang dimuat dinamis */}
       <NavbarTwo />
       <MainBanner city={sanitizedCityName} />
       <ServicesCard city={sanitizedCityName} />
-      <ProjectsCard /> {/* Adding ProjectsCard component here */}
+      <ProjectsCard />
       <WhyChooseUs city={sanitizedCityName} />
       <PricingContent city={sanitizedCityName} />
       <AnalysisFormContent city={sanitizedCityName} />
       <FaqSection city={sanitizedCityName} />
       <Footer />
 
-      {/* Status Indeks (Not used anymore) */}
       <div>
         <p>{status}</p>
       </div>
@@ -191,7 +161,6 @@ const Index = ({ city }) => {
   );
 };
 
-// Menggunakan getServerSideProps untuk data fetching di server-side
 export async function getServerSideProps({ params }) {
   const { city } = params;
   const currentCity = cities.find((c) => c.slug === city);
@@ -201,7 +170,7 @@ export async function getServerSideProps({ params }) {
   }
 
   return {
-    props: { city: currentCity.slug }, // Mengirimkan slug kota ke komponen
+    props: { city: currentCity.slug },
   };
 }
 
