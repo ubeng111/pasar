@@ -71,6 +71,46 @@ const Index = ({ city }) => {
     }
   };
 
+  // Tambahkan Graph SEO: LocalBusiness Schema
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": `Jasa SEO ${sanitizedCityName}`,
+    "image": "https://pasar.web.id/images/logo.png", // URL logo Anda
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jalan Raya No.123",
+      "addressLocality": sanitizedCityName,
+      "addressRegion": "West Java", // Ganti dengan provinsi jika perlu
+      "postalCode": "12345",
+      "addressCountry": "ID"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+62-898-687-1468",
+      "contactType": "Customer Service",
+      "areaServed": "ID",
+      "availableLanguage": "Indonesian"
+    },
+    "sameAs": [
+      "https://www.facebook.com/pasarwebid",
+      "https://twitter.com/pasarwebid",
+      "https://www.instagram.com/pasarwebid"
+    ],
+    "url": `https://pasar.web.id/jasa-seo-${currentCity.slug}`,
+    "priceRange": "IDR 750000 - 33600000"
+  };
+
+  // Tambahkan Graph SEO: WebPage Schema
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `Jasa SEO ${sanitizedCityName}`,
+    "description": `Jasa SEO terbaik untuk meningkatkan peringkat website Anda di Google di ${sanitizedCityName}.`,
+    "url": `https://pasar.web.id/jasa-seo-${currentCity.slug}`,
+    "mainEntityOfPage": `https://pasar.web.id/jasa-seo-${currentCity.slug}`
+  };
+
   useEffect(() => {
     const submitToIndexingAPI = async () => {
       try {
@@ -98,18 +138,32 @@ const Index = ({ city }) => {
     <>
       <Head>
         <title>Jasa SEO {sanitizedCityName} | Garansi Halaman #1 Google | Bulanan | Tahunan</title>
-        <meta name="description" content={`Jasa SEO ${sanitizedCityName} dari Pasar.Web.id untuk membantu meningkatkan peringkat website Anda di Google.`} />
-        
-        {/* Meta keywords - 20 kata kunci */}
-        <meta name="keywords" content={`jasa seo, ahli seo ${sanitizedCityName}, layanan seo, seo terbaik, jasa seo di ${sanitizedCityName}, seo Google, optimasi SEO ${sanitizedCityName}, optimasi website ${sanitizedCityName}, pakar seo ${sanitizedCityName}, harga jasa seo ${sanitizedCityName}, konsultasi seo ${sanitizedCityName}, SEO lokal ${sanitizedCityName}, SEO website ${sanitizedCityName}, SEO profesional, SEO murah ${sanitizedCityName}, SEO untuk bisnis ${sanitizedCityName}, SEO untuk UMKM ${sanitizedCityName}, jasa backlink ${sanitizedCityName}, jasa SEO berpengalaman, perusahaan SEO ${sanitizedCityName}, SEO halaman pertama`} />
+        <meta name="description" content={`Jasa SEO ${sanitizedCityName} dari Pasar.Web.id membantu meningkatkan peringkat website Anda di Google. Dapatkan layanan SEO terbaik dengan berbagai pilihan paket bulanan atau tahunan. Garansi halaman #1 di Google dengan harga terjangkau, mulai dari Rp 750.000 hingga Rp 33.600.000. Hubungi kami untuk informasi lebih lanjut tentang layanan SEO di ${sanitizedCityName} dan tingkatkan eksposur online bisnis Anda. Kami melayani berbagai jenis bisnis dengan strategi SEO yang efektif dan terbukti meningkatkan trafik website.`} />
         
         {/* Canonical Link */}
         <link rel="canonical" href={`https://pasar.web.id/jasa-seo-${currentCity.slug}`} />
         
+        {/* JSON-LD untuk SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(aggregateRatingSchema),
+          }}
+        />
+        
+        {/* LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+
+        {/* WebPage Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webPageSchema),
           }}
         />
       </Head>
