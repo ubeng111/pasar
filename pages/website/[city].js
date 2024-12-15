@@ -71,12 +71,10 @@ const Index = ({ city }) => {
       "ratingCount": 4546
     },
     "offers": {
-      "@type": "AggregateOffer",
+      "@type": "Offer", // Perubahan dari AggregateOffer menjadi Offer
       "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
       "priceCurrency": "IDR",
-      "lowPrice": 431000,
-      "highPrice": 9000000,
-      "offerCount": 1000,
+      "price": "431000",  // Harga default atau harga mulai
       "url": `https://pasar.web.id/website-${currentCity.slug}`
     }
   };
