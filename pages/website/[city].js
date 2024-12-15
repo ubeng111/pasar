@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'; 
+import { useRouter } from 'next/router';  
 import { useEffect, useState } from 'react'; 
 import Head from 'next/head'; 
 import { cities } from "../../components/Website/cities"; // Updated import path 
@@ -72,7 +72,7 @@ const Index = ({ city }) => {
     }
   };
 
-  // JSON-LD schema untuk Service (Menampilkan layanan/penawaran)
+  // JSON-LD schema untuk Service (Menampilkan layanan/penawaran) tanpa priceRange
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -87,7 +87,6 @@ const Index = ({ city }) => {
         "url": "https://pasar.web.id/images/logo.png"
       }
     },
-    "priceRange": "IDR 431000 - 9000000",
     "areaServed": {
       "@type": "Place",
       "name": sanitizedCityName
