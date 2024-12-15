@@ -10,6 +10,7 @@ import {
   AccordionItemButton,
 } from "react-accessible-accordion";
 import Image from 'next/image';  // Impor Image dari Next.js
+import { FaQuestionCircle, FaClock, FaBullhorn, FaRegStar, FaIndustry, FaUsers } from 'react-icons/fa'; // Ikon dari react-icons
 
 const FaqSection = ({ city }) => {
   const router = useRouter();
@@ -104,6 +105,7 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="a">
                     <AccordionItemHeading>
                       <AccordionItemButton>
+                        <FaQuestionCircle style={{ marginRight: '10px', color: '#007bff' }} />
                         Apa yang dimaksud dengan layanan SEO dan bagaimana cara kerjanya?
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -117,6 +119,7 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="b">
                     <AccordionItemHeading>
                       <AccordionItemButton>
+                        <FaBullhorn style={{ marginRight: '10px', color: '#28a745' }} />
                         Kenapa bisnis perlu menggunakan jasa SEO di {city}?
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -130,6 +133,7 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="c">
                     <AccordionItemHeading>
                       <AccordionItemButton>
+                        <FaRegStar style={{ marginRight: '10px', color: '#ffc107' }} />
                         Apa manfaat utama yang diperoleh bisnis setelah menggunakan jasa SEO?
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -143,6 +147,7 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="d">
                     <AccordionItemHeading>
                       <AccordionItemButton>
+                        <FaClock style={{ marginRight: '10px', color: '#6c757d' }} />
                         Berapa lama waktu yang dibutuhkan untuk melihat hasil dari layanan SEO?
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -156,6 +161,7 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="e">
                     <AccordionItemHeading>
                       <AccordionItemButton>
+                        <FaIndustry style={{ marginRight: '10px', color: '#dc3545' }} />
                         Apakah SEO hanya berlaku untuk website bisnis besar saja?
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -169,6 +175,7 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="f">
                     <AccordionItemHeading>
                       <AccordionItemButton>
+                        <FaUsers style={{ marginRight: '10px', color: '#007bff' }} />
                         Apakah SEO dapat membantu bisnis saya bersaing dengan kompetitor lokal di {city}?
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -182,6 +189,7 @@ const FaqSection = ({ city }) => {
                   <AccordionItem uuid="g">
                     <AccordionItemHeading>
                       <AccordionItemButton>
+                        <FaClock style={{ marginRight: '10px', color: '#6c757d' }} />
                         Apa saja teknik yang digunakan dalam SEO untuk meningkatkan peringkat website?
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -222,7 +230,6 @@ const FaqSection = ({ city }) => {
   );
 };
 
-// Fungsi getServerSideProps untuk mendapatkan parameter kota dari URL
 export async function getServerSideProps({ params }) {
   const { city } = params;
 
