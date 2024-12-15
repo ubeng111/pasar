@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 
 const NavbarTwo = dynamic(() => import("../../components/Website/NavbarTwo"));
 const MainBanner = dynamic(() => import("../../components/Website/MainBanner"));
-const ServicesCard = dynamic(() => import("../../components/Website/ServicesCard"));
+const ProductCard = dynamic(() => import("../../components/Website/ServicesCard"));  // Renaming to ProductCard
 const ProjectsCard = dynamic(() => import("../../components/Website/ProjectsCard"));
 const WhyChooseUs = dynamic(() => import("../../components/Website/WhyChooseUs"));
 const PricingContent = dynamic(() => import("../../components/Website/PricingContent"));
@@ -67,12 +67,13 @@ const Index = ({ city }) => {
     }
   };
 
-  // JSON-LD schema untuk Service (menampilkan layanan/penawaran)
-  const serviceSchema = {
+  // JSON-LD schema untuk Product (menampilkan produk)
+  const productSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "Product",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "serviceType": "Web Design & Development",
+    "productID": "website-service-id",  // You can define your product ID or SKU here
+    "category": "Web Design & Development",
     "provider": {
       "@type": "Organization",
       "name": "Pasar.Web.id",
@@ -89,19 +90,21 @@ const Index = ({ city }) => {
     "offers": {
       "@type": "Offer",
       "priceCurrency": "IDR",
-      "price": "431000",
+      "price": "431000",  // Update as per the actual price
       "url": `https://pasar.web.id/website-${currentCity.slug}`,
       "priceValidUntil": "2025-12-31"
-    }
+    },
+    "image": "https://pasar.web.id/images/logo.png",
+    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`
   };
 
-  // JSON-LD schema untuk Open Graph (Jasa SEO)
+  // JSON-LD schema untuk Open Graph (Product)
   const openGraphSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
+    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern, fungsional, harga mulai 400 ribuan. Hubungi Pasar.Web.id sekarang!`,
     "image": "https://pasar.web.id/images/logo.png",
     "publisher": {
       "@type": "Organization",
@@ -139,14 +142,14 @@ const Index = ({ city }) => {
         
         {/* JSON-LD Structured Data for SEO */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(openGraphSchema) }} />
       </Head>
 
       {/* Komponen yang dimuat dinamis */}
       <NavbarTwo />
       <MainBanner city={sanitizedCityName} />
-      <ServicesCard city={sanitizedCityName} />
+      <ProductCard city={sanitizedCityName} />  {/* Changed to ProductCard */}
       <ProjectsCard />
       <WhyChooseUs city={sanitizedCityName} />
       <PricingContent city={sanitizedCityName} />
