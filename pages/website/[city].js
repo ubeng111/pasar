@@ -69,12 +69,33 @@ const Index = ({ city }) => {
       "ratingValue": 5,
       "bestRating": 5,
       "ratingCount": 4546
+    }
+  };
+
+  // JSON-LD schema untuk Service (Menampilkan layanan/penawaran)
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+    "serviceType": "Web Design & Development",
+    "provider": {
+      "@type": "Organization",
+      "name": "Pasar.Web.id",
+      "url": `https://pasar.web.id/website-${currentCity.slug}`,
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pasar.web.id/images/logo.png"
+      }
+    },
+    "priceRange": "IDR 431000 - 9000000",
+    "areaServed": {
+      "@type": "Place",
+      "name": sanitizedCityName
     },
     "offers": {
-      "@type": "Offer", // Perubahan dari AggregateOffer menjadi Offer
-      "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+      "@type": "Offer",
       "priceCurrency": "IDR",
-      "price": "431000",  // Harga default atau harga mulai
+      "price": "431000",
       "url": `https://pasar.web.id/website-${currentCity.slug}`
     }
   };
@@ -132,6 +153,14 @@ const Index = ({ city }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+        
+        {/* Service Schema for offers */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(serviceSchema),
           }}
         />
         
