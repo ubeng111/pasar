@@ -138,8 +138,7 @@ const Index = ({ city }) => {
     <>
       <Head>
         <title>Jasa SEO {sanitizedCityName} | Garansi Halaman #1 Google | Bulanan | Tahunan</title>
-        <meta name="description" content={`Jasa SEO ${sanitizedCityName} dari Pasar.Web.id membantu meningkatkan peringkat website Anda di Google. Dapatkan layanan SEO terbaik dengan berbagai pilihan paket bulanan atau tahunan. Garansi halaman #1 di Google dengan harga terjangkau, mulai dari Rp 750.000 hingga Rp 33.600.000. Hubungi kami untuk informasi lebih lanjut tentang layanan SEO di ${sanitizedCityName} dan tingkatkan eksposur online bisnis Anda. Kami melayani berbagai jenis bisnis dengan strategi SEO yang efektif dan terbukti meningkatkan trafik website.`} />
-        
+        <meta name="description" content={`Jasa SEO terbaik di ${sanitizedCityName} dari Pasar.Web.id untuk tingkatkan peringkat website Anda di Google. Pilih paket bulanan atau tahunan, mulai dari Rp 750.000. Garansi halaman #1!`} />        
         {/* Canonical Link */}
         <link rel="canonical" href={`https://pasar.web.id/jasa-seo-${currentCity.slug}`} />
         
