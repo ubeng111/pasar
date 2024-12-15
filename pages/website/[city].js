@@ -74,7 +74,7 @@ const Index = ({ city }) => {
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "productID": "website-service-id",  // You can define your product ID or SKU here
     "category": "Web Design & Development",
-    "provider": {
+    "manufacturer": {  // Replaced provider with manufacturer
       "@type": "Organization",
       "name": "Pasar.Web.id",
       "url": `https://pasar.web.id/website-${currentCity.slug}`,
@@ -82,10 +82,6 @@ const Index = ({ city }) => {
         "@type": "ImageObject",
         "url": "https://pasar.web.id/images/logo.png"
       }
-    },
-    "areaServed": {
-      "@type": "Place",
-      "name": sanitizedCityName
     },
     "offers": {
       "@type": "Offer",
