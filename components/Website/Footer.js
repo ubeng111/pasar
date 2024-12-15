@@ -1,6 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";  // Import Image from Next.js
+import Image from "next/image"; // Import Image from Next.js
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +9,7 @@ const Footer = () => {
       <footer className="footer-section pt-100 pb-70">
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 col-md-6 col-sm-6">
+            <div className="col-lg-6 col-md-6 col-sm-6">
               <div className="footer-area">
                 <div className="footer-heading">
                   <h3>Tentang Kami</h3>
@@ -47,33 +46,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-lg-2 col-md-6 col-sm-6">
-              <div className="footer-item-area">
-                <div className="footer-heading">
-                  <h3>Area Layanan</h3>
-                </div>
-
-                <ul className="footer-quick-links">
-                  <li>
-                    <Link href="/website/surabaya">Surabaya</Link>
-                  </li>
-                  <li>
-                    <Link href="/website/bandung">Bandung</Link>
-                  </li>
-                  <li>
-                    <Link href="/website/bogor">Bogor</Link>
-                  </li>
-                  <li>
-                    <Link href="/website/jakarta">Jakarta</Link>
-                  </li>
-                  <li>
-                    <Link href="/website/bali">Bali</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 col-sm-6">
+            <div className="col-lg-6 col-md-6 col-sm-6">
               <div className="mb-30">
                 <div className="footer-heading">
                   <h3>Kontak Kami</h3>
@@ -167,10 +140,10 @@ const Footer = () => {
             <div className="col-lg-6">
               <ul>
                 <li>
-                  <Link href="/terms-conditions">Syarat & Ketentuan</Link>
+                  <a href="/terms-conditions">Syarat & Ketentuan</a>
                 </li>
                 <li>
-                  <Link href="/privacy-policy">Kebijakan Privasi</Link>
+                  <a href="/privacy-policy">Kebijakan Privasi</a>
                 </li>
               </ul>
             </div>
