@@ -48,7 +48,35 @@ const Index = ({ city }) => {
     "image": "https://pasar.web.id/images/logo.png"
   };
 
-  // Product and Offer Schema (for the website creation service)
+  // Offer Schema (for the service offer)
+  const offerSchema = {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
+    "priceCurrency": "IDR",
+    "price": 431000,
+    "url": `https://pasar.web.id/website-${currentCity.slug}`,
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",  // Can be: InStock, OutOfStock, PreOrder, etc.
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingDestination": {
+        "@type": "Place",
+        "name": "Indonesia"
+      },
+      "shippingRate": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "IDR",
+        "price": 50000  // Example shipping price
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+    }
+  };
+
+  // Product Schema (describes the service as a product)
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -66,14 +94,7 @@ const Index = ({ city }) => {
       "bestRating": 5,
       "ratingCount": 2566
     },
-    "offers": {
-      "@type": "Offer",
-      "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
-      "priceCurrency": "IDR",
-      "price": 431000,
-      "url": `https://pasar.web.id/website-${currentCity.slug}`,
-      "priceValidUntil": "2025-12-31"
-    }
+    "offers": offerSchema  // Link to the Offer schema here
   };
 
   // LocalBusiness Schema (for your business details)
