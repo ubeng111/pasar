@@ -61,13 +61,13 @@ const Index = ({ city }) => {
     "shippingDetails": {
       "@type": "OfferShippingDetails",
       "shippingDestination": {
-        "@type": "Place",
-        "name": "Indonesia"
+        "@type": "PostalAddress", // Menggunakan PostalAddress untuk alamat pengiriman
+        "addressCountry": "ID" // Menyebutkan negara tujuan pengiriman
       },
       "shippingRate": {
         "@type": "PriceSpecification",
         "priceCurrency": "IDR",
-        "price": 50000  // Example shipping price
+        "price": 50000  // Biaya pengiriman
       },
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
@@ -93,7 +93,10 @@ const Index = ({ city }) => {
       },
       "returnMethod": "https://schema.org/ReturnByMail",  // Metode pengembalian
       "merchantReturnDays": 30,  // Waktu pengembalian dalam hari
-      "applicableCountry": "ID"  // Negara yang berlaku untuk kebijakan pengembalian
+      "applicableCountry": {
+        "@type": "Country",  // Negara yang berlaku untuk kebijakan pengembalian
+        "name": "ID"
+      }
     }
   };
 
