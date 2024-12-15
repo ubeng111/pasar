@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'; 
-import { useEffect, useState } from 'react';
-import Head from 'next/head';
-import { cities } from "../../components/Website/cities"; // Updated import path
+import { useEffect, useState } from 'react'; 
+import Head from 'next/head'; 
+import { cities } from "../../components/Website/cities"; // Updated import path 
 import dynamic from 'next/dynamic'; // Import dynamic untuk komponen dinamis
 
 // Dynamic imports untuk komponen besar
@@ -43,41 +43,37 @@ const Index = ({ city }) => {
     );
   }
 
-  // JSON-LD structured data for SEO (Jasa Pembuatan Website)
-  const aggregateRatingSchema = {
+  // JSON-LD schema untuk Local Business
+  const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "LocalBusiness",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "description": `Layanan pembuatan website profesional di ${sanitizedCityName} untuk membantu membangun website bisnis Anda dengan desain modern dan fungsional.`,
-    "brand": {
-      "@type": "Brand",
-      "name": "Pasar.Web.id"
+    "image": "https://pasar.web.id/images/logo.png", // Gambar bisnis lokal
+    "telephone": "+62 123 456 7890", // Ganti dengan nomor telepon yang sesuai
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Contoh Alamat No. 123",
+      "addressLocality": sanitizedCityName,
+      "addressRegion": "ID",
+      "postalCode": "12345",
+      "addressCountry": "ID"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 5,
-      "bestRating": 5,
-      "ratingCount": 4546
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-      "priceCurrency": "IDR",
-      "lowPrice": 431000,
-      "highPrice": 9000000,
-      "offerCount": 1000,
-      "url": `https://pasar.web.id/website-${currentCity.slug}`
-    }
+    "url": `https://pasar.web.id/website-${currentCity.slug}`,
+    "priceRange": "IDR 431000 - 9000000", // Rentang harga layanan
+    "sameAs": [
+      "https://www.facebook.com/pasarwebid", // URL social media yang relevan
+      "https://www.instagram.com/pasarwebid"
+    ]
   };
 
-  // Open Graph schema untuk WebPage
+  // JSON-LD schema untuk Open Graph (Jasa SEO)
   const openGraphSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-    "image": "https://pasar.web.id/images/logo.png",  // URL gambar thumbnail (logo)
+    "image": "https://pasar.web.id/images/logo.png", // URL gambar thumbnail
     "publisher": {
       "@type": "Organization",
       "name": "Pasar.Web.id",
@@ -91,7 +87,6 @@ const Index = ({ city }) => {
   useEffect(() => {
     const submitToIndexingAPI = async () => {
       try {
-        // Kirimkan URL halaman dinamis ke API route
         const res = await fetch('/api/indexing', {
           method: 'POST',
           headers: {
@@ -107,7 +102,6 @@ const Index = ({ city }) => {
       }
     };
 
-    // Panggil fungsi hanya setelah halaman dimuat
     submitToIndexingAPI();
   }, [currentCity.slug]);
 
@@ -124,7 +118,7 @@ const Index = ({ city }) => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(aggregateRatingSchema),
+            __html: JSON.stringify(localBusinessSchema),
           }}
         />
         
