@@ -58,31 +58,7 @@ const Index = ({ city }) => {
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
     "priceValidUntil": "2025-12-31",
     "availability": "https://schema.org/InStock",  // Can be: InStock, OutOfStock, PreOrder, etc.
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingDestination": {
-        "@type": "PostalAddress", // Menggunakan PostalAddress untuk alamat pengiriman
-        "addressCountry": "ID" // Menyebutkan negara tujuan pengiriman
-      },
-      "shippingRate": {
-        "@type": "PriceSpecification",
-        "priceCurrency": "IDR",
-        "price": 50000  // Biaya pengiriman
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": {
-          "@type": "QuantitativeValue",
-          "value": 1,
-          "unitCode": "DAY"  // Waktu penanganan dalam hari
-        },
-        "transitTime": {
-          "@type": "QuantitativeValue",
-          "value": 3,
-          "unitCode": "DAY"  // Waktu pengiriman dalam hari
-        }
-      }
-    },
+    // Menghapus bagian shippingDetails yang bermasalah
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",  // Kebijakan pengembalian
