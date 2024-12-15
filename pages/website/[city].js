@@ -17,7 +17,7 @@ const Footer = dynamic(() => import("../../components/Website/Footer"));
 const sanitizeCityName = (cityName) => {
   return cityName
     .replace(/<!--.*?-->/g, '')
-    .replace(/&.*;/g, '')
+    .replace(/&.*;/g, ' ')
     .replace(/[^a-zA-Z0-9\s]/g, '')
     .trim();
 };
@@ -38,7 +38,7 @@ const Index = ({ city }) => {
     );
   }
 
-  // Combined JSON-LD schema for WebPage, Local Business, and Product
+  // Corrected combined schema for WebPage, Local Business, and Product
   const combinedSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -56,40 +56,41 @@ const Index = ({ city }) => {
         "addressLocality": sanitizedCityName,
         "addressRegion": "ID",
         "postalCode": "12345",
-        "addressCountry": "ID"
+        "addressCountry": {
+          "@type": "Country",
+          "name": "ID"
+        }
       },
       "url": `https://pasar.web.id/website-${currentCity.slug}`,
       "priceRange": "IDR 431,000 - IDR 9,000,000",
       "sameAs": [
         "https://www.facebook.com/pasarwebid",
         "https://www.instagram.com/pasarwebid"
-      ],
-      "product": {
-        "@type": "Product",
-        "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-        "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-        "brand": {
-          "@type": "Brand",
-          "name": "Pasar.Web.id"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": 5,
-          "bestRating": 5,
-          "ratingCount": 2566
-        },
-        "offers": {
-          "@type": "AggregateOffer",
-          "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
-          "priceCurrency": "IDR",
-          "lowPrice": 431000,
-          "highPrice": 9000000,
-          "offerCount": 1000,
-          "url": `https://pasar.web.id/website-${currentCity.slug}`,
-          "priceValidUntil": "2025-12-31"
-        },
-        "productID": "website-service-id",
-        "image": "https://pasar.web.id/images/logo.png"
+      ]
+    },
+    "product": {
+      "@type": "Product",
+      "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+      "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
+      "productID": "website-service-id",
+      "image": "https://pasar.web.id/images/logo.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Pasar.Web.id"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 5,
+        "bestRating": 5,
+        "ratingCount": 2566
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": `Layanan Pembuatan Website ${sanitizedCityName}`,
+        "priceCurrency": "IDR",
+        "price": 431000,
+        "url": `https://pasar.web.id/website-${currentCity.slug}`,
+        "priceValidUntil": "2025-12-31"
       }
     }
   };
