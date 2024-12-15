@@ -56,11 +56,11 @@ const Index = ({ city }) => {
     "price": 431000,
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
     "priceValidUntil": "2025-12-31",
-    "availability": "https://schema.org/InStock",  // Can be: InStock, OutOfStock, PreOrder, etc.
+    "availability": "http://schema.org/InStock",  // Can be: InStock, OutOfStock, PreOrder, etc.
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",  // Kebijakan pengembalian
-      "returnMethod": "https://schema.org/ReturnByMail",  // Metode pengembalian
+      "returnPolicyCategory": "http://schema.org/MerchantReturnFiniteReturnWindow",  // Kebijakan pengembalian
+      "returnMethod": "http://schema.org/ReturnByMail",  // Metode pengembalian
       "merchantReturnDays": 30,  // Waktu pengembalian dalam hari
       "applicableCountry": {
         "@type": "Country",  // Negara yang berlaku untuk kebijakan pengembalian
