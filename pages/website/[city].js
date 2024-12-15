@@ -38,35 +38,33 @@ const Index = ({ city }) => {
     );
   }
 
-  // Corrected combined schema for WebPage and LocalBusiness with Offer and Product
-  const combinedSchema = {
+  // WebPage Schema (for the page itself)
+  const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
+    "image": "https://pasar.web.id/images/logo.png"
+  };
+
+  // Product and Offer Schema (for the website creation service)
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
+    "productID": "website-service-id",
     "image": "https://pasar.web.id/images/logo.png",
-    "mainEntity": {
-      "@type": "LocalBusiness",
-      "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-      "telephone": "+62 898 6871 468",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jl. Contoh Alamat No. 123",
-        "addressLocality": sanitizedCityName,
-        "addressRegion": "ID",
-        "postalCode": "12345",
-        "addressCountry": {
-          "@type": "Country",
-          "name": "ID"
-        }
-      },
-      "url": `https://pasar.web.id/website-${currentCity.slug}`,
-      "priceRange": "IDR 431,000 - IDR 9,000,000",
-      "sameAs": [
-        "https://www.facebook.com/pasarwebid",
-        "https://www.instagram.com/pasarwebid"
-      ]
+    "brand": {
+      "@type": "Brand",
+      "name": "Pasar.Web.id"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 5,
+      "bestRating": 5,
+      "ratingCount": 2566
     },
     "offers": {
       "@type": "Offer",
@@ -74,25 +72,33 @@ const Index = ({ city }) => {
       "priceCurrency": "IDR",
       "price": 431000,
       "url": `https://pasar.web.id/website-${currentCity.slug}`,
-      "priceValidUntil": "2025-12-31",
-      "product": {
-        "@type": "Product",
-        "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-        "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-        "productID": "website-service-id",
-        "image": "https://pasar.web.id/images/logo.png",
-        "brand": {
-          "@type": "Brand",
-          "name": "Pasar.Web.id"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": 5,
-          "bestRating": 5,
-          "ratingCount": 2566
-        }
-      }
+      "priceValidUntil": "2025-12-31"
     }
+  };
+
+  // LocalBusiness Schema (for your business details)
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
+    "telephone": "+62 898 6871 468",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Contoh Alamat No. 123",
+      "addressLocality": sanitizedCityName,
+      "addressRegion": "ID",
+      "postalCode": "12345",
+      "addressCountry": {
+        "@type": "Country",
+        "name": "ID"
+      }
+    },
+    "url": `https://pasar.web.id/website-${currentCity.slug}`,
+    "priceRange": "IDR 431,000 - IDR 9,000,000",
+    "sameAs": [
+      "https://www.facebook.com/pasarwebid",
+      "https://www.instagram.com/pasarwebid"
+    ]
   };
 
   useEffect(() => {
@@ -118,9 +124,15 @@ const Index = ({ city }) => {
         <title>Jasa Pembuatan Website {sanitizedCityName} | Desain Modern & Fungsional</title>
         <meta name="description" content={`Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern, fungsional, harga mulai 400 ribuan. Hubungi Pasar.Web.id sekarang!`} />
         <link rel="canonical" href={`https://pasar.web.id/website-${currentCity.slug}`} />
+
+        {/* WebPage Schema for the page itself */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }} />
         
-        {/* Combined JSON-LD Structured Data for SEO */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }} />
+        {/* LocalBusiness Schema for the business */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+        
+        {/* Product and Offer Schema for the service */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       </Head>
 
       {/* Komponen yang dimuat dinamis */}
