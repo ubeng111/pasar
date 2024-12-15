@@ -44,8 +44,7 @@ const Index = ({ city }) => {
     "@type": "WebPage",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-    "url": `https://pasar.web.id/website-${currentCity.slug}`,
-    "image": "https://pasar.web.id/images/logo.png"
+    "url": `https://pasar.web.id/website-${currentCity.slug}`
   };
 
   // Offer Schema (for the service offer)
@@ -61,11 +60,6 @@ const Index = ({ city }) => {
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",  // Kebijakan pengembalian
-      "returnFees": {
-        "@type": "PriceSpecification",
-        "priceCurrency": "IDR",
-        "price": 20000  // Biaya pengembalian
-      },
       "returnMethod": "https://schema.org/ReturnByMail",  // Metode pengembalian
       "merchantReturnDays": 30,  // Waktu pengembalian dalam hari
       "applicableCountry": {
@@ -82,7 +76,6 @@ const Index = ({ city }) => {
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
     "productID": "website-service-id",
-    "image": "https://pasar.web.id/images/logo.png",
     "brand": {
       "@type": "Brand",
       "name": "Pasar.Web.id"
