@@ -49,7 +49,7 @@ const Index = ({ city }) => {
     "@type": "LocalBusiness",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "image": "https://pasar.web.id/images/logo.png", // Gambar bisnis lokal
-    "telephone": "+62 123 456 7890", // Ganti dengan nomor telepon yang sesuai
+    "telephone": "+62 898 6871 468", // Ganti dengan nomor telepon yang sesuai
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Jl. Contoh Alamat No. 123",
