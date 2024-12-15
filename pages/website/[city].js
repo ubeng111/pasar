@@ -58,7 +58,6 @@ const Index = ({ city }) => {
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
     "priceValidUntil": "2025-12-31",
     "availability": "https://schema.org/InStock",  // Can be: InStock, OutOfStock, PreOrder, etc.
-    // Menghapus bagian shippingDetails yang bermasalah
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",  // Kebijakan pengembalian
