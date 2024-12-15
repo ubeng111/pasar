@@ -68,11 +68,32 @@ const Index = ({ city }) => {
         "@type": "PriceSpecification",
         "priceCurrency": "IDR",
         "price": 50000  // Example shipping price
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "value": 1,
+          "unitCode": "DAY"  // Waktu penanganan dalam hari
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "value": 3,
+          "unitCode": "DAY"  // Waktu pengiriman dalam hari
+        }
       }
     },
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",  // Kebijakan pengembalian
+      "returnFees": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "IDR",
+        "price": 20000  // Biaya pengembalian
+      },
+      "returnMethod": "https://schema.org/ReturnByMail",  // Metode pengembalian
+      "merchantReturnDays": 30,  // Waktu pengembalian dalam hari
+      "applicableCountry": "ID"  // Negara yang berlaku untuk kebijakan pengembalian
     }
   };
 
