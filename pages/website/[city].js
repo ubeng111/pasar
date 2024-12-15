@@ -38,17 +38,17 @@ const Index = ({ city }) => {
     );
   }
 
-  // Combined JSON-LD schema for Local Business, Product, and WebPage
+  // Combined JSON-LD schema for WebPage, Local Business, and Product
   const combinedSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
-    "mainEntityOfPage": {
+    "image": "https://pasar.web.id/images/logo.png",
+    "mainEntity": {
       "@type": "LocalBusiness",
       "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-      "image": "https://pasar.web.id/images/logo.png",
       "telephone": "+62 898 6871 468",
       "address": {
         "@type": "PostalAddress",
