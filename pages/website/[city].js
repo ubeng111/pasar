@@ -18,7 +18,7 @@ const sanitizeCityName = (cityName) => {
   return cityName
     .replace(/<!--.*?-->/g, '')
     .replace(/&.*;/g, ' ')
-    .replace(/[^a-zA-Z0-9\s]/g, '')
+    .replace(/[^a-zA-Z0-9\s]/g, ' ')
     .trim();
 };
 
@@ -44,7 +44,8 @@ const Index = ({ city }) => {
     "@type": "WebPage",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
     "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-    "url": `https://pasar.web.id/website-${currentCity.slug}`
+    "url": `https://pasar.web.id/website-${currentCity.slug}`,
+    "image": `https://pasar.web.id/images/about-image2.jpg` // Add image for the page
   };
 
   // Offer Schema (for the service offer)
@@ -66,7 +67,8 @@ const Index = ({ city }) => {
         "@type": "Country",
         "name": "ID"
       }
-    }
+    },
+    "image": `https://pasar.web.id/images/about-image2.jpg` // Add image for the service offer
   };
 
   // Product Schema (describes the service as a product)
@@ -86,7 +88,8 @@ const Index = ({ city }) => {
       "bestRating": 5,
       "ratingCount": 2566
     },
-    "offers": offerSchema  // Link to the Offer schema here
+    "offers": offerSchema,  // Link to the Offer schema here
+    "image": `https://pasar.web.id/images/${sanitizedCityName}-product.jpg` // Add image for the product
   };
 
   // LocalBusiness Schema (for your business details)
@@ -111,7 +114,8 @@ const Index = ({ city }) => {
     "sameAs": [
       "https://www.facebook.com/pasarwebid",
       "https://www.instagram.com/pasarwebid"
-    ]
+    ],
+    "image": `https://pasar.web.id/images/${sanitizedCityName}-business.jpg` // Add image for the local business
   };
 
   useEffect(() => {
