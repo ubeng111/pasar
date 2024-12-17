@@ -121,7 +121,7 @@ const Index = ({ city }) => {
         <title>Jasa SEO {sanitizedCityName} | Garansi Halaman #1 Google</title>
         <meta
           name="description"
-          content={`Jasa SEO terbaik di ${sanitizedCityName} dari ${SITE_NAME} untuk tingkatkan peringkat website Anda di Google.`}
+          content={`Jasa SEO ${sanitizedCityName} Terbaik dari ${SITE_NAME} untuk tingkatkan peringkat website Anda di Google dengan harga murah dan terjangkau.`}
         />
         <link rel="canonical" href={`${SITE_URL}/jasa-seo-${currentCity.slug}`} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }} />
