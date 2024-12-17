@@ -34,13 +34,14 @@ const MainBanner = ({ city }) => {
         modules={[Autoplay, Navigation]}
         className="home-slides"
       >
+        {/* Slide Pertama */}
         <SwiperSlide>
           <div className="main-banner-item" data-aos="fade-down"> {/* Apply AOS Fade-down effect */}
             <div className="d-table">
               <div className="d-table-cell">
                 <div className="container">
                   <div className="main-banner-content">
-                    <h1>{title}</h1>
+                    <h1>{title}</h1> {/* Only in the first slide */}
                     <p>{description}</p>
                     <div className="banner-btn">
                       <Link href="/about-us" className="default-btn-one">
@@ -54,14 +55,14 @@ const MainBanner = ({ city }) => {
           </div>
         </SwiperSlide>
 
+        {/* Slide Kedua - Tanpa H1 */}
         <SwiperSlide>
           <div className="main-banner-item item-two" data-aos="fade-down"> {/* Apply AOS Fade-down effect */}
             <div className="d-table">
               <div className="d-table-cell">
                 <div className="container">
                   <div className="main-banner-content">
-                    <h1>{titleTwo}</h1>
-                    <p>{descriptionTwo}</p>
+                    <p>{descriptionTwo}</p> {/* Only description in second slide */}
                     <div className="banner-btn">
                       <Link href="/about-us" className="default-btn-one">
                         Pelajari Lebih Lanjut

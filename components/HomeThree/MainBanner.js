@@ -16,6 +16,7 @@ const MainBanner = () => {
         modules={[Autoplay, Navigation]} 
         className="home-slides"
       >
+        {/* Slide Pertama */}
         <SwiperSlide>
           <div className="main-banner-item">
             <div className="d-table">
@@ -39,13 +40,14 @@ const MainBanner = () => {
           </div>
         </SwiperSlide>
 
+        {/* Slide Kedua */}
         <SwiperSlide>
           <div className="main-banner-item item-two">
             <div className="d-table">
               <div className="d-table-cell">
                 <div className="container">
                   <div className="main-banner-content">
-                    <h1>Solusi Digital Marketing yang Efektif</h1>
+                    <h2>Solusi Digital Marketing yang Efektif</h2> {/* Ubah menjadi h2 */}
                     <p>
                       Dapatkan strategi pemasaran digital yang efektif untuk bisnis Anda, termasuk SEO dan media sosial. Kami membantu bisnis anda agar lebih kompetitif di dunia maya.
                     </p>

@@ -31,6 +31,7 @@ const MainBanner = ({ city }) => {
         modules={[Autoplay, Navigation]}
         className="home-slides"
       >
+        {/* Slide Pertama */}
         <SwiperSlide>
           <div className="main-banner-item">
             <div className="d-table">
@@ -51,13 +52,14 @@ const MainBanner = ({ city }) => {
           </div>
         </SwiperSlide>
 
+        {/* Slide Kedua */}
         <SwiperSlide>
           <div className="main-banner-item item-two">
             <div className="d-table">
               <div className="d-table-cell">
                 <div className="container">
                   <div className="main-banner-content" data-aos="fade-up">
-                    <h1>{titleTwo}</h1>
+                    {/* Menampilkan hanya deskripsi yang berbeda */}
                     <p>{descriptionTwo}</p>
                     <div className="banner-btn">
                       <Link href="/about-us" className="default-btn-one">
