@@ -7,7 +7,7 @@ import "aos/dist/aos.css"; // Pastikan AOS CSS sudah diimpor
 
 const MainBanner = ({ city }) => {
   // Customize the content dynamically based on the city
-  const title = `Jasa Pembuatan Website Profesional di ${city} untuk Tingkatkan Bisnis Anda`;
+  const title = `Jasa Pembuatan Website Profesional di ${city}`;
   const description = `Kami menyediakan layanan pembuatan website profesional di ${city} yang dapat membantu bisnis Anda memiliki kehadiran online yang kuat dan efektif. Dapatkan website yang menarik, fungsional, dan mudah ditemukan.`; 
 
   const titleTwo = `Website Custom dan Desain Profesional di ${city}`;

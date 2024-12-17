@@ -29,7 +29,7 @@ const AboutContent = ({ city }) => {
           <div className="col-lg-6 col-md-12">
             <div className="about-warp pl-15" data-aos="fade-up">
               <span>Tentang Kami</span>
-              <h3>Spesialis Pembuatan Website Terpercaya di {city}</h3> {/* Judul dinamis berdasarkan kota */}
+              <h2>Spesialis Pembuatan Website di {city}</h2> {/* Judul dinamis berdasarkan kota */}
 
               <p data-aos="fade-up">
                 Di {city}, kami adalah tim yang fokus pada pembuatan website profesional untuk berbagai kebutuhan bisnis. Dari website perusahaan, toko online (e-commerce), hingga platform khusus yang dapat disesuaikan dengan kebutuhan Anda. Kami menciptakan solusi website yang tidak hanya menarik, tetapi juga efektif dan ramah pengguna.
