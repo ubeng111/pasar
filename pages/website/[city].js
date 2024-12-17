@@ -14,11 +14,13 @@ const AnalysisFormContent = dynamic(() => import("../../components/Website/Analy
 const FaqSection = dynamic(() => import("../../components/Website/FaqSection"));
 const Footer = dynamic(() => import("../../components/Website/Footer"));
 
+// Fungsi untuk membersihkan nama kota
 const sanitizeCityName = (cityName) => {
   return cityName
-    .replace(/<!--.*?-->/g, '')
-    .replace(/&.*;/g, ' ')
-    .replace(/[^a-zA-Z0-9\s]/g, ' ')
+    .replace(/<!--[\s\S]*?-->/g, '') // Menghapus semua komentar HTML
+    .replace(/&[a-zA-Z]+;/g, '')    // Menghapus entitas HTML
+    .replace(/[^a-zA-Z0-9\s]/g, '') // Hanya huruf, angka, dan spasi
+    .replace(/\s+/g, ' ')           // Menghapus spasi berlebih
     .trim();
 };
 
@@ -38,17 +40,16 @@ const Index = ({ city }) => {
     );
   }
 
-  // WebPage Schema (for the page itself)
+  // Schema untuk SEO
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
+    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional.`,
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
-    "image": `https://pasar.web.id/images/about-image2.jpg` // Add image for the page
+    "image": `https://pasar.web.id/images/about-image2.jpg`
   };
 
-  // Offer Schema (for the service offer)
   const offerSchema = {
     "@context": "https://schema.org",
     "@type": "Offer",
@@ -58,64 +59,7 @@ const Index = ({ city }) => {
     "url": `https://pasar.web.id/website-${currentCity.slug}`,
     "priceValidUntil": "2025-12-31",
     "availability": "http://schema.org/InStock",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "returnPolicyCategory": "http://schema.org/MerchantReturnFiniteReturnWindow",
-      "returnMethod": "http://schema.org/ReturnByMail",
-      "merchantReturnDays": 30,
-      "applicableCountry": {
-        "@type": "Country",
-        "name": "ID"
-      }
-    },
-    "image": `https://pasar.web.id/images/about-image2.jpg` // Add image for the service offer
-  };
-
-  // Product Schema (describes the service as a product)
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "description": `Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional untuk membangun website bisnis Anda.`,
-    "productID": "website-service-id",
-    "brand": {
-      "@type": "Brand",
-      "name": "Pasar.Web.id"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 5,
-      "bestRating": 5,
-      "ratingCount": 2566
-    },
-    "offers": offerSchema,  // Link to the Offer schema here
-    "image": `https://pasar.web.id/images/${sanitizedCityName}-product.jpg` // Add image for the product
-  };
-
-  // LocalBusiness Schema (for your business details)
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": `Jasa Pembuatan Website ${sanitizedCityName}`,
-    "telephone": "+62 898 6871 468",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Jl. Contoh Alamat No. 123",
-      "addressLocality": sanitizedCityName,
-      "addressRegion": "ID",
-      "postalCode": "12345",
-      "addressCountry": {
-        "@type": "Country",
-        "name": "ID"
-      }
-    },
-    "url": `https://pasar.web.id/website-${currentCity.slug}`,
-    "priceRange": "IDR 431,000 - IDR 9,000,000",
-    "sameAs": [
-      "https://www.facebook.com/pasarwebid",
-      "https://www.instagram.com/pasarwebid"
-    ],
-    "image": `https://pasar.web.id/images/${sanitizedCityName}-business.jpg` // Add image for the local business
+    "image": `https://pasar.web.id/images/about-image2.jpg`
   };
 
   useEffect(() => {
@@ -139,20 +83,16 @@ const Index = ({ city }) => {
     <>
       <Head>
         <title>Jasa Pembuatan Website {sanitizedCityName} | Desain Modern & Fungsional</title>
-        <meta name="description" content={`Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern, fungsional, harga mulai 400 ribuan. Hubungi Pasar.Web.id sekarang!`} />
+        <meta
+          name="description"
+          content={`Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional, harga mulai 400 ribuan. Hubungi sekarang!`}
+        />
         <link rel="canonical" href={`https://pasar.web.id/website-${currentCity.slug}`} />
 
-        {/* WebPage Schema for the page itself */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }} />
-        
-        {/* LocalBusiness Schema for the business */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-        
-        {/* Product and Offer Schema for the service */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }} />
       </Head>
 
-      {/* Komponen yang dimuat dinamis */}
       <NavbarTwo />
       <MainBanner city={sanitizedCityName} />
       <ServicesCard city={sanitizedCityName} />
@@ -162,10 +102,6 @@ const Index = ({ city }) => {
       <AnalysisFormContent city={sanitizedCityName} />
       <FaqSection city={sanitizedCityName} />
       <Footer />
-
-      <div>
-        <p>{status}</p>
-      </div>
     </>
   );
 };
@@ -175,7 +111,7 @@ export async function getServerSideProps({ params }) {
   const currentCity = cities.find((c) => c.slug === city);
 
   if (!currentCity) {
-    return { notFound: true }; // Mengembalikan halaman 404 jika kota tidak ditemukan
+    return { notFound: true };
   }
 
   return {

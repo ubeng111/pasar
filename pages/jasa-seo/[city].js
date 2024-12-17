@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';  
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { cities } from "../../components/Website/cities"; // Path ke cities yang benar
-import dynamic from 'next/dynamic';  // Import dynamic untuk komponen dinamis
+import { cities } from "../../components/Website/cities";
+import dynamic from 'next/dynamic';
 
-// Dynamic import untuk komponen besar
+// Dynamic imports untuk komponen
 const NavbarTwo = dynamic(() => import("../../components/Website/NavbarTwo"));
 const MainBanner = dynamic(() => import("../../components/Cianjur/MainBanner"));
 const Features = dynamic(() => import("../../components/Cianjur/Features"));
@@ -16,25 +16,42 @@ const AnalysisFormContent = dynamic(() => import("../../components/Cianjur/Analy
 const FaqSection = dynamic(() => import("../../components/Cianjur/FaqSection"));
 const Footer = dynamic(() => import("../../components/Cianjur/Footer"));
 
-// Sanitasi nama kota untuk menghindari karakter yang tidak diinginkan
-const sanitizeCityName = (cityName) => {
-  return cityName
+// Constants
+const SITE_NAME = "Pasar.Web.id";
+const SITE_URL = "https://pasar.web.id";
+
+// Sanitasi nama kota
+const sanitizeCityName = (name) => {
+  return name
     .replace(/<!--.*?-->/g, '')   // Menghapus komentar HTML
     .replace(/&.*;/g, '')         // Menghapus entitas HTML
-    .replace(/[^a-zA-Z0-9\s]/g, '') // Menghapus karakter non-alphanumeric
-    .trim(); // Menghapus spasi ekstra
+    .replace(/[^a-zA-Z0-9\s]/g, '') // Hapus karakter non-alphanumeric
+    .trim();
+};
+
+// Sanitasi slug
+const sanitizeSlug = (slug) => {
+  return slug
+    .toLowerCase()
+    .replace(/\s+/g, '-')          // Ganti spasi dengan -
+    .replace(/[^a-z0-9-]/g, '');   // Hapus karakter non-alphanumeric dan -
+};
+
+// Validasi URL
+const isValidURL = (url) => {
+  try {
+    new URL(url);
+    return true;
+  } catch (e) {
+    return false;
+  }
 };
 
 const Index = ({ city }) => {
   const router = useRouter();
   const currentCity = cities.find((c) => c.slug === city);
 
-  // Sanitasi nama kota
-  const sanitizedCityName = currentCity ? sanitizeCityName(currentCity.name) : '';
-
-  const [status, setStatus] = useState(null);
-
-  // If city is not found
+  // Jika kota tidak ditemukan
   if (!currentCity) {
     return (
       <div>
@@ -44,16 +61,18 @@ const Index = ({ city }) => {
     );
   }
 
-  // JSON-LD structured data for SEO
+  // Nama kota yang telah disanitasi
+  const sanitizedCityName = sanitizeCityName(currentCity.name);
+
+  const [status, setStatus] = useState(null);
+
+  // Structured Data JSON-LD
   const aggregateRatingSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": `Jasa SEO ${sanitizedCityName}`,
     "description": `Layanan SEO terbaik di ${sanitizedCityName} untuk meningkatkan peringkat website Anda di Google.`,
-    "brand": {
-      "@type": "Brand",
-      "name": "Pasar.Web.id"
-    },
+    "brand": { "@type": "Brand", "name": SITE_NAME },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": 5,
@@ -62,109 +81,50 @@ const Index = ({ city }) => {
     },
     "offers": {
       "@type": "AggregateOffer",
-      "name": `Layanan Jasa SEO ${sanitizedCityName}`,
       "priceCurrency": "IDR",
       "lowPrice": 750000,
       "highPrice": 33600000,
       "offerCount": 1000,
-      "url": `https://pasar.web.id/jasa-seo-${currentCity.slug}`
+      "url": `${SITE_URL}/jasa-seo-${currentCity.slug}`
     }
-  };
-
-  // Tambahkan Graph SEO: LocalBusiness Schema
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": `Jasa SEO ${sanitizedCityName}`,
-    "image": "https://pasar.web.id/images/logo.png", // URL logo Anda
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Jalan Raya No.123",
-      "addressLocality": sanitizedCityName,
-      "addressRegion": "West Java", // Ganti dengan provinsi jika perlu
-      "postalCode": "12345",
-      "addressCountry": "ID"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+62-898-687-1468",
-      "contactType": "Customer Service",
-      "areaServed": "ID",
-      "availableLanguage": "Indonesian"
-    },
-    "sameAs": [
-      "https://www.facebook.com/pasarwebid",
-      "https://twitter.com/pasarwebid",
-      "https://www.instagram.com/pasarwebid"
-    ],
-    "url": `https://pasar.web.id/jasa-seo-${currentCity.slug}`,
-    "priceRange": "IDR 750000 - 33600000"
-  };
-
-  // Tambahkan Graph SEO: WebPage Schema
-  const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": `Jasa SEO ${sanitizedCityName}`,
-    "description": `Jasa SEO terbaik untuk meningkatkan peringkat website Anda di Google di ${sanitizedCityName}.`,
-    "url": `https://pasar.web.id/jasa-seo-${currentCity.slug}`,
-    "mainEntityOfPage": `https://pasar.web.id/jasa-seo-${currentCity.slug}`
   };
 
   useEffect(() => {
     const submitToIndexingAPI = async () => {
+      const pageURL = `${SITE_URL}/jasa-seo-${currentCity.slug}`;
+
+      if (!isValidURL(pageURL)) {
+        console.error("Invalid URL:", pageURL);
+        return;
+      }
+
       try {
-        // Kirimkan URL halaman dinamis ke API route
         const res = await fetch('/api/indexing', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ url: `https://pasar.web.id/jasa-seo-${currentCity.slug}` }),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: pageURL }),
         });
 
         const data = await res.json();
         console.log('Indexing Response:', data);
       } catch (error) {
-        console.error('Error submitting URL:', error);
+        console.error('Error submitting URL:', error.message);
       }
     };
 
-    // Panggil fungsi hanya setelah halaman dimuat
     submitToIndexingAPI();
-  }, [currentCity.slug]);  // Dependencies include the city slug
+  }, [currentCity.slug]);
 
   return (
     <>
       <Head>
-        <title>Jasa SEO {sanitizedCityName} | Garansi Halaman #1 Google | Bulanan | Tahunan</title>
-        <meta name="description" content={`Jasa SEO terbaik di ${sanitizedCityName} dari Pasar.Web.id untuk tingkatkan peringkat website Anda di Google. Pilih paket bulanan atau tahunan, mulai dari Rp 750.000. Garansi halaman #1!`} />        
-        {/* Canonical Link */}
-        <link rel="canonical" href={`https://pasar.web.id/jasa-seo-${currentCity.slug}`} />
-        
-        {/* JSON-LD untuk SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(aggregateRatingSchema),
-          }}
+        <title>Jasa SEO {sanitizedCityName} | Garansi Halaman #1 Google</title>
+        <meta
+          name="description"
+          content={`Jasa SEO terbaik di ${sanitizedCityName} dari ${SITE_NAME} untuk tingkatkan peringkat website Anda di Google.`}
         />
-        
-        {/* LocalBusiness Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
-          }}
-        />
-
-        {/* WebPage Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(webPageSchema),
-          }}
-        />
+        <link rel="canonical" href={`${SITE_URL}/jasa-seo-${currentCity.slug}`} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }} />
       </Head>
 
       <NavbarTwo />
@@ -178,7 +138,6 @@ const Index = ({ city }) => {
       <FaqSection city={sanitizedCityName} />
       <Footer />
 
-      {/* Status Indeks (Not used anymore) */}
       <div>
         <p>{status}</p>
       </div>
@@ -186,18 +145,17 @@ const Index = ({ city }) => {
   );
 };
 
-// Menggunakan getServerSideProps untuk data fetching di server-side
+// Server-side rendering untuk memuat data
 export async function getServerSideProps({ params }) {
   const { city } = params;
-  const currentCity = cities.find((c) => c.slug === city);
+  const cleanSlug = sanitizeSlug(city);
+  const currentCity = cities.find((c) => c.slug === cleanSlug);
 
   if (!currentCity) {
-    return { notFound: true }; // Mengembalikan halaman 404 jika kota tidak ditemukan
+    return { notFound: true };
   }
 
-  return {
-    props: { city: currentCity.slug }, // Mengirimkan slug kota ke komponen
-  };
+  return { props: { city: cleanSlug } };
 }
 
 export default Index;
