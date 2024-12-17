@@ -23,8 +23,8 @@ const SITE_URL = "https://pasar.web.id";
 // Sanitasi nama kota
 const sanitizeCityName = (name) => {
   return name
-    .replace(/<!--.*?-->/g, '')   // Menghapus komentar HTML
-    .replace(/&.*;/g, '')         // Menghapus entitas HTML
+    .replace(/<!--.*?-->/g, '')    // Hapus komentar HTML
+    .replace(/&.*;/g, '')          // Hapus entitas HTML
     .replace(/[^a-zA-Z0-9\s]/g, '') // Hapus karakter non-alphanumeric
     .trim();
 };
@@ -35,16 +35,6 @@ const sanitizeSlug = (slug) => {
     .toLowerCase()
     .replace(/\s+/g, '-')          // Ganti spasi dengan -
     .replace(/[^a-z0-9-]/g, '');   // Hapus karakter non-alphanumeric dan -
-};
-
-// Validasi URL
-const isValidURL = (url) => {
-  try {
-    new URL(url);
-    return true;
-  } catch (e) {
-    return false;
-  }
 };
 
 const Index = ({ city }) => {
@@ -61,7 +51,7 @@ const Index = ({ city }) => {
     );
   }
 
-  // Nama kota yang telah disanitasi
+  // Nama kota yang sudah disanitasi
   const sanitizedCityName = sanitizeCityName(currentCity.name);
 
   const [status, setStatus] = useState(null);
@@ -93,11 +83,6 @@ const Index = ({ city }) => {
     const submitToIndexingAPI = async () => {
       const pageURL = `${SITE_URL}/jasa-seo-${currentCity.slug}`;
 
-      if (!isValidURL(pageURL)) {
-        console.error("Invalid URL:", pageURL);
-        return;
-      }
-
       try {
         const res = await fetch('/api/indexing', {
           method: 'POST',
@@ -124,7 +109,10 @@ const Index = ({ city }) => {
           content={`Jasa SEO ${sanitizedCityName} Terbaik dari ${SITE_NAME} untuk tingkatkan peringkat website Anda di Google dengan harga murah dan terjangkau.`}
         />
         <link rel="canonical" href={`${SITE_URL}/jasa-seo-${currentCity.slug}`} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
+        />
       </Head>
 
       <NavbarTwo />
@@ -137,10 +125,6 @@ const Index = ({ city }) => {
       <AnalysisFormContent city={sanitizedCityName} />
       <FaqSection city={sanitizedCityName} />
       <Footer />
-
-      <div>
-        <p>{status}</p>
-      </div>
     </>
   );
 };
