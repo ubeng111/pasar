@@ -4,8 +4,8 @@ import path from 'path';
 import { cities } from '../../components/Website/cities'; // Import daftar kota Anda
 import { format } from 'date-fns';
 
-// Set MAX_URLS_PER_SITEMAP to 2,000 URLs per sitemap
-const MAX_URLS_PER_SITEMAP = 2000; // Updated to 2,000 URLs per sitemap
+// Set MAX_URLS_PER_SITEMAP to 40,000 URLs per sitemap
+const MAX_URLS_PER_SITEMAP = 40000; // 40,000 URLs per sitemap
 
 // Fungsi untuk menangani pembuatan sitemap
 export default async function handler(req, res) {
@@ -18,8 +18,15 @@ export default async function handler(req, res) {
       return res.status(500).send('Cities data is missing or invalid');
     }
 
+    // Pastikan direktori sitemap tersedia
+    const sitemapDir = path.resolve('./public/sitemaps');
+    if (!fs.existsSync(sitemapDir)) {
+      fs.mkdirSync(sitemapDir, { recursive: true });
+    }
+
     let currentSitemapCount = 0;
     let currentStream = null;
+    let urlCount = 0;
     const sitemapIndexUrls = []; // Daftar untuk sitemap index
 
     // Fungsi untuk menambahkan URL ke sitemap
@@ -32,7 +39,7 @@ export default async function handler(req, res) {
         currentStream = new SitemapStream({ hostname: 'https://pasar.web.id' });
 
         // Tentukan lokasi file sitemap di folder public/sitemaps/
-        const sitemapFilePath = path.resolve('./public/sitemaps', `sitemap-${currentSitemapCount}.xml`);
+        const sitemapFilePath = path.resolve(sitemapDir, `sitemap-${currentSitemapCount}.xml`);
         console.log(`Writing sitemap to: ${sitemapFilePath}`);
 
         // Buat write stream ke file
@@ -52,9 +59,10 @@ export default async function handler(req, res) {
 
       // Tambahkan URL ke sitemap
       currentStream.write({ url, changefreq, priority, lastmod });
+      urlCount++;
 
       // Jika jumlah URL dalam sitemap mencapai batas, buat sitemap baru
-      if (currentStream.writableLength >= MAX_URLS_PER_SITEMAP) {
+      if (urlCount >= MAX_URLS_PER_SITEMAP) {
         currentStream.end(); // Akhiri stream untuk sitemap saat ini
         sitemapIndexUrls.push({
           loc: `https://pasar.web.id/sitemaps/sitemap-${currentSitemapCount}.xml`, // Menggunakan file XML
@@ -62,6 +70,7 @@ export default async function handler(req, res) {
         });
 
         currentSitemapCount++; // Tambah penghitung sitemap
+        urlCount = 0; // Reset jumlah URL
         currentStream = null; // Reset stream
       }
     };
@@ -100,7 +109,7 @@ export default async function handler(req, res) {
     }
 
     // Membuat sitemap index yang berisi link ke semua file sitemap
-    const sitemapIndexFilePath = path.resolve('./public/sitemaps', 'sitemap-index.xml');
+    const sitemapIndexFilePath = path.resolve(sitemapDir, 'sitemap-index.xml');
     const writeStream = fs.createWriteStream(sitemapIndexFilePath);
 
     // Mulai menulis sitemap index
