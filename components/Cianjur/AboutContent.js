@@ -28,7 +28,7 @@ const AboutContent = ({ city }) => {
           <div className="col-lg-6 col-md-12">
             <div className="about-warp pl-15" data-aos="fade-up">
               <span>Tentang Kami</span>
-              <h2>Spesialis Jasa SEO {city} Terbaik</h2> {/* Judul dinamis berdasarkan kota */}
+              <h2>Spesialis Pakar SEO {city} Terbaik</h2> {/* Judul dinamis berdasarkan kota */}
 
               <p data-aos="fade-up">
                 Di {city}, kami adalah tim ahli yang fokus pada optimasi SEO untuk bisnis Anda. Kami memahami bahwa SEO adalah kunci untuk meningkatkan visibilitas online, menarik pengunjung, dan mengonversi pengunjung menjadi pelanggan. Dengan layanan SEO yang terarah, kami membantu bisnis Anda mencapai peringkat tertinggi di mesin pencari.
