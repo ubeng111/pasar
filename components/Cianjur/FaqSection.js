@@ -95,7 +95,7 @@ const FaqSection = ({ city }) => {
         <div className="container">
           <div className="faq-area-content" data-aos="fade-up">
             <span>FAQ</span>
-            <h3>Pertanyaan yang Sering Diajukan tentang SEO di {city}</h3>
+            <h3>FAQ tentang SEO Website di {city}</h3>
           </div>
 
           <div className="row align-items-center">

@@ -66,7 +66,7 @@ const Footer = () => {
                 <div className="footer-info-contact">
                   <i className="flaticon-placeholder-filled-point"></i>
                   <h3>Alamat</h3>
-                  <span>Jl. Raya Cipanas, Cianjur, Jawa Barat</span>
+                  <span>Jl. Raya Cipanas Cianjur</span>
                 </div>
               </div>
             </div>
