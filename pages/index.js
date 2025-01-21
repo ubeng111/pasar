@@ -44,6 +44,7 @@ const Index = () => {
     <>
       {/* Menambahkan Title dan Meta Description */}
       <Head>
+      <meta name="robots" content="index, follow" /> {/* Menambahkan tag robots */}
         <meta name="google-site-verification" content="YZ0Oul8XC-Linh3djeSvZODJEnEA5_8g68V8SKnLvdI" />
         <title>Jasa SEO Profesional Terbaik di Indonesia - Pasar.Web.id</title>
         <meta

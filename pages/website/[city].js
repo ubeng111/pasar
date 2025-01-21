@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { cities } from "../../components/Website/cities";
 import dynamic from 'next/dynamic';
 
+// Dynamic imports untuk komponen
 const NavbarTwo = dynamic(() => import("../../components/Website/NavbarTwo"));
 const MainBanner = dynamic(() => import("../../components/Website/MainBanner"));
 const ServicesCard = dynamic(() => import("../../components/Website/ServicesCard"));
@@ -88,6 +89,7 @@ const Index = ({ city }) => {
           content={`Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional, harga mulai 400 ribuan. Hubungi sekarang!`}
         />
         <link rel="canonical" href={`https://pasar.web.id/website-${currentCity.slug}`} />
+        <meta name="robots" content="index, follow" /> {/* Menambahkan tag robots */}
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }} />

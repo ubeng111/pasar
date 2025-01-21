@@ -108,6 +108,7 @@ const Index = ({ city }) => {
           name="description"
           content={`Jasa SEO ${sanitizedCityName} Terbaik dari ${SITE_NAME} untuk tingkatkan peringkat website Anda di Google dengan harga murah dan terjangkau.`}
         />
+        <meta name="robots" content="index, follow" /> {/* Menambahkan index, follow */}
         <link rel="canonical" href={`${SITE_URL}/jasa-seo-${currentCity.slug}`} />
         <script
           type="application/ld+json"
