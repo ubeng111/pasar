@@ -146,13 +146,17 @@ export async function getStaticProps({ params }) {
   };
 }
 
-// Untuk penanganan path dinamis
+// Untuk penanganan path dinamis dengan batching
 export async function getStaticPaths() {
-  const paths = cities.map((city) => ({
+  const batchSize = 100;  // Menentukan ukuran batch
+  const paths = cities.slice(0, batchSize).map((city) => ({
     params: { city: city.slug },
   }));
 
-  return { paths, fallback: 'false' }; // fallback blocking untuk menunggu regenerasi
+  return {
+    paths,
+    fallback: 'blocking', // fallback blocking untuk menunggu regenerasi
+  };
 }
 
 export default Index;

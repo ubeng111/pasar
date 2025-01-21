@@ -89,7 +89,7 @@ const Index = ({ city }) => {
           content={`Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional, harga mulai 400 ribuan. Hubungi sekarang!`}
         />
         <link rel="canonical" href={`https://pasar.web.id/website-${currentCity.slug}`} />
-        <meta name="robots" content="index, follow" /> {/* Menambahkan tag robots */}
+        <meta name="robots" content="index, follow" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }} />
@@ -108,16 +108,17 @@ const Index = ({ city }) => {
   );
 };
 
-// Menggunakan getStaticProps untuk ISR
+// Menggunakan getStaticPaths untuk ISR
 export async function getStaticPaths() {
-  // Mengambil slug dari daftar kota
-  const paths = cities.map((city) => ({
+  // Batching - Batasi jumlah paths yang dibuat
+  const batchSize = 100; // Membatasi 100 path per batch
+  const paths = cities.slice(0, batchSize).map((city) => ({
     params: { city: city.slug },
   }));
 
   return {
     paths,
-    fallback: 'false', // Gunakan blocking agar halaman dirender terlebih dahulu jika belum ada cache
+    fallback: 'blocking', // Gunakan blocking agar halaman dirender terlebih dahulu jika belum ada cache
   };
 }
 
