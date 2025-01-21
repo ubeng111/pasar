@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Izinkan perayap untuk merayapi file CSS dan JavaScript di dalam folder public
+Allow: /public/css/
+Allow: /public/js/
+
+# Sitemap
 Sitemap: https://pasar.web.id/sitemap.xml
+
