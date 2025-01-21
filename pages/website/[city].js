@@ -108,7 +108,20 @@ const Index = ({ city }) => {
   );
 };
 
-export async function getServerSideProps({ params }) {
+// Menggunakan getStaticProps untuk ISR
+export async function getStaticPaths() {
+  // Mengambil slug dari daftar kota
+  const paths = cities.map((city) => ({
+    params: { city: city.slug },
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking', // Gunakan blocking agar halaman dirender terlebih dahulu jika belum ada cache
+  };
+}
+
+export async function getStaticProps({ params }) {
   const { city } = params;
   const currentCity = cities.find((c) => c.slug === city);
 
@@ -118,6 +131,7 @@ export async function getServerSideProps({ params }) {
 
   return {
     props: { city: currentCity.slug },
+    revalidate: 3600, // Regenerasi halaman setiap 1 jam
   };
 }
 

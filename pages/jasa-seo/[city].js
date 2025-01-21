@@ -130,8 +130,8 @@ const Index = ({ city }) => {
   );
 };
 
-// Server-side rendering untuk memuat data
-export async function getServerSideProps({ params }) {
+// ISR function untuk memuat data dengan revalidate
+export async function getStaticProps({ params }) {
   const { city } = params;
   const cleanSlug = sanitizeSlug(city);
   const currentCity = cities.find((c) => c.slug === cleanSlug);
@@ -140,7 +140,19 @@ export async function getServerSideProps({ params }) {
     return { notFound: true };
   }
 
-  return { props: { city: cleanSlug } };
+  return {
+    props: { city: cleanSlug },
+    revalidate: 60, // Halaman akan diregenerasi setiap 60 detik
+  };
+}
+
+// Untuk penanganan path dinamis
+export async function getStaticPaths() {
+  const paths = cities.map((city) => ({
+    params: { city: city.slug },
+  }));
+
+  return { paths, fallback: 'blocking' }; // fallback blocking untuk menunggu regenerasi
 }
 
 export default Index;
