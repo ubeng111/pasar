@@ -152,7 +152,7 @@ export async function getStaticPaths() {
     params: { city: city.slug },
   }));
 
-  return { paths, fallback: 'blocking' }; // fallback blocking untuk menunggu regenerasi
+  return { paths, fallback: 'true' }; // fallback blocking untuk menunggu regenerasi
 }
 
 export default Index;

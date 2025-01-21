@@ -117,7 +117,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: 'blocking', // Gunakan blocking agar halaman dirender terlebih dahulu jika belum ada cache
+    fallback: 'true', // Gunakan blocking agar halaman dirender terlebih dahulu jika belum ada cache
   };
 }
 
