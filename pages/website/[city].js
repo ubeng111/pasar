@@ -132,7 +132,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { city: currentCity.slug },
-    revalidate: 3600, // Regenerasi halaman setiap 1 jam
+    revalidate: 604800, // Regenerasi halaman setiap 1 jam
   };
 }
 

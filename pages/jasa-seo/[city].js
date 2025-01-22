@@ -142,7 +142,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { city: cleanSlug },
-    revalidate: 60, // Halaman akan diregenerasi setiap 60 detik
+    revalidate: 604800, // Halaman akan diregenerasi setiap 60 detik
   };
 }
 
