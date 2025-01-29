@@ -103,12 +103,11 @@ const Index = ({ city }) => {
   return (
     <>
       <Head>
-        <title>Jasa SEO {sanitizedCityName} | Garansi Halaman #1 Google</title>
-        <meta
-          name="description"
+        <title>{`Jasa SEO ${sanitizedCityName} | Garansi Halaman #1 Google`}</title>
+        <meta name="description"
           content={`Jasa SEO ${sanitizedCityName} Terbaik dari ${SITE_NAME} untuk tingkatkan peringkat website Anda di Google dengan harga murah dan terjangkau.`}
         />
-        <meta name="robots" content="index, follow" /> {/* Menambahkan index, follow */}
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href={`${SITE_URL}/jasa-seo-${currentCity.slug}`} />
         <script
           type="application/ld+json"
@@ -130,8 +129,8 @@ const Index = ({ city }) => {
   );
 };
 
-// ISR function untuk memuat data dengan revalidate
-export async function getStaticProps({ params }) {
+// SSR function untuk memuat data di server-side
+export async function getServerSideProps({ params }) {
   const { city } = params;
   const cleanSlug = sanitizeSlug(city);
   const currentCity = cities.find((c) => c.slug === cleanSlug);
@@ -142,20 +141,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { city: cleanSlug },
-    revalidate: 604800, // Halaman akan diregenerasi setiap 60 detik
-  };
-}
-
-// Untuk penanganan path dinamis dengan batching
-export async function getStaticPaths() {
-  const batchSize = 100;  // Menentukan ukuran batch
-  const paths = cities.slice(0, batchSize).map((city) => ({
-    params: { city: city.slug },
-  }));
-
-  return {
-    paths,
-    fallback: 'blocking', // fallback blocking untuk menunggu regenerasi
   };
 }
 

@@ -83,7 +83,7 @@ const Index = ({ city }) => {
   return (
     <>
       <Head>
-        <title>Jasa Pembuatan Website {sanitizedCityName} | Desain Modern & Fungsional</title>
+        <title>{`Jasa Pembuatan Website ${sanitizedCityName} | Desain Modern & Fungsional`}</title>
         <meta
           name="description"
           content={`Jasa pembuatan website terbaik di ${sanitizedCityName}, desain modern dan fungsional, harga mulai 400 ribuan. Hubungi sekarang!`}
@@ -108,21 +108,8 @@ const Index = ({ city }) => {
   );
 };
 
-// Menggunakan getStaticPaths untuk ISR
-export async function getStaticPaths() {
-  // Batching - Batasi jumlah paths yang dibuat
-  const batchSize = 100; // Membatasi 100 path per batch
-  const paths = cities.slice(0, batchSize).map((city) => ({
-    params: { city: city.slug },
-  }));
-
-  return {
-    paths,
-    fallback: 'blocking', // Gunakan blocking agar halaman dirender terlebih dahulu jika belum ada cache
-  };
-}
-
-export async function getStaticProps({ params }) {
+// Menggunakan getServerSideProps untuk SSR
+export async function getServerSideProps({ params }) {
   const { city } = params;
   const currentCity = cities.find((c) => c.slug === city);
 
@@ -132,7 +119,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { city: currentCity.slug },
-    revalidate: 604800, // Regenerasi halaman setiap 1 jam
   };
 }
 
