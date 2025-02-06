@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     await fs.promises.mkdir(sitemapDir, { recursive: true });
 
     // Konfigurasi batas URL per file sitemap
-    const URL_LIMIT = 10000;
+    const URL_LIMIT = 4000;
 
     // Kumpulkan semua URL
     let urls = [];
